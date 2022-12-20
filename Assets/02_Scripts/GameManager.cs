@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject scanObject;
     [SerializeField] private bool isAction;
 
+    public bool GetisAction { get { return isAction; } }
 
     public void Action(GameObject scanObj)
     {
