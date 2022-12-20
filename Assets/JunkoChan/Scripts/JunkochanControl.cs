@@ -125,6 +125,12 @@ public class JunkochanControl : MonoBehaviour {
 			scanObject = null;
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+		if (other.CompareTag("Object"))
+			scanObject = null;
+    }
+
     bool CheckGrounded()
 	{
 		Ray ray = new Ray(this.transform.position+Vector3.up*0.05f,Vector3.down*0.1f);
