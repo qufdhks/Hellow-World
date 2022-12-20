@@ -106,6 +106,9 @@ public class JunkochanControl : MonoBehaviour {
 		}
 		Height = transform.position.y;//Memory current Junkochan's height
 
+		MoveSpeed = gameMng.GetisAction ? 0 : MoveSpeed;
+		VertSpeed = gameMng.GetisAction ? 0 : VertSpeed;
+
 		//JunckoChan Movement
 		if(!CheckGrounded())VertSpeed -= 0.2f;//Increase falling speed (worked as gravity acceleration)
 		JKCController.Move(MoveDirection*MoveSpeed*Time.deltaTime);//Horizontal movement
