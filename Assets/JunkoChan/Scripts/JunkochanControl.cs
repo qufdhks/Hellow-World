@@ -13,6 +13,11 @@ public class JunkochanControl : MonoBehaviour {
 	private float VertSpeed;//Verical move speed
 	private float Height;//Current height of Junkochan (y value of transform.position)
 
+	[SerializeField] private GameManager gameMng;
+	private GameObject scanObject;
+
+	private Vector3 dirVec;
+
 	// Use this for initialization
 	void Start () {
 		JKCCam = GameObject.Find("Main Camera");
@@ -82,6 +87,11 @@ public class JunkochanControl : MonoBehaviour {
 			JKCAnim.SetBool("Jump",true);
 		}
 
+        if (Input.GetKey(KeyCode.F) && scanObject != null)
+        {
+			gameMng.Action(scanObject);
+        }
+
 
 		if (!CheckGrounded() && Input.GetKey(KeyCode.Space) && JumpTime < 0.3f) {//When Space key is pushed while Junkochan is in the air (Called while Space key is pushed, no more than 0.3 sec)
 			JumpTime += Time.deltaTime;//Add jumping time to prevent infinite jump
@@ -104,9 +114,18 @@ public class JunkochanControl : MonoBehaviour {
 #endregion
 	}
 
-	bool CheckGrounded() {//Judge whether Junkochan is on the ground or not
-		Ray ray = new Ray(this.transform.position+Vector3.up*0.05f,Vector3.down*0.1f);//Shoot ray at 0.05f upper from Junkochan's feet position to the ground with its length of 0.1f
-		return Physics.Raycast(ray, 0.1f);//If the ray hit the ground, return true
+    private void OnTriggerStay(Collider other)
+    {
+		if (other.CompareTag("Object"))
+			scanObject = other.gameObject;
+		else
+			scanObject = null;
+    }
+
+    bool CheckGrounded()
+	{
+		Ray ray = new Ray(this.transform.position+Vector3.up*0.05f,Vector3.down*0.1f);
+		return Physics.Raycast(ray, 0.1f);
 	}
 
 }
