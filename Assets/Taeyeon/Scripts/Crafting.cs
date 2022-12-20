@@ -14,6 +14,9 @@ public class Crafting : MonoBehaviour
 
     public Text stoneText;
     public Text woodText;
+
+    public bool hasAxe;
+    
     void Start()
     {
         
@@ -24,5 +27,25 @@ public class Crafting : MonoBehaviour
     {
         stoneText.text = stone.ToString();
         woodText.text = wood.ToString();
+    }
+
+    public bool Craft(CraftableItem craftable)
+    {
+        bool success = false;
+
+        switch(craftable)
+        {
+            case CraftableItem.AXE:
+                if(wood >= 1 && stone >= 2)
+                {
+                    success = true;
+                    wood -= 1;
+                    stone -= 2;
+                    hasAxe = true;
+                }
+                break; 
+        }
+
+        return success;
     }
 }
