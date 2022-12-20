@@ -64,7 +64,7 @@ public class CamCtrl : MonoBehaviour
             currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
             currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);            
         }
-        currentDistance -= Input.GetAxis("MouseScrollWheel") * 2.0f;
+        currentDistance -= Input.GetAxis("Mouse ScrollWheel") * 2.0f;
         currentDistance = Mathf.Clamp(currentDistance, 0, cameraMaxDistance);
         
     }
