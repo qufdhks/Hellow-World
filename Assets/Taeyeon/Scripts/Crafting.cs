@@ -16,6 +16,8 @@ public class Crafting : MonoBehaviour
     public Text woodText;
 
     public bool hasAxe;
+
+    public GameObject axeButton;
     
     void Start()
     {
@@ -29,6 +31,14 @@ public class Crafting : MonoBehaviour
         woodText.text = wood.ToString();
     }
 
+    public void CraftByInt(int craftInt)
+    {
+        if(craftInt ==1)
+        {
+            Craft(CraftableItem.AXE);
+
+        }
+    }
     public bool Craft(CraftableItem craftable)
     {
         bool success = false;
