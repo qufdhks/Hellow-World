@@ -8,6 +8,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField]
     private GameManager gameMng;
     [SerializeField] private GameObject scanObj;
+    float offset = 3f;
 
     // inputs
     public Controls controls;
@@ -56,9 +57,9 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, transform.forward * 1.5f, new Color(0, 1, 0));
+        Debug.DrawRay(transform.position, transform.forward - new Vector3(0f, 0.1f, 0f) * 5f, new Color(0, 1, 0));
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward,out hit, 1.5f, LayerMask.GetMask("Object")))
+        if(Physics.Raycast(transform.position, new Vector3(transform.forward.x, 0.1f, transform.forward.z),out hit, 2f, LayerMask.GetMask("Object")))
             scanObj = hit.transform.gameObject;
         else
             scanObj = null;

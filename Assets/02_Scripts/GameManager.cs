@@ -6,14 +6,20 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TalkManager talkMng;
+    [SerializeField] private QuestManager questMng;
 
-    [SerializeField] private GameObject talkPanel;
-    [SerializeField] private Text talkText;
+    [SerializeField] Animator talkPanel;
+    [SerializeField] private TypeEffect talk;
     [SerializeField] private GameObject scanObject;
     [SerializeField] private bool isAction;
     [SerializeField] private int talkIndex;
 
     public bool GetisAction { get { return isAction; } }
+
+    void Start()
+    {
+        //Debug.Log(questMng.CheckQuest());
+    }
 
     public void Action(GameObject scanObj)
     {
@@ -21,26 +27,40 @@ public class GameManager : MonoBehaviour
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc);
         
-        talkPanel.SetActive(isAction);
+        talkPanel.SetBool("isShow", isAction);
     }
 
     void Talk(int id, bool isNpc)
     {
-        string talkData = talkMng.GetTalk(id, talkIndex);
+        int questTalkIndex = 0;
+        string talkData = "";
+
+        if (talk.isAnim)
+        {
+            talk.SetMsg("");
+            return;
+        }
+        else
+        {
+            questTalkIndex = questMng.GetQuestTalkIndex(id);
+            talkData = talkMng.GetTalk(id + questTalkIndex, talkIndex);
+        }
 
         if (talkData == null)
         {
             isAction = false;
+            talkIndex = 0;
+            Debug.Log(questMng.CheckQuest(id));
             return;
         }
 
         if (isNpc)
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
         }
         else
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
         }
 
         isAction = true;
