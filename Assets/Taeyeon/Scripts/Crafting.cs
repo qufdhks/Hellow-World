@@ -8,13 +8,15 @@ public class Crafting : MonoBehaviour
     [SerializeField] private CraftInformation information;
 
     public enum CraftableItem { AXE};
-    public enum ResourceItem { WOOD, STONE };
+    public enum ResourceItem { WOOD, STONE, SPIDERWEB };
 
     public int wood;
     public int stone;
+    public int spiderweb;
 
     private int craft1;
     private int craft2;
+
 
     //int count = 3;
     [SerializeField] private Image[] images;
