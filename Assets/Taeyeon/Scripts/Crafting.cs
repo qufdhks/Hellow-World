@@ -11,6 +11,7 @@ public class Crafting : MonoBehaviour
 
     public int wood;
     public int stone;
+    int count = 3;
 
     public Text stoneText;
     public Text woodText;
@@ -27,8 +28,8 @@ public class Crafting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stoneText.text = stone.ToString();
-        woodText.text = wood.ToString();
+        stoneText.text = stone.ToString() + "/" + count.ToString();
+        woodText.text = wood.ToString() + "/" + count.ToString();
     }
 
     public void CraftByInt(int craftInt)
