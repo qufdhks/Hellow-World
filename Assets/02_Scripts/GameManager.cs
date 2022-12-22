@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private QuestManager questMng;
 
     [SerializeField] Animator talkPanel;
-    [SerializeField] private Text talkText;
+    [SerializeField] private TypeEffect talk;
     [SerializeField] private GameObject scanObject;
     [SerializeField] private bool isAction;
     [SerializeField] private int talkIndex;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(questMng.CheckQuest());
+        //Debug.Log(questMng.CheckQuest());
     }
 
     public void Action(GameObject scanObj)
@@ -32,8 +32,19 @@ public class GameManager : MonoBehaviour
 
     void Talk(int id, bool isNpc)
     {
-        int questTalkIndex = questMng.GetQuestTalkIndex(id);
-        string talkData = talkMng.GetTalk(id + questTalkIndex, talkIndex);
+        int questTalkIndex = 0;
+        string talkData = "";
+
+        if (talk.isAnim)
+        {
+            talk.SetMsg("");
+            return;
+        }
+        else
+        {
+            questTalkIndex = questMng.GetQuestTalkIndex(id);
+            talkData = talkMng.GetTalk(id + questTalkIndex, talkIndex);
+        }
 
         if (talkData == null)
         {
@@ -45,11 +56,11 @@ public class GameManager : MonoBehaviour
 
         if (isNpc)
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
         }
         else
         {
-            talkText.text = talkData;
+            talk.SetMsg(talkData);
         }
 
         isAction = true;
