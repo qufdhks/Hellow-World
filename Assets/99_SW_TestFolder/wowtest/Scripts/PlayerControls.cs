@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    //animation
-    public Animator anim;
+    [SerializeField]
+    private GameManager gameMng;
+    [SerializeField] private GameObject scanObj;
+    float offset = 3f;
+
     // inputs
     public Controls controls;
     Vector2 inputs, inputNormalized;
@@ -33,9 +36,6 @@ public class PlayerControls : MonoBehaviour
     float jumpSpeed, jumpHeight = 3.0f;
     Vector3 jumpDirection;
 
-    //Debug
-    bool showGroundNormal, showFallNormal;
-
     // reference
     CharacterController controller;
     public Transform groundDirection, fallDirection;
@@ -46,7 +46,6 @@ public class PlayerControls : MonoBehaviour
     {
         // load character controller when starts
         controller = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
     }
 
 
@@ -54,6 +53,18 @@ public class PlayerControls : MonoBehaviour
     {
         GetInputs();
         Locomotion();
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.DrawRay(transform.position, transform.forward - new Vector3(0f, 0.1f, 0f) * 5f, new Color(0, 1, 0));
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, new Vector3(transform.forward.x, 0.1f, transform.forward.z),out hit, 2f, LayerMask.GetMask("Object")))
+            scanObj = hit.transform.gameObject;
+        else
+            scanObj = null;
+
+        
     }
 
     void Locomotion()
@@ -83,6 +94,9 @@ public class PlayerControls : MonoBehaviour
         }
         //rotating
         Vector3 characterRotation = transform.eulerAngles + new Vector3 (0, rotation * rotateSpeed, 0);
+
+        characterRotation = gameMng.GetisAction ? transform.eulerAngles : characterRotation;
+
         transform.eulerAngles = characterRotation;
         //press space to jump
         if(jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
@@ -99,8 +113,9 @@ public class PlayerControls : MonoBehaviour
             velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
         }
 
+
         //applying inputs
-        if(!isJumped)
+        if (!isJumped)
         {
             velocity = (groundDirection.forward * inputNormalized.magnitude) * (currSpeed * forwardMult) + fallDirection.up * (velocityY * fallMult);
         }
@@ -108,6 +123,12 @@ public class PlayerControls : MonoBehaviour
         {
             velocity = jumpDirection * jumpSpeed + Vector3.up * velocityY;
         }
+
+        velocity = gameMng.GetisAction ? Vector3.zero : velocity;
+
+        if (Input.GetKeyDown(KeyCode.F) && scanObj != null)
+            gameMng.Action(scanObj);
+
         //moving controller
         controller.Move(velocity * Time.deltaTime);
 
@@ -187,12 +208,11 @@ public class PlayerControls : MonoBehaviour
 
     void GetInputs()
     {   //Forwards,Backwards controls
-
+        
         //forwards
         if (Input.GetKey(controls.forwards))
         {
             inputs.y = 1.0f;
-            anim.SetTrigger("Jogging");
         }
         //backwards
         if (Input.GetKey(controls.backwards))
@@ -266,40 +286,8 @@ public class PlayerControls : MonoBehaviour
         jump = Input.GetKey(controls.jump);
     }
 
-    //public float Axis(bool pos, bool neg)
-    //{
-    //    float axis = 0;
-    //    if(pos)
-    //    {
-    //        axis += 1.0f;
-    //    }
-    //    if(neg)
-    //    {
-    //        axis -= 1.0f;
-    //    }
-    //    return axis;
-    //}
-
-    //void Debug()
-    //{
-    //    groundDirection.GetChild(0).gameObject.SetActive(showGroundNormal);
-    //    fallDirection.GetChild(0).gameObject.SetActive(showGroundNormal);
-    //}
-
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         collisionPoint = hit.point;
     }
-
-    //currSpeed = baseSpeed;
-
-    //    if (run) 
-    //    {
-    //        currSpeed *= runSpeed;
-
-    //        if (inputNormalized.y< 0)
-    //            currSpeed = currSpeed / 2.0f;
-    //    }
-
 }
-
