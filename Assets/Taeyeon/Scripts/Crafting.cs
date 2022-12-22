@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class Crafting : MonoBehaviour
 {
+    [SerializeField] private CraftInformation information;
 
     public enum CraftableItem { AXE};
     public enum ResourceItem { WOOD, STONE };
 
     public int wood;
     public int stone;
-    int count = 3;
+
+    private int craft1;
+    private int craft2;
+
+    //int count = 3;
+    [SerializeField] private Image[] images;
+    [SerializeField] private Text name;
 
     public Text stoneText;
     public Text woodText;
@@ -20,16 +27,37 @@ public class Crafting : MonoBehaviour
 
     public GameObject axeButton;
     
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        stoneText.text = stone.ToString() + "/" + count.ToString();
-        woodText.text = wood.ToString() + "/" + count.ToString();
+        if (information != null)
+        {
+            GetCheck();
+            stoneText.text = craft1.ToString() + "/" + information.needCount[0].ToString();
+            woodText.text = craft2.ToString() + "/" + information.needCount[1].ToString();
+        }
+    }
+
+    void GetCheck()
+    {
+        if (information.needImage[0].name == "stone")
+            craft1 = stone;
+        else if (information.needImage[0].name == "wood")
+            craft1 = wood;
+
+        if (information.needImage[1].name == "stone")
+            craft2 = stone;
+        else if (information.needImage[1].name == "wood")
+            craft2 = wood;
+    }
+
+    public void OnClick(CraftInformation _information)
+    {
+        information = _information;
+        for(int i = 0; i < images.Length; i++)
+            images[i].sprite = information.needImage[i];
+        name.text = information.name;
     }
 
     public void CraftByInt(int craftInt)

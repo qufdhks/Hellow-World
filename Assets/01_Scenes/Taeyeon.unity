@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -707,8 +707,9 @@ GameObject:
   - component: {fileID: 238205579}
   - component: {fileID: 238205578}
   - component: {fileID: 238205577}
+  - component: {fileID: 238205580}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -779,7 +780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 238205578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1426325775}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 238205580}
+          m_ObjectArgumentAssemblyTypeName: CraftInformation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &238205578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,6 +831,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238205575}
   m_CullTransparentMesh: 1
+--- !u!114 &238205580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238205575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d2714a60bcd34a99d36a5538a9fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\uB3C4\uB07C"
+  needCount: 0300000002000000
+  needImage:
+  - {fileID: 1789352317, guid: 66aa2c640e46fa44482de62bda142b51, type: 3}
+  - {fileID: 21300000, guid: 795cd2f1bfbe7c44bb97b75b10d1313b, type: 3}
 --- !u!1001 &238434698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3916,8 +3946,9 @@ GameObject:
   - component: {fileID: 1301871705}
   - component: {fileID: 1301871704}
   - component: {fileID: 1301871703}
+  - component: {fileID: 1301871706}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3988,7 +4019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1301871704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1426325775}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1301871706}
+          m_ObjectArgumentAssemblyTypeName: CraftInformation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1301871704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4027,6 +4070,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301871701}
   m_CullTransparentMesh: 1
+--- !u!114 &1301871706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301871701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d2714a60bcd34a99d36a5538a9fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\uC0AC\uACFC"
+  needCount: 0500000003000000
+  needImage:
+  - {fileID: 1789352317, guid: 66aa2c640e46fa44482de62bda142b51, type: 3}
+  - {fileID: 1789352317, guid: 66aa2c640e46fa44482de62bda142b51, type: 3}
 --- !u!1 &1322611674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,8 +4351,9 @@ GameObject:
   - component: {fileID: 1367910568}
   - component: {fileID: 1367910567}
   - component: {fileID: 1367910566}
+  - component: {fileID: 1367910569}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: fishing rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4363,7 +4424,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1367910567}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1426325775}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1367910569}
+          m_ObjectArgumentAssemblyTypeName: CraftInformation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1367910567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4402,6 +4475,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367910564}
   m_CullTransparentMesh: 1
+--- !u!114 &1367910569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367910564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d2714a60bcd34a99d36a5538a9fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\uB09A\uC2DC\uB300"
+  needCount: 0400000003000000
+  needImage:
+  - {fileID: 21300000, guid: 795cd2f1bfbe7c44bb97b75b10d1313b, type: 3}
+  - {fileID: 21300000, guid: 795cd2f1bfbe7c44bb97b75b10d1313b, type: 3}
 --- !u!1 &1386507908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4736,8 +4826,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d9ba56a1c715347b87abe9106a3cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  information: {fileID: 0}
   wood: 0
   stone: 0
+  images:
+  - {fileID: 103597779}
+  - {fileID: 1459650150}
+  name: {fileID: 2012019922}
   stoneText: {fileID: 1761862795}
   woodText: {fileID: 904732206}
   hasAxe: 0
