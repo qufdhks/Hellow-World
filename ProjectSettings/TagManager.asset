@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inventory
   - Item
+  - Bug
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Object
   - Terrain
-  - 
+  - Weapon
   - 
   - 
   - 
