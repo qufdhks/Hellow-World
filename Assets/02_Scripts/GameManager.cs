@@ -8,9 +8,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TalkManager talkMng;
     [SerializeField] private QuestManager questMng;
 
-    [SerializeField] Animator talkPanel;
-    [SerializeField] private TypeEffect talk;
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject scanObject;
+    [SerializeField] private GameObject menuSet;
+
+    [SerializeField] private Animator talkPanel;
+    [SerializeField] private TypeEffect talk;
+    [SerializeField] private Text questText;
+    [SerializeField] private Text npcName;
     [SerializeField] private bool isAction;
     [SerializeField] private int talkIndex;
 
@@ -18,19 +23,28 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(questMng.CheckQuest());
+        //GameLoad();
+
+        questText.text = "퀘스트 : " + questMng.CheckQuest();
+    }
+
+    private void Update()
+    {
+        // SubMenu ON/OFF
+        if (Input.GetButtonDown("Cancel"))
+            menuSet.SetActive(!menuSet.activeSelf);
     }
 
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
         ObjData objData = scanObject.GetComponent<ObjData>();
-        Talk(objData.id, objData.isNpc);
+        Talk(objData.id, objData.isNpc, objData.npcName);
         
         talkPanel.SetBool("isShow", isAction);
     }
 
-    void Talk(int id, bool isNpc)
+    void Talk(int _id, bool _isNpc, string _npcName)
     {
         int questTalkIndex = 0;
         string talkData = "";
@@ -42,21 +56,22 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            questTalkIndex = questMng.GetQuestTalkIndex(id);
-            talkData = talkMng.GetTalk(id + questTalkIndex, talkIndex);
+            questTalkIndex = questMng.GetQuestTalkIndex(_id);
+            talkData = talkMng.GetTalk(_id + questTalkIndex, talkIndex);
         }
 
         if (talkData == null)
         {
             isAction = false;
             talkIndex = 0;
-            Debug.Log(questMng.CheckQuest(id));
+            questText.text = "퀘스트 : " + questMng.CheckQuest(_id);
             return;
         }
 
-        if (isNpc)
+        if (_isNpc)
         {
             talk.SetMsg(talkData);
+            npcName.text = _npcName;
         }
         else
         {
@@ -65,5 +80,46 @@ public class GameManager : MonoBehaviour
 
         isAction = true;
         talkIndex++;
+    }
+
+    public void GameSave()
+    {
+        // 플레이어 위치
+        PlayerPrefs.SetFloat("Player X", player.transform.position.x);
+        PlayerPrefs.SetFloat("Player Y", player.transform.position.y);
+        PlayerPrefs.SetFloat("Player Z", player.transform.position.z);
+
+        // 퀘스트 정보
+        PlayerPrefs.SetInt("Quest ID", questMng.questId);
+        PlayerPrefs.SetInt("QuestActionIndex", questMng.GetquestActionIndex);
+
+        //인벤토리
+
+        //PlayerPrefs.Save();
+        menuSet.SetActive(false);
+    }
+
+    public void GameLoad()
+    {
+        if (!PlayerPrefs.HasKey("Player X")) 
+            return;
+
+        Debug.Log("Loading");
+        float x = PlayerPrefs.GetFloat("Player X");
+        float y = PlayerPrefs.GetFloat("Player Y");
+        float z = PlayerPrefs.GetFloat("Player Z");
+
+        int questId = PlayerPrefs.GetInt("Quest ID");
+        int questActionindex = PlayerPrefs.GetInt("QuestActionIndex");
+
+        player.transform.position = new Vector3(x, y, z);
+        questMng.questId = questId;
+        questMng.GetquestActionIndex = questActionindex;
+        questMng.ControllObject();
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
     }
 }
