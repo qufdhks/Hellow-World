@@ -14,6 +14,7 @@ public class Crafting : MonoBehaviour
     public int stone;
     public int spiderweb;
 
+
     private int craft1;
     private int craft2;
 
@@ -21,14 +22,15 @@ public class Crafting : MonoBehaviour
     //int count = 3;
     [SerializeField] private Image[] images;
     [SerializeField] private Text name;
+    [SerializeField] private GameObject craftWindow;
 
     public Text stoneText;
     public Text woodText;
 
+
     public bool hasAxe;
 
     public GameObject axeButton;
-    
 
     // Update is called once per frame
     void Update()
@@ -47,19 +49,33 @@ public class Crafting : MonoBehaviour
             craft1 = stone;
         else if (information.needImage[0].name == "wood")
             craft1 = wood;
+        else if (information.needImage[0].name == "spiderweb")
+            craft1 = spiderweb;
 
         if (information.needImage[1].name == "stone")
             craft2 = stone;
         else if (information.needImage[1].name == "wood")
             craft2 = wood;
+        else if (information.needImage[1].name == "spiderweb")
+            craft1 = spiderweb;
+
     }
 
-    public void OnClick(CraftInformation _information)
+   public void OnClick(CraftInformation _information)
     {
+        if(!craftWindow.activeSelf)
+            craftWindow.SetActive(true);
+
         information = _information;
         for(int i = 0; i < images.Length; i++)
             images[i].sprite = information.needImage[i];
         name.text = information.name;
+    }
+
+    public void GetInformation(int need1, int need2)
+    {
+        need1 = information.needCount[0];
+        need2 = information.needCount[1];
     }
 
     public void CraftByInt(int craftInt)
@@ -73,19 +89,24 @@ public class Crafting : MonoBehaviour
     public bool Craft(CraftableItem craftable)
     {
         bool success = false;
+        int need1 = 0;
+        int need2 = 0;
+        GetInformation(need1, need2);
 
-        switch(craftable)
+        switch (craftable)
         {
             case CraftableItem.AXE:
-                if(wood >= 1 && stone >= 2)
+                if(craft1 >= need1 && craft2 >= need2)
                 {
                     success = true;
-                    wood -= 1;
-                    stone -= 2;
+                    craft1 -= need1;
+                    craft2 -= need2;
                     hasAxe = true;
                 }
                 break; 
+
         }
+
 
         return success;
     }
