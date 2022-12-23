@@ -18,7 +18,9 @@ public class Collectable : MonoBehaviour
             case Crafting.ResourceItem.WOOD:
                 inventory.wood++;
                 break;
-                
+            case Crafting.ResourceItem.SPIDERWEB:
+                inventory.spiderweb++;
+                break;
         }   
         Destroy(gameObject);
 
