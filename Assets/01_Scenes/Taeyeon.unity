@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1575,9 +1575,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkMng: {fileID: 0}
   questMng: {fileID: 0}
+  player: {fileID: 0}
+  scanObject: {fileID: 0}
+  menuSet: {fileID: 0}
   talkPanel: {fileID: 0}
   talk: {fileID: 0}
-  scanObject: {fileID: 0}
+  questText: {fileID: 0}
+  npcName: {fileID: 0}
   isAction: 0
   talkIndex: 0
 --- !u!4 &654254569
@@ -5778,7 +5782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1386507909
 MonoBehaviour:
   m_ObjectHideFlags: 0

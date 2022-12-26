@@ -110,7 +110,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if(controller.isGrounded && slopeAngle > controller.slopeLimit)
         {
-            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
+            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.0001f);
         }
 
 
