@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
+
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField]
     private GameManager gameMng;
     [SerializeField] private GameObject scanObj;
     float offset = 3f;
+
 
     // inputs
     public Controls controls;
@@ -18,7 +20,7 @@ public class PlayerControls : MonoBehaviour
 
     // velocity
     Vector3 velocity;
-    float gravity = - 18.0f, velocityY, terminalVelocity = -25.0f;
+    float gravity = -18.0f, velocityY, terminalVelocity = -25.0f;
     float fallMult;
 
     // running
@@ -41,17 +43,28 @@ public class PlayerControls : MonoBehaviour
     public Transform groundDirection, fallDirection;
     [HideInInspector]
     public CamCtrl mainCam;
-    
+    //animation
+    public Animator anim;
+    private readonly int isMoved = Animator.StringToHash("IsMoved");
+    private readonly int isMovedBack = Animator.StringToHash("IsMovedBack");
+    private readonly int isGoingLeft = Animator.StringToHash("IsGoingLeft");
+    private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
+    private readonly int isTurnLeft = Animator.StringToHash("IsTurnLeft");
+    private readonly int isTurnRight = Animator.StringToHash("IsTurnRight");
+    private readonly int isSwang = Animator.StringToHash("IsSwang");
+
     void Start()
     {
         // load character controller when starts
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
     }
 
 
     void Update()
     {
         GetInputs();
+
         Locomotion();
     }
 
@@ -59,12 +72,12 @@ public class PlayerControls : MonoBehaviour
     {
         Debug.DrawRay(transform.position, transform.forward - new Vector3(0f, 0.1f, 0f) * 5f, new Color(0, 1, 0));
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, new Vector3(transform.forward.x, 0.1f, transform.forward.z),out hit, 2f, LayerMask.GetMask("Object")))
+        if (Physics.Raycast(transform.position, new Vector3(transform.forward.x, 0.1f, transform.forward.z), out hit, 2f, LayerMask.GetMask("Object")))
             scanObj = hit.transform.gameObject;
         else
             scanObj = null;
 
-        
+
     }
 
     void Locomotion()
@@ -77,38 +90,38 @@ public class PlayerControls : MonoBehaviour
             inputNormalized = inputs;
             currSpeed = baseSpeed;
 
-            if(run)
+            if (run)
             {
                 currSpeed *= runSpeed;
 
                 if (inputNormalized.y < 0)
                 {
                     currSpeed = currSpeed / 2.0f;
-                }                    
+                }
             }
-            else if(!controller.isGrounded || slopeAngle > controller.slopeLimit)
+            else if (!controller.isGrounded || slopeAngle > controller.slopeLimit)
             {
                 inputNormalized = Vector2.Lerp(inputNormalized, Vector2.zero, 0.025f);
                 currSpeed = Mathf.Lerp(currSpeed, 0, 0.025f);
             }
         }
         //rotating
-        Vector3 characterRotation = transform.eulerAngles + new Vector3 (0, rotation * rotateSpeed, 0);
+        Vector3 characterRotation = transform.eulerAngles + new Vector3(0, rotation * rotateSpeed, 0);
 
         characterRotation = gameMng.GetisAction ? transform.eulerAngles : characterRotation;
 
         transform.eulerAngles = characterRotation;
         //press space to jump
-        if(jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
+        if (jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
         {
             Jump();
         }
         // apply gravity if not grounded
-        if(!controller.isGrounded && velocityY > terminalVelocity)
+        if (!controller.isGrounded && velocityY > terminalVelocity)
         {
             velocityY += gravity * Time.deltaTime;
         }
-        else if(controller.isGrounded && slopeAngle > controller.slopeLimit)
+        else if (controller.isGrounded && slopeAngle > controller.slopeLimit)
         {
             velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
         }
@@ -127,15 +140,21 @@ public class PlayerControls : MonoBehaviour
         velocity = gameMng.GetisAction ? Vector3.zero : velocity;
 
         if (Input.GetKeyDown(KeyCode.F) && scanObj != null)
+        {
             gameMng.Action(scanObj);
-
+            anim.SetBool(isSwang, true);
+        }
+        if(Input.GetKeyUp(KeyCode.F))
+        {
+            anim.SetBool(isSwang, false);
+        }
         //moving controller
         controller.Move(velocity * Time.deltaTime);
 
         if (controller.isGrounded)
         {
             // stop jumping if grounded
-            if(isJumped)
+            if (isJumped)
             {
                 isJumped = false;
             }
@@ -149,7 +168,7 @@ public class PlayerControls : MonoBehaviour
         // setting forwarddirection to controller position
         forwardDirection = transform.position;
         // setting forwardDirection based on control input
-        if(inputNormalized.magnitude> 0)
+        if (inputNormalized.magnitude > 0)
         {
             forwardDirection += transform.forward * inputNormalized.y + transform.right * inputNormalized.x;
         }
@@ -166,20 +185,20 @@ public class PlayerControls : MonoBehaviour
 
         forwardMult = 1.0f;
         fallMult = 1.0f;
-        
-        if(Physics.Raycast(groundRay, out groundHit, 0.55f))
+
+        if (Physics.Raycast(groundRay, out groundHit, 0.55f))
         {
             // getting angles
             slopeAngle = Vector3.Angle(transform.up, groundHit.normal);
-            forwardAngle = Vector3.Angle(groundDirection.forward, groundHit.normal) -90.0f;
+            forwardAngle = Vector3.Angle(groundDirection.forward, groundHit.normal) - 90.0f;
 
-            if(forwardAngle < 0 && slopeAngle <= controller.slopeLimit)
+            if (forwardAngle < 0 && slopeAngle <= controller.slopeLimit)
             {
                 forwardMult = 1 / Mathf.Cos(forwardAngle * Mathf.Deg2Rad);
                 //setting groundDirection based on forwardAngle
-                groundDirection.eulerAngles += new Vector3(-forwardAngle, 0, 0); 
+                groundDirection.eulerAngles += new Vector3(-forwardAngle, 0, 0);
             }
-            else if(slopeAngle > controller.slopeLimit)
+            else if (slopeAngle > controller.slopeLimit)
             {
                 float groundDistance = Vector3.Distance(groundRay.origin, groundHit.point);
                 if (groundDistance <= 0.1f)
@@ -195,7 +214,7 @@ public class PlayerControls : MonoBehaviour
     void Jump()
     {
         //set jumping to true
-        if(!isJumped)
+        if (!isJumped)
         {
             isJumped = true;
             //set jump direction and speed
@@ -203,41 +222,65 @@ public class PlayerControls : MonoBehaviour
             jumpSpeed = currSpeed;
             //set velocityY
             velocityY = Mathf.Sqrt(-gravity * jumpHeight);
+            anim.SetTrigger("IsNotGrounded");
+
         }
+            
     }
 
     void GetInputs()
     {   //Forwards,Backwards controls
-        
+
         //forwards
         if (Input.GetKey(controls.forwards))
         {
             inputs.y = 1.0f;
+            anim.SetBool(isMoved, true);
         }
+        if (Input.GetKeyUp(KeyCode.W))
+            anim.SetBool(isMoved, false);
+
         //backwards
         if (Input.GetKey(controls.backwards))
         {
             if (Input.GetKey(controls.forwards))
             {
                 inputs.y = 0;
+
             }
             else
             {
                 inputs.y = -1.0f;
+                anim.SetBool(isMovedBack, true);
+
             }
         }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.SetBool(isMovedBack, false);
+        }
+
         //FW nothing
         if (!Input.GetKey(controls.forwards) && !Input.GetKey(controls.backwards))
         {
             inputs.y = 0;
+
         }
+
         //StrafeLeft,Right
-        //StrafeLeft
+        //StrafeRight
         if (Input.GetKey(controls.strafeRight))
         {
             inputs.x = 1.0f;
+            anim.SetBool(isGoingRight, true);
+            
         }
-        //StrafeRight
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            anim.SetBool(isGoingRight, false);
+        }
+
+        //StrafeLeft
         if (Input.GetKey(controls.strafeLeft))
         {
             if (Input.GetKey(controls.strafeRight))
@@ -247,20 +290,32 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 inputs.x = -1.0f;
+                anim.SetBool(isGoingLeft, true);
             }
         }
+        if(Input.GetKeyUp(KeyCode.Q))
+        {
+            anim.SetBool(isGoingLeft, false);
+        }
+
         //StrafeLR nothing
         if (!Input.GetKey(controls.strafeLeft) && !Input.GetKey(controls.strafeRight))
         {
             inputs.x = 0;
         }
+
         //RotateLeft,Right
-        //RotateLeft
+        //RotateRight
         if (Input.GetKey(controls.rotateRight))
         {
             rotation = 1.0f;
+            anim.SetBool(isTurnRight, true);
         }
-        //RotateRight
+        if(Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetBool(isTurnRight, false);
+        }
+        //RotateLeft
         if (Input.GetKey(controls.rotateLeft))
         {
             if (Input.GetKey(controls.rotateRight))
@@ -270,22 +325,40 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 rotation = -1.0f;
+                anim.SetBool(isTurnLeft, true);
             }
         }
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetBool(isTurnLeft, false);
+        }
+
         //RotateLR nothing
         if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
         {
             rotation = 0;
         }
+
         //toggle run
+
         if (Input.GetKeyDown(controls.walkRun))
         {
             run = !run;
+            anim.SetTrigger("IsWalked");
         }
-        // jump
-        jump = Input.GetKey(controls.jump);
-    }
+        
 
+        // jump
+
+        jump = Input.GetKey(controls.jump);
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    anim.Play("Jump");
+        //}
+
+
+    }
+            
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         collisionPoint = hit.point;
