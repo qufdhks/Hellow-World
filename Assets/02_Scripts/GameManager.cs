@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //GameLoad();
+        GameLoad();
 
         questText.text = "Äù½ºÆ® : " + questMng.CheckQuest();
     }
