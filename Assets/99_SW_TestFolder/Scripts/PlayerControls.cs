@@ -123,7 +123,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (controller.isGrounded && slopeAngle > controller.slopeLimit)
         {
-            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
+            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.0001f);
         }
 
 
@@ -222,7 +222,7 @@ public class PlayerControls : MonoBehaviour
             jumpSpeed = currSpeed;
             //set velocityY
             velocityY = Mathf.Sqrt(-gravity * jumpHeight);
-            anim.SetTrigger("IsNotGrounded");
+            anim.SetTrigger("IssUnGrounded");
 
         }
             
@@ -344,7 +344,7 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(controls.walkRun))
         {
             run = !run;
-            anim.SetTrigger("IsWalked");
+            anim.SetTrigger("IssWalked");
         }
         
 
