@@ -14,9 +14,10 @@ public class TalkManager : MonoBehaviour
 
     void GenerateData()
     {
-        talkData.Add(1000, new string[] { "안녕?", "우리 섬에 온걸 환영해" });
+        //talkData.Add(1000, new string[] { "안녕?", "우리 섬에 온걸 환영해" });
+        talkData.Add(1000, new string[] { "너 미쳤냐", "왜 우리 마을에 와 ?"," 꺼져" });
 
-        talkData.Add(2000, new string[] { "어서와.", "뭔가 필요한 게 있어?" });
+        talkData.Add(2000, new string[] { "어서와.", "뭔가 필요한 게 있어?" });    
 
         //Quest Talk
         talkData.Add(10 + 1000, new string[] { "드디어 일어났구나", "여기는 OO마을이야\n해변가에 쓰러져 있길래 데려왔어.", 

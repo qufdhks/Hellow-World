@@ -8,6 +8,7 @@ public class ObjData : MonoBehaviour
     //[SerializeField] private bool isNpc;
     public int id;
     public bool isNpc;
+    public string npcName;
 
     //public int Getid { get { return id; } }
     //public bool GetisNpc { get { return isNpc; } }
