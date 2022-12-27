@@ -41246,7 +41246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1199271100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70368,10 +70368,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 145a6145dbf0e4084958c29e014d35ee, type: 2}
+    - target: {fileID: 6201283381183101851, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417018228269984396, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8417018228311611504, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
       propertyPath: gameMng
       value: 
-      objectReference: {fileID: 1199271102}
+      objectReference: {fileID: 0}
     - target: {fileID: 8417018228311611505, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -70419,6 +70427,10 @@ PrefabInstance:
     - target: {fileID: 8417018228311611534, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
       propertyPath: m_Name
       value: YEJI_ZZANG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417018229205004238, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}

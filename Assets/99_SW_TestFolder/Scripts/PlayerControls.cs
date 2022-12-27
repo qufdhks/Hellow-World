@@ -8,7 +8,8 @@ public class PlayerControls : MonoBehaviour
 {
     [SerializeField]
     private GameManager gameMng;
-    [SerializeField] private GameObject scanObj;
+    [SerializeField]
+    private GameObject scanObj;
     float offset = 3f;
 
 
@@ -45,13 +46,14 @@ public class PlayerControls : MonoBehaviour
     public CamCtrl mainCam;
     //animation
     public Animator anim;
-    private readonly int isMoved = Animator.StringToHash("IsMoved");
+    private readonly int isRunning = Animator.StringToHash("IsRunning");
     private readonly int isMovedBack = Animator.StringToHash("IsMovedBack");
     private readonly int isGoingLeft = Animator.StringToHash("IsGoingLeft");
     private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
     private readonly int isTurnLeft = Animator.StringToHash("IsTurnLeft");
     private readonly int isTurnRight = Animator.StringToHash("IsTurnRight");
-    private readonly int isSwang = Animator.StringToHash("IsSwang");
+    //private readonly int isJumping = Animator.StringToHash("IsJumping");
+    //private readonly int isSwang = Animator.StringToHash("IsSwang");
 
     void Start()
     {
@@ -105,16 +107,22 @@ public class PlayerControls : MonoBehaviour
                 currSpeed = Mathf.Lerp(currSpeed, 0, 0.025f);
             }
         }
-        //rotating
+
+
+        //rotating                      
         Vector3 characterRotation = transform.eulerAngles + new Vector3(0, rotation * rotateSpeed, 0);
 
         characterRotation = gameMng.GetisAction ? transform.eulerAngles : characterRotation;
 
         transform.eulerAngles = characterRotation;
+
+
         //press space to jump
         if (jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
         {
+
             Jump();
+
         }
         // apply gravity if not grounded
         if (!controller.isGrounded && velocityY > terminalVelocity)
@@ -123,7 +131,7 @@ public class PlayerControls : MonoBehaviour
         }
         else if (controller.isGrounded && slopeAngle > controller.slopeLimit)
         {
-            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.0001f);
+            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
         }
 
 
@@ -142,12 +150,7 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && scanObj != null)
         {
             gameMng.Action(scanObj);
-            //anim.SetBool(isSwang, true);
-            //}
-            //if(Input.GetKeyUp(KeyCode.F))
-            //{
-            //    anim.SetBool(isSwang, false);
-            //}
+
 
             //moving controller
             controller.Move(velocity * Time.deltaTime);
@@ -210,7 +213,7 @@ public class PlayerControls : MonoBehaviour
                     }
                 }
             }
-            //Debug();
+
         }
         void Jump()
         {
@@ -223,147 +226,159 @@ public class PlayerControls : MonoBehaviour
                 jumpSpeed = currSpeed;
                 //set velocityY
                 velocityY = Mathf.Sqrt(-gravity * jumpHeight);
-                anim.SetTrigger("IssUnGrounded");
-
+                anim.SetTrigger("IsJumping");
             }
 
-    }   }
 
-        void GetInputs()
-        {   //Forwards,Backwards controls
+        }
+    }
 
-            //forwards
+    void GetInputs()
+    {   //Forwards,Backwards controls
+
+        //forwards
+        if (Input.GetKey(controls.forwards))
+        {
+            inputs.y = 1.0f;
+            anim.SetBool(isRunning, true);
+        }
+        if (!Input.GetKey(controls.forwards))
+        {
+            anim.SetBool(isRunning, false);
+
+        }
+
+        //backwards
+        if (Input.GetKey(controls.backwards))
+        {
             if (Input.GetKey(controls.forwards))
-            {
-                inputs.y = 1.0f;
-                anim.SetBool(isMoved, true);
-            }
-            if (!Input.GetKey(controls.forwards))
-                anim.SetBool(isMoved, false);
-
-            //backwards
-            if (Input.GetKey(controls.backwards))
-            {
-                if (Input.GetKey(controls.forwards))
-                {
-                    inputs.y = 0;
-
-                }
-                else
-                {
-                    inputs.y = -1.0f;
-                    anim.SetBool(isMovedBack, true);
-
-                }
-            }
-            if (!Input.GetKey(controls.backwards))
-            {
-                anim.SetBool(isMovedBack, false);
-            }
-
-            //FW nothing
-            if (!Input.GetKey(controls.forwards) && !Input.GetKey(controls.backwards))
             {
                 inputs.y = 0;
 
             }
+            else
+            {
+                inputs.y = -1.0f;
+                anim.SetBool(isMovedBack, true);
 
-            //StrafeLeft,Right
-            //StrafeRight
+            }
+        }
+        if (!Input.GetKey(controls.backwards))
+        {
+            anim.SetBool(isMovedBack, false);
+        }
+
+        //FW nothing
+        if (!Input.GetKey(controls.forwards) && !Input.GetKey(controls.backwards))
+        {
+            inputs.y = 0;
+
+        }
+
+        //StrafeLeft,Right
+        //StrafeRight
+        if (Input.GetKey(controls.strafeRight))
+        {
+            inputs.x = 1.0f;
+            anim.SetBool(isGoingRight, true);
+
+        }
+        if (!Input.GetKey(controls.strafeRight))
+        {
+            anim.SetBool(isGoingRight, false);
+        }
+
+        //StrafeLeft
+        if (Input.GetKey(controls.strafeLeft))
+        {
             if (Input.GetKey(controls.strafeRight))
-            {
-                inputs.x = 1.0f;
-                anim.SetBool(isGoingRight, true);
-
-            }
-            if (!Input.GetKey(controls.strafeRight))
-            {
-                anim.SetBool(isGoingRight, false);
-            }
-
-            //StrafeLeft
-            if (Input.GetKey(controls.strafeLeft))
-            {
-                if (Input.GetKey(controls.strafeRight))
-                {
-                    inputs.x = 0;
-                }
-                else
-                {
-                    inputs.x = -1.0f;
-                    anim.SetBool(isGoingLeft, true);
-                }
-            }
-            if (!Input.GetKey(controls.strafeLeft))
-            {
-                anim.SetBool(isGoingLeft, false);
-            }
-
-            //StrafeLR nothing
-            if (!Input.GetKey(controls.strafeLeft) && !Input.GetKey(controls.strafeRight))
             {
                 inputs.x = 0;
             }
+            else
+            {
+                inputs.x = -1.0f;
+                anim.SetBool(isGoingLeft, true);
+            }
+        }
+        if (!Input.GetKey(controls.strafeLeft))
+        {
+            anim.SetBool(isGoingLeft, false);
+        }
 
-            //RotateLeft,Right
-            //RotateRight
+        //StrafeLR nothing
+        if (!Input.GetKey(controls.strafeLeft) && !Input.GetKey(controls.strafeRight))
+        {
+            inputs.x = 0;
+        }
+
+        //RotateLeft,Right
+        //RotateRight
+        if (Input.GetKey(controls.rotateRight))
+        {
+            rotation = 1.0f;
+            anim.SetBool(isTurnRight, true);
+        }
+        if (!Input.GetKey(controls.rotateRight))
+        {
+            anim.SetBool(isTurnRight, false);
+        }
+        //RotateLeft
+        if (Input.GetKey(controls.rotateLeft))
+        {
             if (Input.GetKey(controls.rotateRight))
-            {
-                rotation = 1.0f;
-                anim.SetBool(isTurnRight, true);
-            }
-            if (!Input.GetKey(controls.rotateRight))
-            {
-                anim.SetBool(isTurnRight, false);
-            }
-            //RotateLeft
-            if (Input.GetKey(controls.rotateLeft))
-            {
-                if (Input.GetKey(controls.rotateRight))
-                {
-                    rotation = 0;
-                }
-                else
-                {
-                    rotation = -1.0f;
-                    anim.SetBool(isTurnLeft, true);
-                }
-            }
-            if (!Input.GetKey(controls.rotateLeft))
-            {
-                anim.SetBool(isTurnLeft, false);
-            }
-
-            //RotateLR nothing
-            if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
             {
                 rotation = 0;
             }
-
-            //toggle run
-
-            if (Input.GetKeyDown(controls.walkRun))
+            else
             {
-                run = !run;
-                anim.SetTrigger("IssWalked");
+                rotation = -1.0f;
+                anim.SetBool(isTurnLeft, true);
             }
-
-
-            // jump
-
-            jump = Input.GetKey(controls.jump);
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    anim.Play("Jump");
-            //}
-
-
         }
-
-        void OnControllerColliderHit(ControllerColliderHit hit)
+        if (!Input.GetKey(controls.rotateLeft))
         {
-            collisionPoint = hit.point;
+            anim.SetBool(isTurnLeft, false);
         }
+
+        //RotateLR nothing
+        if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
+        {
+            rotation = 0;
+        }
+
+        //toggle run
+
+        if (Input.GetKey(controls.walkRun))
+        {
+            run = !run;
+            anim.SetTrigger("IsWalking");
+        }
+
+
+        // jump
+
+        jump = Input.GetKey(controls.jump);
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    anim.Play("Jump");
+        //}
+
+
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        collisionPoint = hit.point;
+    }
+    // Input for interaction
+    //anim.SetBool(isSwang, true);
+    //}
+    //if(Input.GetKeyUp(KeyCode.F))
+    //{
+    //    anim.SetBool(isSwang, false);
+    //}
+
 }
 
 
