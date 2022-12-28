@@ -708,6 +708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8417018228311611504, guid: b30573246b14b445caa3aa8e1744f1d4, type: 3}
+      propertyPath: gameMng
+      value: 
+      objectReference: {fileID: 654254568}
     - target: {fileID: 8417018228311611505, guid: b30573246b14b445caa3aa8e1744f1d4, type: 3}
       propertyPath: m_RootOrder
       value: 11
