@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         //GameLoad();
 
-        //questText.text = "����Ʈ : " + questMng.CheckQuest();
+        //questText.text = "퀘스트 : " + questMng.CheckQuest();
     }
 
     private void Update()

@@ -150,21 +150,20 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && scanObj != null)
         {
             gameMng.Action(scanObj);
+        }
 
+        //moving controller
+        controller.Move(velocity * Time.deltaTime);
 
-            //moving controller
-            controller.Move(velocity * Time.deltaTime);
-
-            if (controller.isGrounded)
+        if (controller.isGrounded)
+        {
+            // stop jumping if grounded
+            if (isJumped)
             {
-                // stop jumping if grounded
-                if (isJumped)
-                {
-                    isJumped = false;
-                }
-                //stop gravity if grounded
-                velocityY = 0;
+                isJumped = false;
             }
+            //stop gravity if grounded
+            velocityY = 0;
         }
         void GroundDirection()
         {
@@ -245,7 +244,6 @@ public class PlayerControls : MonoBehaviour
         if (!Input.GetKey(controls.forwards))
         {
             anim.SetBool(isRunning, false);
-
         }
 
         //backwards
