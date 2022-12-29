@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject scanObject;
     [SerializeField] private GameObject menuSet;
+    [SerializeField] private GameObject craftingCanvas;
 
     [SerializeField] private Animator talkPanel;
     [SerializeField] private TypeEffect talk;
@@ -23,9 +24,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //GameLoad();
-
-        //questText.text = "퀘스트 : " + questMng.CheckQuest();
+        GameLoad();
+        questText.text = "퀘스트 : " + questMng.CheckQuest();
     }
 
     private void Update()
@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
         int questTalkIndex = 0;
         string talkData = "";
 
+        if (_id == 8000)
+            craftingCanvas.SetActive(true);
+
         if (talk.isAnim)
         {
             talk.SetMsg("");
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour
         {
             isAction = false;
             talkIndex = 0;
-            questText.text = "����Ʈ : " + questMng.CheckQuest(_id);
+            questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
             return;
         }
 
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
 
         isAction = true;
         talkIndex++;
+
+        
     }
 
     public void GameSave()
