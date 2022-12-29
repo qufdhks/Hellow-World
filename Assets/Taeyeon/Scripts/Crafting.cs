@@ -119,11 +119,10 @@ public class Crafting : MonoBehaviour
 
     public void CraftByInt(int craftInt)
     {
-        if(craftInt ==1)
-        {
+        
+        if(information.count == 1)
             Craft(CraftableItem.AXE);
 
-        }
     }
     public bool Craft(CraftableItem craftable)
     {

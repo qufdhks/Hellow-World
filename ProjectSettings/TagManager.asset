@@ -7,6 +7,9 @@ TagManager:
   - Inventory
   - Item
   - Bug
+  - Pet
+  - Pet1
+  - Pet2
   layers:
   - Default
   - TransparentFX
