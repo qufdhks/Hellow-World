@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject scanObject;
     [SerializeField] private GameObject menuSet;
+    [SerializeField] private GameObject craftingCanvas;
 
     [SerializeField] private Animator talkPanel;
     [SerializeField] private TypeEffect talk;
@@ -24,8 +25,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameLoad();
-
-        questText.text = "Äù½ºÆ® : " + questMng.CheckQuest();
+        questText.text = "í€˜ìŠ¤íŠ¸ : " + questMng.CheckQuest();
     }
 
     private void Update()
@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
         int questTalkIndex = 0;
         string talkData = "";
 
+        if (_id == 8000)
+            craftingCanvas.SetActive(true);
+
         if (talk.isAnim)
         {
             talk.SetMsg("");
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour
         {
             isAction = false;
             talkIndex = 0;
-            questText.text = "Äù½ºÆ® : " + questMng.CheckQuest(_id);
+            questText.text = "í€˜ìŠ¤íŠ¸ëª… : " + questMng.CheckQuest(_id);
             return;
         }
 
@@ -80,20 +83,22 @@ public class GameManager : MonoBehaviour
 
         isAction = true;
         talkIndex++;
+
+        
     }
 
     public void GameSave()
     {
-        // ÇÃ·¹ÀÌ¾î À§Ä¡
+        // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ä¡
         PlayerPrefs.SetFloat("Player X", player.transform.position.x);
         PlayerPrefs.SetFloat("Player Y", player.transform.position.y);
         PlayerPrefs.SetFloat("Player Z", player.transform.position.z);
 
-        // Äù½ºÆ® Á¤º¸
+        // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         PlayerPrefs.SetInt("Quest ID", questMng.questId);
         PlayerPrefs.SetInt("QuestActionIndex", questMng.GetquestActionIndex);
 
-        //ÀÎº¥Åä¸®
+        //ï¿½Îºï¿½ï¿½ä¸®
 
         //PlayerPrefs.Save();
         menuSet.SetActive(false);

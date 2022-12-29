@@ -61,7 +61,7 @@ public class CraftManual : MonoBehaviour
             Window();
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetMouseButton(0))
         {
             Build();
         }
@@ -71,7 +71,7 @@ public class CraftManual : MonoBehaviour
         //    PreviewPositionUpdate();
 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButton(1))
         {
             Cancel();
         }

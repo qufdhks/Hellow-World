@@ -21,7 +21,7 @@ public class CamCtrl : MonoBehaviour
     PlayerControls player;
     public Transform tilt;
     Camera mainCam;
-    
+
     void Start()
     {
         player = FindObjectOfType<PlayerControls>();
@@ -33,17 +33,17 @@ public class CamCtrl : MonoBehaviour
 
         tilt.eulerAngles = new Vector3(currentTilt, transform.eulerAngles.y, transform.eulerAngles.z);
         mainCam.transform.position += tilt.forward * -currentDistance;
-        
+
     }
 
-    
+
     void Update()
     {//!Input.GetKey(leftMouse) &&
         if (!Input.GetKey(leftMouse) && !Input.GetKey(rightMouse) && !Input.GetKey(middleMouse))
         {
             //cameraState = CameraState.CameraNone;
         }
-        else if(Input.GetKey(leftMouse))
+        else if (Input.GetKey(leftMouse))
         {
             cameraState = CameraState.CameraRotate;
         }
@@ -63,22 +63,22 @@ public class CamCtrl : MonoBehaviour
     }
     void CameraInputs()
     {
-        if(cameraState != CameraState.CameraNone && Input.GetKey(leftMouse))
+        if (cameraState != CameraState.CameraNone && Input.GetKey(leftMouse))
         {
             if (cameraState == CameraState.CameraRotate)
             {
                 currentPan += Input.GetAxis("Mouse X") * cameraSpeed;
             }
             currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
-            currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);            
+            currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);
         }
         currentDistance -= Input.GetAxis("Mouse ScrollWheel") * 2.0f;
         currentDistance = Mathf.Clamp(currentDistance, 0, cameraMaxDistance);
-        
+
     }
     void CameraTransform()
     {
-        switch(cameraState)
+        switch (cameraState)
         {
             case CameraState.CameraNone:
                 {
