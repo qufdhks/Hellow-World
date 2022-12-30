@@ -10,8 +10,6 @@ public class PlayerControls : MonoBehaviour
     private GameManager gameMng;
     [SerializeField]
     private GameObject scanObj;
-    float offset = 3f;
-
 
     // inputs
     public Controls controls;
@@ -52,8 +50,6 @@ public class PlayerControls : MonoBehaviour
     private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
     private readonly int isTurnLeft = Animator.StringToHash("IsTurnLeft");
     private readonly int isTurnRight = Animator.StringToHash("IsTurnRight");
-    //private readonly int isJumping = Animator.StringToHash("IsJumping");
-    //private readonly int isSwang = Animator.StringToHash("IsSwang");
 
     void Start()
     {
