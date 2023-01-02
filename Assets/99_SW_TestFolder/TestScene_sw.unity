@@ -490,6 +490,10 @@ PrefabInstance:
       propertyPath: gameMng
       value: 
       objectReference: {fileID: 771150263}
+    - target: {fileID: 8417018228311611504, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
+      propertyPath: controls.attack
+      value: 114
+      objectReference: {fileID: 0}
     - target: {fileID: 8417018228311611505, guid: 301b3a68199d446ed8c36c6eaddabc68, type: 3}
       propertyPath: m_RootOrder
       value: 4
