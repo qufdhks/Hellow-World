@@ -10,6 +10,8 @@ public class PlayerControls : MonoBehaviour
     private GameManager gameMng;
     [SerializeField]
     private GameObject scanObj;
+    float offset = 3f;
+
 
     // inputs
     public Controls controls;
@@ -50,6 +52,9 @@ public class PlayerControls : MonoBehaviour
     private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
     private readonly int isTurnLeft = Animator.StringToHash("IsTurnLeft");
     private readonly int isTurnRight = Animator.StringToHash("IsTurnRight");
+    private readonly int isJumping = Animator.StringToHash("IsJumping1");
+    private readonly int isSwang = Animator.StringToHash("IsSwang");
+    private readonly int isWalking = Animator.StringToHash("IsWalking1");
 
     void Start()
     {
@@ -119,6 +124,7 @@ public class PlayerControls : MonoBehaviour
 
             Jump();
 
+
         }
         // apply gravity if not grounded
         if (!controller.isGrounded && velocityY > terminalVelocity)
@@ -134,6 +140,7 @@ public class PlayerControls : MonoBehaviour
         //applying inputs
         if (!isJumped)
         {
+            anim.SetBool(isJumping, false);
             velocity = (groundDirection.forward * inputNormalized.magnitude) * (currSpeed * forwardMult) + fallDirection.up * (velocityY * fallMult);
         }
         else
@@ -157,6 +164,7 @@ public class PlayerControls : MonoBehaviour
             if (isJumped)
             {
                 isJumped = false;
+
             }
             //stop gravity if grounded
             velocityY = 0;
@@ -221,8 +229,9 @@ public class PlayerControls : MonoBehaviour
                 jumpSpeed = currSpeed;
                 //set velocityY
                 velocityY = Mathf.Sqrt(-gravity * jumpHeight);
-                anim.SetTrigger("IsJumping");
+
             }
+            anim.SetBool(isJumping, true);
 
 
         }
@@ -341,13 +350,30 @@ public class PlayerControls : MonoBehaviour
             rotation = 0;
         }
 
+        //Interaction
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            anim.SetBool(isSwang, true);
+
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            anim.SetBool(isSwang, false);
+        }
+
         //toggle run
 
         if (Input.GetKey(controls.walkRun))
         {
             run = !run;
-            anim.SetTrigger("IsWalking");
+            anim.SetBool(isWalking, true);
         }
+        anim.SetBool(isWalking, false);
+        // if (!Input.GetKey(controls.walkRun))
+        // {
+        //     !run = run;
+        //     
+        // }
 
 
         // jump
@@ -372,6 +398,7 @@ public class PlayerControls : MonoBehaviour
     //{
     //    anim.SetBool(isSwang, false);
     //}
+
 
 }
 
