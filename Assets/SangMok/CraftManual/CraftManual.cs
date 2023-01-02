@@ -71,7 +71,7 @@ public class CraftManual : MonoBehaviour
         //    PreviewPositionUpdate();
 
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             Cancel();
         }
