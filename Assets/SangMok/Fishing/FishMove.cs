@@ -5,15 +5,16 @@ using UnityEngine;
 public class FishMove : MonoBehaviour
 {
     [SerializeField] private string animalName; // 동물의 이름
-    //[SerializeField] private int hp;  // 동물의 체력
+    
 
     [SerializeField] private float swimSpeed;  // 기본속력
 
     private Vector3 direction;  // 방향
+    //private Vector3 limit_Move = new Vector3(3.0f, 0f, 3.0f);
 
     // 상태 변수
     private bool isAction;  // 행동 중인지 아닌지 판별
-    private bool isSwimming; // 걷는지, 안 걷는지 판별
+    [SerializeField] private bool isSwimming; // 걷는지, 안 걷는지 판별
 
     [SerializeField] private float swimTime;  // 수영 시간
     [SerializeField] private float waitTime;  // 대기 시간
@@ -23,6 +24,17 @@ public class FishMove : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Rigidbody rigidl;
     [SerializeField] private BoxCollider boxCol;
+
+    //public Vector3 ClampPosition(Vector3 position)
+    //{
+        
+    //    return new Vector3(Mathf.Clamp(position.x, -limit_Move.x, -limit_Move.x), -7f, 0);
+    //}
+
+    private void Awake()
+    {
+        //origin = transform.position;
+    }
 
     void Start()
     {
@@ -36,9 +48,28 @@ public class FishMove : MonoBehaviour
         Rotation();
         ElapseTime();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Water")
+        {
+            Swimming();
+            SpeedSwimming();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.name == "Water")
+        {
+            isSwimming = false;
+
+        }
+    }
 
     private void Move()
     {
+        //transform.position = ClampPosition(transform.position);
+
         //수영 가능한 공간
         if (isSwimming)
             rigidl.MovePosition(transform.position - transform.forward * swimSpeed * Time.deltaTime);
@@ -48,8 +79,16 @@ public class FishMove : MonoBehaviour
     {
         if (isSwimming)
         {
-            Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, direction, 0.01f);
-            rigidl.MoveRotation(Quaternion.Euler(_rotation));
+            //if (Physics.Raycast(transform.position, transform.forward, 4f, LayerMask.GetMask("Wall")))
+            //{
+            //    Vector3 rotation = Vector3.Lerp(transform.eulerAngles, new Vector3(0, 0, 0), 0.5f);
+            //    rigidl.MoveRotation(Quaternion.Euler(rotation));
+            //}
+            //else
+            //{
+                Vector3 _rotation = Vector3.Lerp(transform.eulerAngles, direction, 0.01f);
+                rigidl.MoveRotation(Quaternion.Euler(_rotation));
+            //}
         }
     }
 
@@ -69,7 +108,7 @@ public class FishMove : MonoBehaviour
         isAction = true;
         anim.SetBool("Swim1", isSwimming);
 
-        direction.Set(0f, Random.Range(0f, 360f), 0f);
+        direction.Set(0f, Random.Range(0f, 270f), 0f);
 
         RandomAction();
     }
@@ -81,7 +120,7 @@ public class FishMove : MonoBehaviour
         if (_random == 0)
             Swimming();
         else if (_random == 1)
-            Swimming();
+            SpeedSwimming();
         else if (_random == 2)
             dead();
       

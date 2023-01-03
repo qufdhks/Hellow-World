@@ -53,6 +53,16 @@ public class Slot : MonoBehaviour
             ClearSlot();
     }
 
+    public void RemoveCount(int _count)
+    {
+        itemCount -= _count;
+        text_Count.text = itemCount.ToString();
+
+        if (itemCount <= 0)
+            ClearSlot();
+    }
+
+
     // 해당 슬롯 하나 삭제
     private void ClearSlot()
     {
