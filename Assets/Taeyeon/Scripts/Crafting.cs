@@ -24,7 +24,7 @@ public class Crafting : MonoBehaviour
     private int need2;
 
     [SerializeField] private Image[] images;
-    [SerializeField] private Text name;
+    [SerializeField] private Text itemName;
     [SerializeField] private GameObject craftWindow;
 
     public Text item1Text;
@@ -194,7 +194,7 @@ public class Crafting : MonoBehaviour
         information = _information;
         for(int i = 0; i < images.Length; i++)
             images[i].sprite = information.needImage[i];
-        name.text = information.name;
+        itemName.text = information.name;
     }
 
     public void CraftByInt(int craftInt)
