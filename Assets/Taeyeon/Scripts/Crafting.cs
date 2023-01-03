@@ -59,7 +59,7 @@ public class Crafting : MonoBehaviour
 
         if (information.needImage[0].name == "stone")
         {
-            for(int i = 0; i < slots.Length; i++)
+            for (int i = 0; i < slots.Length; i++)
             {
                 if (slots[i].itemImage.sprite.name == "stone")
                 {
@@ -67,11 +67,11 @@ public class Crafting : MonoBehaviour
                         slots[i].RemoveCount(need1);
                     //if (craft != null)
                     //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
-                        
+
                     count = slots[i].itemCount;
                 }
             }
-            
+
             craft1 = count;
 
             if (craft1 < information.needCount[0])
@@ -122,7 +122,8 @@ public class Crafting : MonoBehaviour
             else
                 item1Text.color = Color.white;
         }
-
+        else
+            craft1 = 0;
 
         if (information.needImage[1].name == "stone")
         {
@@ -187,6 +188,8 @@ public class Crafting : MonoBehaviour
             else
                 item2Text.color = Color.white;
         }
+        else
+            craft2 = 0;
 
         crafting = false;
     }
