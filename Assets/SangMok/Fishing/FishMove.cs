@@ -8,6 +8,8 @@ public class FishMove : MonoBehaviour
     [SerializeField] private string animalName; // 동물의 이름
     
 
+    CapsuleCollider cc;
+
     [SerializeField] private float swimSpeed;  // 기본속력
 
     private Vector3 direction;  // 방향
@@ -41,8 +43,9 @@ public class FishMove : MonoBehaviour
     {
         currentTime = waitTime;   // 대기 시작
         isAction = true;   // 대기도 행동
-    }
+        //cc.direction
 
+    }
     void Update()
     {
         Move();
