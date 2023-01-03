@@ -18,6 +18,8 @@ public class FishAngle : MonoBehaviour
     void Update()
     {
         View();  // 매 프레임마다 시야 탐색
+
+        
     }
 
     private Vector3 BoundaryAngle(float _angle)
@@ -28,18 +30,18 @@ public class FishAngle : MonoBehaviour
 
     private void View()
     {
-        Vector3 _leftBoundary = BoundaryAngle(-viewAngle * 0.5f);  // z 축 기준으로 시야 각도의 절반 각도만큼 왼쪽으로 회전한 방향 (시야각의 왼쪽 경계선)
-        Vector3 _rightBoundary = BoundaryAngle(viewAngle * 0.5f);  // z 축 기준으로 시야 각도의 절반 각도만큼 오른쪽으로 회전한 방향 (시야각의 오른쪽 경계선)
+        Vector3 _leftBoundary = BoundaryAngle(-viewAngle * 3.5f);  // z 축 기준으로 시야 각도의 절반 각도만큼 왼쪽으로 회전한 방향 (시야각의 왼쪽 경계선)
+        Vector3 _rightBoundary = BoundaryAngle(viewAngle * 3.5f);  // z 축 기준으로 시야 각도의 절반 각도만큼 오른쪽으로 회전한 방향 (시야각의 오른쪽 경계선)
 
-        Debug.DrawRay(transform.position + transform.forward, _leftBoundary, Color.red);
-        Debug.DrawRay(transform.position + transform.forward, _rightBoundary, Color.red);
+        Debug.DrawRay(transform.position - transform.forward, _leftBoundary, Color.red);
+        Debug.DrawRay(transform.position - transform.forward, _rightBoundary, Color.red);
 
-        Collider[] _target = Physics.OverlapSphere(transform.position, viewDistance, targetMask);
+        Collider[] _target = Physics.OverlapSphere(-transform.position, viewDistance, targetMask);
 
         for (int i = 0; i < _target.Length; i++)
         {
             Transform _targetTf = _target[i].transform;
-            if (_targetTf.name == "Fishing")
+            if (_targetTf.name == "fishing")
             {
                 Vector3 _direction = (_targetTf.position - transform.position).normalized;
                 float _angle = Vector3.Angle(_direction, -transform.forward);
@@ -49,7 +51,7 @@ public class FishAngle : MonoBehaviour
                     RaycastHit _hit;
                     if (Physics.Raycast(transform.position - transform.forward, _direction, out _hit, viewDistance))
                     {
-                        if (_hit.transform.name == "Fishing")
+                        if (_hit.transform.name == "fishing")
                         {
                             Debug.Log("찌가 물고기 시야 내에 있습니다.");
                             Debug.DrawRay(transform.position - transform.forward, _direction, Color.blue);
