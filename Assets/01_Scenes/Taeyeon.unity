@@ -951,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355740545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3, y: 0.487, z: 0}
+  m_LocalPosition: {x: 4.3, y: 0.98, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1284,6 +1284,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 872212068676433909, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 872212068676433909, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
+      propertyPath: m_LODs.Array.data[3].screenRelativeHeight
+      value: 0.15466255
+      objectReference: {fileID: 0}
     - target: {fileID: 872212068676433914, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4284,6 +4292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d407e32e4da3bd5469be1665fa3e2803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liking: 0
 --- !u!195 &1351622870
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4306,6 +4315,38 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &1351622874
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351622865}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1351622875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351622865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06712b55a6f5284bb8d73d3c38a4cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  npcName: 
+  isNpc: 0
+  needliking: 50
 --- !u!1 &1367910564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5111,6 +5152,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4643125184103371778, guid: efbc0dd0297c4e745951ab58edcbcdef, type: 3}
+      propertyPath: m_Height
+      value: 3.1868305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643125184103371778, guid: efbc0dd0297c4e745951ab58edcbcdef, type: 3}
+      propertyPath: m_Radius
+      value: 0.86687386
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643125184103371778, guid: efbc0dd0297c4e745951ab58edcbcdef, type: 3}
+      propertyPath: m_Center.y
+      value: 1.266781
+      objectReference: {fileID: 0}
     - target: {fileID: 4643125184103371836, guid: efbc0dd0297c4e745951ab58edcbcdef, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -5666,6 +5719,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d407e32e4da3bd5469be1665fa3e2803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liking: 0
+--- !u!114 &1865628700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865628694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06712b55a6f5284bb8d73d3c38a4cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  npcName: 
+  isNpc: 0
+  needliking: 40
+--- !u!54 &1865628701
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865628694}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1926453621
 PrefabInstance:
   m_ObjectHideFlags: 0
