@@ -63,8 +63,11 @@ public class Crafting : MonoBehaviour
             {
                 if (slots[i].itemImage.sprite.name == "stone")
                 {
-                    if (craft != null)
-                        slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                    if (crafting)
+                        slots[i].RemoveCount(need1);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                        
                     count = slots[i].itemCount;
                 }
             }
@@ -83,8 +86,10 @@ public class Crafting : MonoBehaviour
             {
                 if (slots[i].itemImage.sprite.name == "wood")
                 {
-                    if (craft != null)
-                        slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                    if (crafting)
+                        slots[i].RemoveCount(need1);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
                     count = slots[i].itemCount;
                 }
             }
@@ -102,8 +107,10 @@ public class Crafting : MonoBehaviour
             {
                 if (slots[i].itemImage.sprite.name == "spiderweb")
                 {
-                    if (craft != null)
-                        slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                    if (crafting)
+                        slots[i].RemoveCount(need1);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
                     count = slots[i].itemCount;
                 }
             }
@@ -123,8 +130,10 @@ public class Crafting : MonoBehaviour
             {
                 if (slots[i].itemImage.sprite.name == "stone")
                 {
-                    if (craft != null)
-                        slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
+                    if (crafting)
+                        slots[i].RemoveCount(need2);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
                     count = slots[i].itemCount;
                 }
             }
@@ -142,8 +151,10 @@ public class Crafting : MonoBehaviour
             {
                 if (slots[i].itemImage.sprite.name == "wood")
                 {
-                    if (craft != null)
-                        slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
+                    if (crafting)
+                        slots[i].RemoveCount(need2);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
                     count = slots[i].itemCount;
                 }
             }
@@ -161,8 +172,10 @@ public class Crafting : MonoBehaviour
             {
                 if (slots[i].itemImage.sprite.name == "spiderweb")
                 {
-                    if (craft != null)
-                        slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
+                    if (crafting)
+                        slots[i].RemoveCount(need2);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
                     count = slots[i].itemCount;
                 }
             }
@@ -188,13 +201,19 @@ public class Crafting : MonoBehaviour
 
    public void OnClick(CraftInformation _information)
     {
+
         if(!craftWindow.activeSelf)
             craftWindow.SetActive(true);
 
         information = _information;
-        for(int i = 0; i < images.Length; i++)
+        for (int i = 0; i < images.Length; i++)
+        {
             images[i].sprite = information.needImage[i];
+            images[i].name = information.needImage[i].name;
+        }
         itemName.text = information.name;
+        
+        GetCheck();
     }
 
     public void CraftByInt(int craftInt)
