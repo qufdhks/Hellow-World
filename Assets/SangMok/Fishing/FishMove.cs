@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FishMove : MonoBehaviour
 {
@@ -69,10 +70,9 @@ public class FishMove : MonoBehaviour
     private void Move()
     {
         //transform.position = ClampPosition(transform.position);
-
         //수영 가능한 공간
-        if (isSwimming)
-            rigidl.MovePosition(transform.position - transform.forward * swimSpeed * Time.deltaTime);
+        //    if (isSwimming)
+                rigidl.MovePosition(transform.position - transform.forward * swimSpeed * Time.deltaTime);
     }
 
     private void Rotation()
@@ -108,7 +108,7 @@ public class FishMove : MonoBehaviour
         isAction = true;
         anim.SetBool("Swim1", isSwimming);
 
-        direction.Set(0f, Random.Range(0f, 270f), 0f);
+        direction.Set(0f, Random.Range(-360f, 360f), 0f);
 
         RandomAction();
     }
