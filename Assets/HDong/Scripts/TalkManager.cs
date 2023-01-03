@@ -17,7 +17,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(1000, new string[] { "안녕?", "우리 섬에 온걸 환영해" });
         talkData.Add(2000, new string[] { "어서와.", "뭔가 필요한 게 있어?" });
         // 조합 NPC
-        //talkData.Add(8000, new string[] { "조합" });
+        talkData.Add(8000, new string[] { "조합할래?" });
 
         //Quest Talk
         talkData.Add(10 + 1000, new string[] { "드디어 일어났구나", "여기는 OO마을이야\n해변가에 쓰러져 있길래 데려왔어.", 

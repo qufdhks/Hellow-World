@@ -52,9 +52,6 @@ public class GameManager : MonoBehaviour
         int questTalkIndex = 0;
         string talkData = "";
 
-        if (_id == 8000)
-            craftingCanvas.SetActive(true);
-
         if (talk.isAnim)
         {
             talk.SetMsg("");
@@ -71,6 +68,9 @@ public class GameManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
             questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+
+            if (_id == 8000)
+                craftingCanvas.SetActive(true);
             return;
         }
 
