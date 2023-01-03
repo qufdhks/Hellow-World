@@ -9,7 +9,7 @@ public class Water : MonoBehaviour
     
 
     [SerializeField] private float waterDrag; // 물 속 중력
-    private float originDrag; // 물 밖 세상의 원래 저항력
+    //private float originDrag; // 물 밖 세상의 원래 저항력
 
     [SerializeField] private Color waterColor; // 낮의 물 속 Fog 색깔
     [SerializeField] private float waterFogDensity; // 낮의 물 속 탁한 정도
@@ -23,7 +23,7 @@ public class Water : MonoBehaviour
         originColor = RenderSettings.fogColor;
         originFogDensity = RenderSettings.fogDensity;
 
-        originDrag = 0;
+        //originDrag = 0;
     }
     void Update()
     {

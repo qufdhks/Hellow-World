@@ -31,8 +31,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // SubMenu ON/OFF
-        if (Input.GetButtonDown("Cancel"))
+        if (!craftingCanvas.activeSelf && Input.GetButtonDown("Cancel"))
             menuSet.SetActive(!menuSet.activeSelf);
+        if (craftingCanvas.activeSelf && Input.GetButtonDown("Cancel"))
+            craftingCanvas.SetActive(false);
+
     }
 
     public void Action(GameObject scanObj)

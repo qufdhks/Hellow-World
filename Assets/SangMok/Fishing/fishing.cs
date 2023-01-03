@@ -13,7 +13,7 @@ public class fishing : MonoBehaviour
     public float m_InitialAngle = 70f; // 처음 날라가는 각도
     private Rigidbody m_Rigidbody;
 
-    private float interval = 0.3f;
+    //private float interval = 0.3f;
 
     private bool isAction = false;
 

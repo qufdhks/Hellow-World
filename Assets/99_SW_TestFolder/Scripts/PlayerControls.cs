@@ -10,8 +10,6 @@ public class PlayerControls : MonoBehaviour
     private GameManager gameMng;
     [SerializeField]
     private GameObject scanObj;
-    float offset = 3f;
-
 
     // inputs
     public Controls controls;

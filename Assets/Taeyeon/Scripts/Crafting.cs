@@ -9,43 +9,47 @@ public class Crafting : MonoBehaviour
     private GoCraft craft = null;
 
     [SerializeField] private CraftInformation information;
-    private CraftInformation Getinformation;
+    [SerializeField] private GameObject slotParent;
+
+    private Slot[] slots;
 
     public enum CraftableItem { AXE};
     public enum ResourceItem { WOOD, STONE, SPIDERWEB };
 
-    public int wood;
-    public int stone;
-    public int spiderweb;
-
     private int craft1;
     private int craft2;
 
+    private int count;
     private int need1;
     private int need2;
 
     [SerializeField] private Image[] images;
-    [SerializeField] private Text name;
+    [SerializeField] private Text itemName;
     [SerializeField] private GameObject craftWindow;
 
-    public Text stoneText;
-    public Text woodText;
+    public Text item1Text;
+    public Text item2Text;
 
     bool crafting = false;
-    public bool hasAxe;
 
-    public GameObject axeButton;
+    private void Awake()
+    {
+        slots = slotParent.GetComponentsInChildren<Slot>();
+    }
 
     void Update()
     {
         if (information != null)
         {
             GetCheck();
-            stoneText.text = craft1.ToString() + "/" + information.needCount[0].ToString();
-            woodText.text = craft2.ToString() + "/" + information.needCount[1].ToString();
+            item1Text.text = craft1.ToString() + "/" + information.needCount[0].ToString();
+            item2Text.text = craft2.ToString() + "/" + information.needCount[1].ToString();
             need1 = information.needCount[0];
             need2 = information.needCount[1];
         }
+
+        if (craftWindow.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+            craftWindow.SetActive(false);
     }
 
     void GetCheck()
@@ -53,45 +57,135 @@ public class Crafting : MonoBehaviour
         if (crafting)
             craft = GoingCraft;
 
-
         if (information.needImage[0].name == "stone")
         {
-            if (craft != null)
-                stone = GoingCraft(stone, need1);
-            craft1 = stone;
+            for(int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].itemImage.sprite.name == "stone")
+                {
+                    if (crafting)
+                        slots[i].RemoveCount(need1);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                        
+                    count = slots[i].itemCount;
+                }
+            }
+            
+            craft1 = count;
+
+            if (craft1 < information.needCount[0])
+                item1Text.color = Color.red;
+            else
+                item1Text.color = Color.white;
         }
 
         else if (information.needImage[0].name == "wood")
         {
-            if (craft != null)
-                wood = GoingCraft(wood, need1);
-            craft1 = wood;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].itemImage.sprite.name == "wood")
+                {
+                    if (crafting)
+                        slots[i].RemoveCount(need1);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                    count = slots[i].itemCount;
+                }
+            }
+
+            craft1 = count;
+
+            if (craft1 < information.needCount[0])
+                item1Text.color = Color.red;
+            else
+                item1Text.color = Color.white;
         }
         else if (information.needImage[0].name == "spiderweb")
         {
-            if (craft != null)
-                spiderweb = GoingCraft(spiderweb, need1);
-            craft1 = spiderweb;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].itemImage.sprite.name == "spiderweb")
+                {
+                    if (crafting)
+                        slots[i].RemoveCount(need1);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
+                    count = slots[i].itemCount;
+                }
+            }
+
+            craft1 = count;
+
+            if (craft1 < information.needCount[0])
+                item1Text.color = Color.red;
+            else
+                item1Text.color = Color.white;
         }
 
 
         if (information.needImage[1].name == "stone")
         {
-            if (craft != null)
-                stone = GoingCraft(stone, need2);
-            craft2 = stone;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].itemImage.sprite.name == "stone")
+                {
+                    if (crafting)
+                        slots[i].RemoveCount(need2);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
+                    count = slots[i].itemCount;
+                }
+            }
+
+            craft2 = count;
+
+            if (craft2 < information.needCount[1])
+                item2Text.color = Color.red;
+            else
+                item2Text.color = Color.white;
         }
         else if (information.needImage[1].name == "wood")
         {
-            if (craft != null)
-                wood = GoingCraft(wood, need2);
-            craft2 = wood;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].itemImage.sprite.name == "wood")
+                {
+                    if (crafting)
+                        slots[i].RemoveCount(need2);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
+                    count = slots[i].itemCount;
+                }
+            }
+
+            craft2 = count;
+
+            if (craft2 < information.needCount[1])
+                item2Text.color = Color.red;
+            else
+                item2Text.color = Color.white;
         }
         else if (information.needImage[1].name == "spiderweb")
         {
-            if (craft != null)
-                spiderweb = GoingCraft(spiderweb, need2);
-            craft1 = spiderweb;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].itemImage.sprite.name == "spiderweb")
+                {
+                    if (crafting)
+                        slots[i].RemoveCount(need2);
+                    //if (craft != null)
+                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
+                    count = slots[i].itemCount;
+                }
+            }
+
+            craft2 = count;
+
+            if (craft2 < information.needCount[1])
+                item2Text.color = Color.red;
+            else
+                item2Text.color = Color.white;
         }
 
         crafting = false;
@@ -107,14 +201,19 @@ public class Crafting : MonoBehaviour
 
    public void OnClick(CraftInformation _information)
     {
+
         if(!craftWindow.activeSelf)
             craftWindow.SetActive(true);
 
         information = _information;
-        Getinformation = information;
-        for(int i = 0; i < images.Length; i++)
+        for (int i = 0; i < images.Length; i++)
+        {
             images[i].sprite = information.needImage[i];
-        name.text = information.name;
+            images[i].name = information.needImage[i].name;
+        }
+        itemName.text = information.name;
+        
+        GetCheck();
     }
 
     public void CraftByInt(int craftInt)
@@ -126,6 +225,7 @@ public class Crafting : MonoBehaviour
             Craft(CraftableItem.AXE);
         }
     }
+
     public bool Craft(CraftableItem craftable)
     {
         bool success = false;
@@ -139,7 +239,6 @@ public class Crafting : MonoBehaviour
                     success = true;
                     crafting = true;
                     GetCheck();
-                    hasAxe = true;
                 }
                 break; 
 
