@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -129,5 +130,10 @@ public class GameManager : MonoBehaviour
     public void GameExit()
     {
         Application.Quit();
+    }
+
+    public static implicit operator GameManager(ObjPooling v)
+    {
+        throw new NotImplementedException();
     }
 }

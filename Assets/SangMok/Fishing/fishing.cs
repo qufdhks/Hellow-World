@@ -16,12 +16,22 @@ public class fishing : MonoBehaviour
     //private float interval = 0.3f;
 
     private bool isAction = false;
+    public bool isfishing;
 
+    [SerializeField]
+    private Transform fishingTr;
+    //[SerializeField]
+    private GameObject attachGo;
 
+    public void SetAttachGo(GameObject _attachGo)
+    {
+        attachGo = _attachGo;
+    }
 
     void Start()
     {
         originPos = transform.position;
+        Debug.Log("Start: " + originPos);
         m_Rigidbody = GetComponent<Rigidbody>();
        
     }
@@ -33,6 +43,7 @@ public class fishing : MonoBehaviour
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
             m_Rigidbody.velocity = velocity;
             isAction = true;
+            isfishing = false;
         }
 
         
@@ -77,19 +88,16 @@ public class fishing : MonoBehaviour
      {
         while (isAction)
         {
-            if(Input.GetKeyDown(KeyCode.G))
+            if(attachGo != null && Input.GetKeyDown(KeyCode.G))
             {
-                //물고기 잡기
-                //fiShing.transform.SetParent(handTr);//handTr 찌
-                //fiShing.transform.localPosition = Vector3.zero;
+                isfishing = true;
                 Debug.Log("잡음");
-                isAction = false;
-                //Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
-                //Vector3 velocity = GetVelocity(m_Target.position, transform.position, m_InitialAngle);
+
+                attachGo.transform.SetParent(fishingTr);
+                Debug.Log("Fishing: " + originPos);
                 Vector3 velocity = GetVelocity(transform.position, originPos, m_InitialAngle);
                 m_Rigidbody.velocity = velocity;
-                //Vector3 velocity = ComVelocity(transform.position, m_Target.position, m_InitialAngle);
-                //m_Rigidbody.velocity = velocity;
+                isAction = false;
             }
 
             //yield return new WaitForSeconds(interval);

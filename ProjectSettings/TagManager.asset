@@ -11,6 +11,7 @@ TagManager:
   - Water
   - Fishing
   - Pet
+  - Ground
   layers:
   - Default
   - TransparentFX
