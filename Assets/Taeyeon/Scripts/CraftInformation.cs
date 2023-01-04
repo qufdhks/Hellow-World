@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CraftInformation : MonoBehaviour
 {
-    public string name;
+    public string itemName;
     public int[] needCount;
     public Sprite[] needImage;
     public int count;

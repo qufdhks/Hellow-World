@@ -31,8 +31,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // SubMenu ON/OFF
-        if (Input.GetButtonDown("Cancel"))
+        if (!craftingCanvas.activeSelf && Input.GetButtonDown("Cancel"))
             menuSet.SetActive(!menuSet.activeSelf);
+        if (craftingCanvas.activeSelf && Input.GetButtonDown("Cancel"))
+            craftingCanvas.SetActive(false);
+
     }
 
     public void Action(GameObject scanObj)
@@ -48,9 +51,6 @@ public class GameManager : MonoBehaviour
     {
         int questTalkIndex = 0;
         string talkData = "";
-
-        if (_id == 8000)
-            craftingCanvas.SetActive(true);
 
         if (talk.isAnim)
         {
@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
             questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+
+            if (_id == 8000)
+                craftingCanvas.SetActive(true);
             return;
         }
 

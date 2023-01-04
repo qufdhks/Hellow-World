@@ -4,22 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Stair
-  - WallRun
-  - Climb
-  - Fly
   - Inventory
   - Item
   - Bug
   - Fish
   - Water
   - Fishing
-  - Animal
+  - Pet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - Ground
@@ -29,6 +25,7 @@ TagManager:
   - Weapon
   - Minimap
   - Preview
+  - Fishing
   - 
   - 
   - 
@@ -36,17 +33,16 @@ TagManager:
   - 
   - 
   - 
-  - Animal
-  - 
-  - 
-  - Enemy
   - 
   - 
   - 
   - 
   - 
   - 
-  - Item
+  - 
+  - 
+  - 
+  - 
   - 
   m_SortingLayers:
   - name: Default
