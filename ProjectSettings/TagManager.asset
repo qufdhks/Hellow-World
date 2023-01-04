@@ -4,12 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Stair
+  - WallRun
+  - Climb
+  - Fly
   - Inventory
   - Item
   - Bug
   - Fish
   - Water
   - Fishing
+  - Animal
   layers:
   - Default
   - TransparentFX
@@ -31,17 +36,17 @@ TagManager:
   - 
   - 
   - 
+  - Animal
+  - 
+  - 
+  - Enemy
   - 
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Item
   - 
   m_SortingLayers:
   - name: Default
