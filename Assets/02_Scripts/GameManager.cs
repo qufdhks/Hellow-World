@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TalkManager talkMng;
     [SerializeField] private QuestManager questMng;
+    [SerializeField] private TimeManager timeMng;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject scanObject;
@@ -102,6 +103,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Quest ID", questMng.questId);
         PlayerPrefs.SetInt("QuestActionIndex", questMng.GetquestActionIndex);
 
+        PlayerPrefs.SetInt("Year", timeMng.timestamp.year);
+        PlayerPrefs.SetInt("Season", (int)timeMng.timestamp.season);
+        PlayerPrefs.SetInt("Day", timeMng.timestamp.day);
+        PlayerPrefs.SetInt("Hour", timeMng.timestamp.hour);
+        PlayerPrefs.SetInt("Min", timeMng.timestamp.minute);
+
         //�κ��丮
 
         //PlayerPrefs.Save();
@@ -120,6 +127,14 @@ public class GameManager : MonoBehaviour
 
         int questId = PlayerPrefs.GetInt("Quest ID");
         int questActionindex = PlayerPrefs.GetInt("QuestActionIndex");
+
+        int _year = PlayerPrefs.GetInt("Year");
+        int _day = PlayerPrefs.GetInt("Day");
+        int _hour = PlayerPrefs.GetInt("Hour");
+        int _min = PlayerPrefs.GetInt("Min");
+        GameTimestamp.Season _season = (GameTimestamp.Season)PlayerPrefs.GetInt("Season");
+
+        timeMng.timestamp = new GameTimestamp(_year, _season , _day, _hour, _min);
 
         player.transform.position = new Vector3(x, y, z);
         questMng.questId = questId;
