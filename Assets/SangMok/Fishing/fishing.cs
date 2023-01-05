@@ -36,7 +36,6 @@ public class fishing : MonoBehaviour
 
     void Start()
     {
-        originPos = transform.position;
         Debug.Log("Start: " + originPos);
         m_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -45,6 +44,7 @@ public class fishing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && !isAction)
         {
+            originPos = transform.position;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
             m_Rigidbody.velocity = velocity;
             isAction = true;
