@@ -17,8 +17,9 @@ public class fishing : MonoBehaviour
 
     private bool isAction = false;
     public bool isfishing;
+    private bool onWater = false;
 
-    [SerializeField]
+    //[SerializeField]
     private Transform fishingTr;
     //[SerializeField]
     private GameObject attachGo;
@@ -28,12 +29,16 @@ public class fishing : MonoBehaviour
         attachGo = _attachGo;
     }
 
+    private void Awake()
+    {
+        fishingTr = transform;
+    }
+
     void Start()
     {
         originPos = transform.position;
         Debug.Log("Start: " + originPos);
         m_Rigidbody = GetComponent<Rigidbody>();
-       
     }
 
     void Update()
@@ -45,8 +50,6 @@ public class fishing : MonoBehaviour
             isAction = true;
             isfishing = false;
         }
-
-        
     }
 
     public Vector3 GetVelocity(Vector3 player, Vector3 target, float initialAngle)
@@ -77,10 +80,15 @@ public class fishing : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Water")
+        if (!onWater && col.gameObject.name == "Water")
         {
             StartCoroutine(MoveFish());
             StartCoroutine(FishingCoroutine());
+
+            if (attachGo != null)
+                attachGo.GetComponent<TargetFish>().MovingToTarget();
+
+            onWater = true;
         }
     }
 
@@ -94,10 +102,13 @@ public class fishing : MonoBehaviour
                 Debug.Log("¿‚¿Ω");
 
                 attachGo.transform.SetParent(fishingTr);
-                Debug.Log("Fishing: " + originPos);
                 Vector3 velocity = GetVelocity(transform.position, originPos, m_InitialAngle);
                 m_Rigidbody.velocity = velocity;
                 isAction = false;
+
+                attachGo.GetComponent<TargetFish>().AttachProcess();
+
+                onWater = false;
             }
 
             //yield return new WaitForSeconds(interval);
