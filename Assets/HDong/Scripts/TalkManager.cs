@@ -16,6 +16,7 @@ public class TalkManager : MonoBehaviour
     {
         talkData.Add(1000, new string[] { "안녕?", "우리 섬에 온걸 환영해" });
         talkData.Add(2000, new string[] { "어서와.", "뭔가 필요한 게 있어?" });
+        talkData.Add(4000, new string[] { "안녕! OO아, 마을 좀 둘러봤어?" });
         // 조합 NPC
         talkData.Add(8000, new string[] { "조합할래?" });
 
@@ -26,10 +27,13 @@ public class TalkManager : MonoBehaviour
         talkData.Add(11 + 2000, new string[] { "너가 OO이가 말한 애구나?", "일단 이 마을에서 적응하려면 도구가 필요하겠지?", 
                                                 "주변에서 돌 3개와 나뭇가지 3개를 주워오면\n내가 도끼를 만들어 줄게." });
 
+
         talkData.Add(20 + 2000, new string[] { "나뭇가지랑 돌맹이는 나무 사이사이에 보면 떨어져 있을거야." });
-        talkData.Add(20 + 1000, new string[] { "내가 돌맹이를 줄게(테스트용)" });  
+        talkData.Add(20 + 1000, new string[] { "내가 돌맹이를 줄게(테스트용)" });
         talkData.Add(21 + 2000, new string[] { "모두 찾아왔구나.", "주워온 나뭇가지와 돌맹이로 내가 도끼를 만들어줄게.", "자.\n도끼로 이제 나무를 베어서 통나무를 얻을 수 있을거야.",
                                                "다리를 건너면 찾을 수 있는 OO이를 찾아가봐.\n다른 일을 줄거야."});
+        
+        talkData.Add(30 + 4000, new string[] { "OO마을에선 다양한 동물들과 친해질 수가 있고 \n인테리어 소품을 제작할 수도 있어.", "내가 더 설명해 줄테니 마을에서 목재 20개를 구해와줘." });
 
         //사물
         //talkData.Add(100, new string[] { "지금은 들어갈 수 없다" });
