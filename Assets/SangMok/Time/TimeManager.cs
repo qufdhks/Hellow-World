@@ -7,8 +7,7 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
     [Header("Internal Clock")]
-    [SerializeField] 
-    private GameTimestamp timestamp;
+    public GameTimestamp timestamp;
     public float timeScale = 1.0f;
     
     [Header("Day and Night Cycle")]
@@ -33,8 +32,9 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
-        //타임스탬프 초기화
-        timestamp = new GameTimestamp(0, GameTimestamp.Season.Spring, 1, 6, 0);
+        if (!PlayerPrefs.HasKey("Year"))
+            //타임스탬프 초기화
+            timestamp = new GameTimestamp(0, GameTimestamp.Season.Spring, 1, 6, 0);
         StartCoroutine(TimeUpdate());
     }
 

@@ -89,7 +89,7 @@ public class JunkochanControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.F) && scanObject != null)
         {
-			gameMng.Action(scanObject);
+			//gameMng.Action(scanObject);
         }
 
 

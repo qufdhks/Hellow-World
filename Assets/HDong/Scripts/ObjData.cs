@@ -10,6 +10,7 @@ public class ObjData : MonoBehaviour
     public string npcName;
     public bool isNpc;
     public int needliking;
+    public Food food;
 
     //public int Getid { get { return id; } }
     //public bool GetisNpc { get { return isNpc; } }
