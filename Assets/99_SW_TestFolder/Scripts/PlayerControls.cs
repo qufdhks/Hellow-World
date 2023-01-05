@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class PlayerControls : MonoBehaviour
     private GameManager gameMng;
     [SerializeField]
     private GameObject scanObj;
+    [SerializeField]
+    private Text uiText;
 
     // inputs
     public Controls controls;
@@ -74,11 +76,16 @@ public class PlayerControls : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward - new Vector3(0f, 0.1f, 0f) * 5f, new Color(0, 1, 0));
         RaycastHit hit;
         if (Physics.Raycast(transform.position, new Vector3(transform.forward.x, 0.1f, transform.forward.z), out hit, 2f, LayerMask.GetMask("Object")))
+        {
             scanObj = hit.transform.gameObject;
+            if(!gameMng.GetisAction)
+                uiText.text = "대화하기" + " <color=red>[F]</color>";
+        }
         else
+        {
             scanObj = null;
-
-
+            uiText.text = "";
+        }
     }
 
     void Locomotion()
