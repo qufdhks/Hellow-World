@@ -11,6 +11,7 @@ public class ObjData : MonoBehaviour
     public bool isNpc;
     public int needliking;
 
+
     //public int Getid { get { return id; } }
     //public bool GetisNpc { get { return isNpc; } }
 }
