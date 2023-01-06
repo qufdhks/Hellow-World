@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 8417018228311611504}
   - component: {fileID: 2634529654551065365}
   m_Layer: 0
-  m_Name: YEJI_ZZANG
+  m_Name: YEJI_ZZANG 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
