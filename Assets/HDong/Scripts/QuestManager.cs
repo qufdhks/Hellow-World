@@ -20,10 +20,10 @@ public class QuestManager : MonoBehaviour
 
     void GenerateData()
     {
-        questList.Add(10, new QuestData("의문의 마을", new int[] {1000, 2000, 4000}));
+        questList.Add(10, new QuestData("의문의 마을", new int[] {1000, 2000}));
         questList.Add(20, new QuestData("마을 적응하기(1)", new int[] {1000, 2000}));
-        questList.Add(20, new QuestData("마을 적응하기(2)", new int[] {4000}));
-        questList.Add(30, new QuestData("퀘스트 올 클리어" , new int[] {0}));
+        questList.Add(30, new QuestData("마을 적응하기(2)", new int[] {4000}));
+        questList.Add(40, new QuestData("퀘스트 올 클리어" , new int[] {0}));
     }
 
     public int GetQuestTalkIndex(int id)
