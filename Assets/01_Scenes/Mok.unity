@@ -23097,7 +23097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3115294120078890440, guid: afe6c7b6074949e4a98c5fb80904d767, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3469571128788134350, guid: afe6c7b6074949e4a98c5fb80904d767, type: 3}
       propertyPath: sunTransform
