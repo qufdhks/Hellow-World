@@ -63,7 +63,7 @@ public class ActionDokam : MonoBehaviour
             {
                 Debug.Log(other.GetComponent<ItemPickUp>().Getitem.itemName + " È¹µæ Çß½À´Ï´Ù.");  // µµ°¨ ³Ö±â
                 theencyclopedia.AcquireItem(other.GetComponent<ItemPickUp>().Getitem);
-                Destroy(other.transform.gameObject);
+                //Destroy(other.transform.gameObject);
                 ItemInfoDisappear();
             }
         }
