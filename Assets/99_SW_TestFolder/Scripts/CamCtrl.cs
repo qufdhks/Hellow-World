@@ -45,7 +45,8 @@ public class CamCtrl : MonoBehaviour
         }
         else if (Input.GetKey(leftMouse))
         {
-            cameraState = CameraState.CameraRotate;
+            if (!Inventory.invectoryActivated)
+                cameraState = CameraState.CameraRotate;
         }
         else if (Input.GetKey(rightMouse))
         {

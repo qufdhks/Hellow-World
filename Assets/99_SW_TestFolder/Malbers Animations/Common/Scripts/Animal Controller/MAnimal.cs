@@ -15,9 +15,9 @@ namespace MalbersAnimations.Controller
     [DefaultExecutionOrder(-10)]
     [SelectionBase]
     [AddComponentMenu("Malbers/Animal Controller/Animal")]
-    public partial class MAnimal : MonoBehaviour,   
-        IAnimatorListener, ICharacterMove, IGravity, IObjectCore, 
-        IRandomizer, IMAnimator, ISleepController, IMDamagerSet, 
+    public partial class MAnimal : MonoBehaviour,
+        IAnimatorListener, ICharacterMove, IGravity, IObjectCore,
+        IRandomizer, IMAnimator, ISleepController, IMDamagerSet,
         IAnimatorStateCycle, ICharacterAction// ITriggerInteract, IInteracter
     {
         //Animal Variables: All variables
@@ -26,7 +26,7 @@ namespace MalbersAnimations.Controller
 
         #region Editor Show 
         [HideInInspector] public int PivotPosDir;
-       // [HideInInspector] public bool ModeShowEvents;
+        // [HideInInspector] public bool ModeShowEvents;
         [HideInInspector] public int SelectedMode;
         [HideInInspector] public int SelectedState;
         [HideInInspector] public int SelectedStance;
@@ -34,8 +34,8 @@ namespace MalbersAnimations.Controller
         //[HideInInspector] public bool ShowAnimParameters = false;
         //[HideInInspector] public bool ShowLockInputs = false;
         //[HideInInspector] public bool ShowMisc = false;
-        
-        
+
+
         [HideInInspector] public bool ShowStateInInspector = false;
 
         [HideInInspector] public int Editor_Tabs1;
@@ -43,7 +43,7 @@ namespace MalbersAnimations.Controller
         [HideInInspector] public int Editor_Tabs2;
         [HideInInspector] public int Ability_Tabs;
         [HideInInspector] public int Editor_EventTabs;
-      
+
         [HideInInspector] public bool showPivots = true;
         [HideInInspector] public bool debugStates;
         [HideInInspector] public bool debugStances;

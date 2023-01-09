@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     //시간 UI 변수
     public Text timeText;
     public Text dateText;
-    
+
     //[Header("Inventory System")]
     ////인벤토리 패널 변수
     //public GameObject inventoryPanel;
@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     {
         //RenderInventory();
         //AssignSlotIndexes();
-        
+
         //개체 목록에 UIManager를 추가합니다. TimeManager는 시간이 업데이트될 때 알려줍니다.
         TimeManager.Instance.RegisterTracker(this);
     }
@@ -137,14 +137,14 @@ public class UIManager : MonoBehaviour, ITimeTracker
     public void ClockUpdate(GameTimestamp timestamp)
     {
         //시간 관리
-        
+
         //시간과 분 얻기
         int hours = timestamp.hour;
         int minutes = timestamp.minute;
-        
+
         //AM or PM
         string prefix = "AM ";
-        
+
         //시간을 12시간제로 변환
         if (hours > 12)
         {
@@ -154,16 +154,16 @@ public class UIManager : MonoBehaviour, ITimeTracker
         }
 
         //시간 텍스트 표시를 위해 그것을 전달하십시오.
-        timeText.text = prefix + hours +":"+minutes.ToString("00");
-        
+        timeText.text = prefix + hours + ":" + minutes.ToString("00");
+
         //날짜 처리
         int day = timestamp.day;
         string season = timestamp.season.ToString();
         string dayOfTheWeek = timestamp.GetDayOfTheWeek().ToString();
-        
+
         //날짜 텍스트 표시 형식
         dateText.text = season + " " + day + " (" + dayOfTheWeek + " )";
-        
+
 
     }
 }

@@ -16,6 +16,7 @@ TagManager:
   - Fishing
   - Pet
   - Ground
+  - MiniMapPlayer
   layers:
   - Default
   - TransparentFX
