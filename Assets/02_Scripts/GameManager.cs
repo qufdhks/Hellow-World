@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TalkManager talkMng;
     [SerializeField] private QuestManager questMng;
     [SerializeField] private TimeManager timeMng;
+    [SerializeField] private CraftManual craftManu;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject scanObject;
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
         if (craftingCanvas.activeSelf && Input.GetButtonDown("Cancel"))
             craftingCanvas.SetActive(false);
 
+        if (questMng.questId == 50)
+            craftManu.clearQuest = true;
     }
 
     public void Action(GameObject scanObj)
@@ -139,7 +142,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(x, y, z);
         questMng.questId = questId;
         questMng.GetquestActionIndex = questActionindex;
-        questMng.ControllObject();
+        //questMng.ControllObject();
     }
 
     public void GameExit()

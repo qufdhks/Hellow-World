@@ -9,4 +9,6 @@ public class CraftInformation : MonoBehaviour
     public int[] needCount;
     public Sprite[] needImage;
     public int count;
+
+    public Item item;
 }

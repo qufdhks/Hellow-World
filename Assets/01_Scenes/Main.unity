@@ -1167,6 +1167,7 @@ MonoBehaviour:
   talkMng: {fileID: 608525905}
   questMng: {fileID: 1438674359}
   timeMng: {fileID: 1344287410}
+  craftManu: {fileID: 1333412726}
   player: {fileID: 151923551}
   scanObject: {fileID: 0}
   menuSet: {fileID: 1351459461}
@@ -3837,6 +3838,8 @@ Transform:
   - {fileID: 1972036998}
   - {fileID: 861427095}
   - {fileID: 3903626838041524317}
+  - {fileID: 2077395400}
+  - {fileID: 1752169374}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8045,6 +8048,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1c88f440180d73a4cba1593d6b94af19, type: 3}
   - {fileID: 21300000, guid: 1c88f440180d73a4cba1593d6b94af19, type: 3}
   count: 3
+  item: {fileID: 0}
 --- !u!114 &609985216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8352,9 +8356,10 @@ MonoBehaviour:
   itemName: "\uB09A\uC2DC\uB300"
   needCount: 0300000002000000
   needImage:
-  - {fileID: 21300000, guid: fb283491d0b317944b45a4b016bc5282, type: 3}
+  - {fileID: 21300000, guid: 43e338a2e27d1ac419f20418a6e2c36a, type: 3}
   - {fileID: 21300000, guid: 795cd2f1bfbe7c44bb97b75b10d1313b, type: 3}
   count: 2
+  item: {fileID: 11400000, guid: f2b62bc7d52ef9c4d8abc780d8c9dd56, type: 2}
 --- !u!114 &638712987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11984,6 +11989,7 @@ MonoBehaviour:
   npcName: "\uB85C\uD0A4"
   isNpc: 1
   needliking: 0
+  items: []
 --- !u!65 &861427094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14819,6 +14825,7 @@ MonoBehaviour:
   npcName: "\uBD80\uC5C9"
   isNpc: 1
   needliking: 0
+  items: []
 --- !u!1001 &1146019346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17120,6 +17127,7 @@ MonoBehaviour:
   - {fileID: 1789352317, guid: 66aa2c640e46fa44482de62bda142b51, type: 3}
   - {fileID: 21300000, guid: 795cd2f1bfbe7c44bb97b75b10d1313b, type: 3}
   count: 1
+  item: {fileID: 11400000, guid: 68f18683bbbc04049b1f3e7fac3acc5a, type: 2}
 --- !u!114 &1291526700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18189,6 +18197,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5049170922579025195, guid: ba81ed000681b3a449206232ddf2f78c, type: 3}
   m_PrefabInstance: {fileID: 1331490109}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1333412726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6366092088468494887, guid: 0d5065e6370e5ba4d9106e6e62374caa, type: 3}
+  m_PrefabInstance: {fileID: 1316930207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea6230b7aba3824084152c9cb814592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1337254249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19669,8 +19688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questId: 10
   questActionIndex: 0
-  questObject:
-  - {fileID: 0}
 --- !u!4 &1438674360
 Transform:
   m_ObjectHideFlags: 0
@@ -19843,7 +19860,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1940719065}
         m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
         m_MethodName: CraftByInt
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23950,7 +23967,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 285047956}
     m_Modifications:
     - target: {fileID: 1628286060567557568, guid: 8d863aa0b58a54345a3b739c9e0954cf, type: 3}
       propertyPath: m_Layer
@@ -24074,7 +24091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1628286061087071720, guid: 8d863aa0b58a54345a3b739c9e0954cf, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1628286061087071720, guid: 8d863aa0b58a54345a3b739c9e0954cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24268,6 +24285,7 @@ MonoBehaviour:
   npcName: "\uB85C\uC544"
   isNpc: 1
   needliking: 0
+  items: []
 --- !u!65 &1752169372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24281,6 +24299,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.97, y: 2.28, z: 3.02}
   m_Center: {x: -0.18, y: 1.1, z: -0.14}
+--- !u!4 &1752169374 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1628286061087071720, guid: 8d863aa0b58a54345a3b739c9e0954cf, type: 3}
+  m_PrefabInstance: {fileID: 1752169366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1764609496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26797,7 +26820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3597661839480809900, guid: 14b68eef93cd885449c60ecc639b3ffb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3597661839480809901, guid: 14b68eef93cd885449c60ecc639b3ffb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -28411,6 +28434,10 @@ MonoBehaviour:
   npcName: "\uB8E8\uBBF8"
   isNpc: 1
   needliking: 0
+  items:
+  - questId: 30
+    item: {fileID: 11400000, guid: f9b908387e05b674eb96ebc33f4022b1, type: 2}
+    num: 3
 --- !u!65 &1972036997
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28429,6 +28456,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2698195539354330167, guid: 27e82c8a2f2dc474a8d10d84ae09e664, type: 3}
   m_PrefabInstance: {fileID: 1972036994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1972037000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972036995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a095be0f88188ad47a5e08953e33262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1975805617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30320,7 +30359,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 285047956}
     m_Modifications:
     - target: {fileID: 872212067536547456, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
       propertyPath: m_Layer
@@ -30420,7 +30459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 872212068676433914, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 872212068676433914, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30603,6 +30642,12 @@ MonoBehaviour:
   npcName: "\uBC0D\uACE0"
   isNpc: 0
   needliking: 0
+  items: []
+--- !u!4 &2077395400 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 872212068676433914, guid: e03b5f376965dcd4d874c221395ac67e, type: 3}
+  m_PrefabInstance: {fileID: 2077395395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2091605709
 PrefabInstance:
   m_ObjectHideFlags: 0
