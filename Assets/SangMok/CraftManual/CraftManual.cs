@@ -14,6 +14,7 @@ public class Craft
 public class CraftManual : MonoBehaviour
 {
     //상태변수
+    public bool clearQuest = false;
     private bool isActivated = false;
     private bool isPreviewActivated = false;
 
@@ -55,9 +56,8 @@ public class CraftManual : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated)
+        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated && clearQuest)
         {
-            //Debug.Log("ddddddd");
             Window();
         }
 

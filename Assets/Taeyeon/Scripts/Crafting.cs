@@ -10,10 +10,10 @@ public class Crafting : MonoBehaviour
 
     [SerializeField] private CraftInformation information;
     [SerializeField] private GameObject slotParent;
+    private Inventory inventory;
 
     private Slot[] slots;
 
-    public enum CraftableItem { AXE};
     public enum ResourceItem { WOOD, STONE, SPIDERWEB };
 
     private int craft1;
@@ -35,6 +35,7 @@ public class Crafting : MonoBehaviour
     private void Awake()
     {
         slots = slotParent.GetComponentsInChildren<Slot>();
+        inventory = GetComponent<Inventory>();
     }
 
     void Update()
@@ -219,34 +220,14 @@ public class Crafting : MonoBehaviour
         GetCheck();
     }
 
-    public void CraftByInt(int craftInt)
+    public void CraftByInt()
     {
-        //craftInt = information.count;
-
-        if(craftInt == 1)
+        if (craft1 >= need1 && craft2 >= need2)
         {
-            Craft(CraftableItem.AXE);
+            Debug.Log(need2);
+            crafting = true;
+            GetCheck();
+            inventory.AcquireItem(information.item);
         }
-    }
-
-    public bool Craft(CraftableItem craftable)
-    {
-        bool success = false;
-
-        switch (craftable)
-        {
-            case CraftableItem.AXE:
-                if(craft1 >= need1 && craft2 >= need2)
-                {
-                    Debug.Log(need2);
-                    success = true;
-                    crafting = true;
-                    GetCheck();
-                }
-                break; 
-
-        }
-
-        return success;
     }
 }
