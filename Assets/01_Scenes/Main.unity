@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08021941, g: 0.09961105, b: 0.30100358, a: 1}
+  m_IndirectSpecularColor: {r: 0.08034791, g: 0.09974583, b: 0.30115333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1828,18 +1828,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6525826765246374712, guid: 3d0cc942a79208c40a987c529d20ba33, type: 3}
   m_PrefabInstance: {fileID: 6525826765396445275}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &151923559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151923551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8edd2bf8aa76e459906088f9567988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &161988071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7520,7 +7508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &568918485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7953,18 +7941,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 1.8790197, z: 1.08}
   m_Center: {x: 0.4431239, y: 0.93950987, z: -0.043157127}
---- !u!114 &607657793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607657787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3671c83aef64d0848bbea0c4966f90ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &608525904
 GameObject:
   m_ObjectHideFlags: 0
@@ -8704,7 +8680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2057633114229267938, guid: 51ebe7f8482197f4d8ed531b86ea34f9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2057633114229267939, guid: 51ebe7f8482197f4d8ed531b86ea34f9, type: 3}
       propertyPath: m_RootOrder
@@ -20561,6 +20537,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 586860388314608203, guid: a26b877e40730c54aab4a30c857a8a71, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 2b2a11d537d7a9744bc52ee654b96fe3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a26b877e40730c54aab4a30c857a8a71, type: 3}
 --- !u!1 &1548437349
@@ -29247,7 +29227,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

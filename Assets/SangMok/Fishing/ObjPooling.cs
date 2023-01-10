@@ -71,7 +71,5 @@ public class ObjPooling : MonoBehaviour
            // else
                 yield return null;
         }
-
-        Debug.Log("Enddddddd");
     }
 }
