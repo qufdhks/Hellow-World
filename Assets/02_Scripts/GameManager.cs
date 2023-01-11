@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private QuestManager questMng;
     [SerializeField] private TimeManager timeMng;
     [SerializeField] private CraftManual craftManu;
+    [SerializeField] private Inventory inventory;
+    private Dictionary<int, ObjData.SQuestItem> questItem;
+
+    private Slot[] slots;
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject scanObject;
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
+        questItem = scanObject.GetComponent<QuestItem>().questItem;
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc, objData.npcName);
         
@@ -72,7 +77,26 @@ public class GameManager : MonoBehaviour
         {
             isAction = false;
             talkIndex = 0;
-            questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+
+            if (questItem != null)
+            {
+                Debug.Log("aaa");
+                for (int i = 0; i < inventory.slots.Length; i++) 
+                {
+                    if (questItem[_id].item.name == inventory.slots[i].item.name)
+                    {
+                        if (questItem[_id].num <= inventory.slots[i].itemCount)
+                        {
+                            questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+                            Debug.Log("완");
+                            break;
+                        }
+                    }
+                }
+                questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+            }
+            else
+                questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
 
             if (_id == 8000)
                 craftingCanvas.SetActive(true);
