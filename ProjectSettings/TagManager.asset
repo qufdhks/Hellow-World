@@ -17,6 +17,8 @@ TagManager:
   - Pet
   - Ground
   - MiniMapPlayer
+  - Tree
+  - Axe
   layers:
   - Default
   - TransparentFX
