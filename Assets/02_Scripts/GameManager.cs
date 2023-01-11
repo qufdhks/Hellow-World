@@ -50,7 +50,11 @@ public class GameManager : MonoBehaviour
     public void Action(GameObject scanObj)
     {
         scanObject = scanObj;
-        questItem = scanObject.GetComponent<QuestItem>().questItem;
+        if (scanObject.GetComponent<QuestItem>() != null) {
+            questItem = new Dictionary<int, ObjData.SQuestItem>();
+            questItem = scanObject.GetComponent<QuestItem>().questItem; 
+        }
+
         ObjData objData = scanObject.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc, objData.npcName);
         
@@ -78,22 +82,23 @@ public class GameManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
 
-            if (questItem != null)
+            if (questItem != null && questItem.ContainsKey(questMng.questId))
             {
-                Debug.Log("aaa");
-                for (int i = 0; i < inventory.slots.Length; i++) 
+                for (int i = 0; i < inventory.slots.Length; i++)
                 {
-                    if (questItem[_id].item.name == inventory.slots[i].item.name)
+                    if (inventory.slots[i].item == null) continue;
+
+                    if (questItem[questMng.questId].item.itemName == inventory.slots[i].item.name)
                     {
-                        if (questItem[_id].num <= inventory.slots[i].itemCount)
+                        if (questItem[questMng.questId].num <= inventory.slots[i].itemCount)
                         {
                             questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
                             Debug.Log("완");
                             break;
                         }
                     }
+                    continue;
                 }
-                questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
             }
             else
                 questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
