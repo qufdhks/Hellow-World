@@ -68,11 +68,11 @@ public class QuickSlotController : MonoBehaviour
             else if (quickSlots[selectedSlot].item.itemType == Item.ItemType.Used)
                 StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
             else
-                StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손")); 
+                StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
         }
-        else
-        {
-            StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
-        }
+        //else
+        //{
+        //    StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
+        //}
     }
 }
