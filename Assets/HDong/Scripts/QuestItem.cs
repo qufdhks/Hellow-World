@@ -8,7 +8,7 @@ public class QuestItem : MonoBehaviour
 
     private ObjData objdata;
 
-    public Dictionary<int, ObjData.SQuestItem> questItem;
+    public Dictionary<int, ObjData.SQuestItem> questItem = new Dictionary<int, ObjData.SQuestItem>();
 
     private void Awake()
     {

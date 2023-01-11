@@ -55,6 +55,7 @@ public class PlayerControls : MonoBehaviour
     private readonly int isJumping = Animator.StringToHash("IsJumping1");
     private readonly int isSwang = Animator.StringToHash("IsSwang");
     private readonly int isWalking = Animator.StringToHash("IsWalking1");
+    private readonly int isArmed = Animator.StringToHash("IsArmed");
 
     void Start()
     {
@@ -78,7 +79,7 @@ public class PlayerControls : MonoBehaviour
         if (Physics.Raycast(transform.position, new Vector3(transform.forward.x, 0.1f, transform.forward.z), out hit, 2f, LayerMask.GetMask("Object")))
         {
             scanObj = hit.transform.gameObject;
-            if(!gameMng.GetisAction)
+            if (!gameMng.GetisAction)
                 uiText.text = "대화하기" + " <color=red>[F]</color>";
         }
         else
@@ -244,6 +245,11 @@ public class PlayerControls : MonoBehaviour
 
     void GetInputs()
     {   //Forwards,Backwards controls
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            anim.SetBool(isArmed, true);
+        }
 
         //forwards
         if (Input.GetKey(controls.forwards))
