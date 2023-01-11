@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08021941, g: 0.09961105, b: 0.30100358, a: 1}
+  m_IndirectSpecularColor: {r: 0.08034791, g: 0.09974583, b: 0.30115333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1168,6 +1168,7 @@ MonoBehaviour:
   questMng: {fileID: 1438674359}
   timeMng: {fileID: 1344287410}
   craftManu: {fileID: 1333412726}
+  inventory: {fileID: 1940719061}
   player: {fileID: 151923551}
   scanObject: {fileID: 0}
   menuSet: {fileID: 1351459461}
@@ -11989,7 +11990,9 @@ MonoBehaviour:
   npcName: "\uB85C\uD0A4"
   isNpc: 1
   needliking: 0
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: f9b908387e05b674eb96ebc33f4022b1, type: 2}
+    num: 2
 --- !u!65 &861427094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12008,6 +12011,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2698195539354330167, guid: 27e82c8a2f2dc474a8d10d84ae09e664, type: 3}
   m_PrefabInstance: {fileID: 861427091}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &861427096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861427092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a095be0f88188ad47a5e08953e33262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 14000000
 --- !u!1001 &862931213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23051,7 +23067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456386036352195529, guid: 5b9f29e07aff7564b82d3aa1759581ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6456386036352195531, guid: 5b9f29e07aff7564b82d3aa1759581ef, type: 3}
       propertyPath: m_Type
@@ -23072,6 +23088,10 @@ PrefabInstance:
     - target: {fileID: 6456386037497889381, guid: 5b9f29e07aff7564b82d3aa1759581ef, type: 3}
       propertyPath: m_Name
       value: EncyclopediaPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456386037497889381, guid: 5b9f29e07aff7564b82d3aa1759581ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6456386037497889433, guid: 5b9f29e07aff7564b82d3aa1759581ef, type: 3}
       propertyPath: m_Pivot.x
@@ -28783,8 +28803,9 @@ MonoBehaviour:
   isNpc: 1
   needliking: 0
   items:
-  - questId: 30
-    item: {fileID: 11400000, guid: f9b908387e05b674eb96ebc33f4022b1, type: 2}
+  - item: {fileID: 11400000, guid: f9b908387e05b674eb96ebc33f4022b1, type: 2}
+    num: 2
+  - item: {fileID: 11400000, guid: b42098284424b784092654f9024b345b, type: 2}
     num: 3
 --- !u!65 &1972036997
 BoxCollider:
@@ -28816,6 +28837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a095be0f88188ad47a5e08953e33262e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questId: 0a00000014000000
 --- !u!1001 &1975805617
 PrefabInstance:
   m_ObjectHideFlags: 0

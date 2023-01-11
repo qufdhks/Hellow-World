@@ -17,9 +17,12 @@ public class QuestItem : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < questId.Length; i++)
+        if (objdata.items != null)
         {
-            questItem.Add(questId[i], objdata.items[i]);
+            for (int i = 0; i < questId.Length; i++)
+            {
+                questItem.Add(questId[i], objdata.items[i]);
+            }
         }
     }
 }

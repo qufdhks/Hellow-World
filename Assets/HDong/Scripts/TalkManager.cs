@@ -31,7 +31,7 @@ public class TalkManager : MonoBehaviour
 
 
         talkData.Add(20 + 2000, new string[] { "나뭇가지랑 돌맹이는 나무 사이사이에 보면 떨어져 있을거야." });
-        talkData.Add(20 + 1000, new string[] { "내가 돌맹이를 줄게(테스트용)" });
+        //talkData.Add(20 + 1000, new string[] { "내가 돌맹이를 줄게(테스트용)" });
         talkData.Add(21 + 2000, new string[] { "모두 찾아왔구나.", "주워온 나뭇가지와 돌맹이로 내가 도끼를 만들어줄게.", "자.\n도끼로 이제 나무를 베어서 통나무를 얻을 수 있을거야.",
                                                "다리를 건너면 찾을 수 있는 밍고를 찾아가봐.\n다른 일을 줄거야."});
         
