@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2057633114229267939}
   - component: {fileID: 2057633114229267941}
-  - component: {fileID: 2057633114229267940}
   - component: {fileID: 2057633114229267942}
   - component: {fileID: 2057633114229267943}
   m_Layer: 0
@@ -66,9 +65,9 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2147483647
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 391ef0c4d7ae5a4459ef949e963321a2, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 2b2a11d537d7a9744bc52ee654b96fe3, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -78,14 +77,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2057633114229267940
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057633114229267938}
-  m_Enabled: 1
 --- !u!54 &2057633114229267942
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,4 +105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61eb6d2ab938ce54c80d79105de02c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  YEJI_ZZANG: {fileID: 0}

@@ -11,6 +11,14 @@ public class ObjData : MonoBehaviour
     public bool isNpc;
     public int needliking;
 
+    [System.Serializable]
+    public struct SQuestItem
+    {
+        public Item item;
+        public int num;
+    }
+
+    public SQuestItem[] items = null;
 
     //public int Getid { get { return id; } }
     //public bool GetisNpc { get { return isNpc; } }
