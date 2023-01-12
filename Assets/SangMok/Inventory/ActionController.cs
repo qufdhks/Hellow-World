@@ -83,7 +83,7 @@ public class ActionController : MonoBehaviour
             {
                 Debug.Log(other.GetComponent<ItemPickUp>().Getitem.itemName + " 획득 했습니다.");  // 인벤토리 넣기
                 theInventory.AcquireItem(other.GetComponent<ItemPickUp>().Getitem);
-                Destroy(other.transform.gameObject);    
+                Destroy(other.transform.gameObject);
                 ItemInfoDisappear();
             }
         }
