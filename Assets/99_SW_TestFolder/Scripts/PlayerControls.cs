@@ -80,7 +80,7 @@ public class PlayerControls : MonoBehaviour
         {
             scanObj = hit.transform.gameObject;
             if (!gameMng.GetisAction)
-                uiText.text = "대화하기" + " <color=red>[F]</color>";
+                uiText.text = "대화하기" + " <color=red>[G]</color>";
         }
         else
         {
@@ -124,7 +124,7 @@ public class PlayerControls : MonoBehaviour
         transform.eulerAngles = characterRotation;
 
 
-        //press space to jump
+        // //press space to jump
         if (jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
         {
 
@@ -146,7 +146,7 @@ public class PlayerControls : MonoBehaviour
         //applying inputs
         if (!isJumped)
         {
-            anim.SetBool(isJumping, false);
+            //anim.SetBool(isJumping, false);
             velocity = (groundDirection.forward * inputNormalized.magnitude) * (currSpeed * forwardMult) + fallDirection.up * (velocityY * fallMult);
         }
         else
@@ -156,7 +156,7 @@ public class PlayerControls : MonoBehaviour
 
         velocity = gameMng.GetisAction ? Vector3.zero : velocity;
 
-        if (Input.GetKeyDown(KeyCode.F) && scanObj != null)
+        if (Input.GetKeyDown(KeyCode.G) && scanObj != null)
         {
             gameMng.Action(scanObj);
         }
@@ -237,7 +237,7 @@ public class PlayerControls : MonoBehaviour
                 velocityY = Mathf.Sqrt(-gravity * jumpHeight);
 
             }
-            anim.SetBool(isJumping, true);
+            //anim.SetBool(isJumping, true);
 
 
         }
@@ -248,18 +248,18 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-            anim.SetBool(isArmed, true);
+            //anim.SetBool(isArmed, true);
         }
 
         //forwards
         if (Input.GetKey(controls.forwards))
         {
             inputs.y = 1.0f;
-            anim.SetBool(isRunning, true);
+            //anim.SetBool(isRunning, true);
         }
         if (!Input.GetKey(controls.forwards))
         {
-            anim.SetBool(isRunning, false);
+            //anim.SetBool(isRunning, false);
         }
 
         //backwards
@@ -273,13 +273,13 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 inputs.y = -1.0f;
-                anim.SetBool(isMovedBack, true);
+                //anim.SetBool(isMovedBack, true);
 
             }
         }
         if (!Input.GetKey(controls.backwards))
         {
-            anim.SetBool(isMovedBack, false);
+            //anim.SetBool(isMovedBack, false);
         }
 
         //FW nothing
@@ -294,12 +294,12 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKey(controls.strafeRight))
         {
             inputs.x = 1.0f;
-            anim.SetBool(isGoingRight, true);
+            //anim.SetBool(isGoingRight, true);
 
         }
         if (!Input.GetKey(controls.strafeRight))
         {
-            anim.SetBool(isGoingRight, false);
+            //anim.SetBool(isGoingRight, false);
         }
 
         //StrafeLeft
@@ -312,12 +312,12 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 inputs.x = -1.0f;
-                anim.SetBool(isGoingLeft, true);
+                //anim.SetBool(isGoingLeft, true);
             }
         }
         if (!Input.GetKey(controls.strafeLeft))
         {
-            anim.SetBool(isGoingLeft, false);
+            //anim.SetBool(isGoingLeft, false);
         }
 
         //StrafeLR nothing
@@ -331,11 +331,11 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKey(controls.rotateRight))
         {
             rotation = 1.0f;
-            anim.SetBool(isTurnRight, true);
+            //anim.SetBool(isTurnRight, true);
         }
         if (!Input.GetKey(controls.rotateRight))
         {
-            anim.SetBool(isTurnRight, false);
+            //anim.SetBool(isTurnRight, false);
         }
         //RotateLeft
         if (Input.GetKey(controls.rotateLeft))
@@ -347,12 +347,12 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 rotation = -1.0f;
-                anim.SetBool(isTurnLeft, true);
+                //anim.SetBool(isTurnLeft, true);
             }
         }
         if (!Input.GetKey(controls.rotateLeft))
         {
-            anim.SetBool(isTurnLeft, false);
+            //anim.SetBool(isTurnLeft, false);
         }
 
         //RotateLR nothing
@@ -364,12 +364,12 @@ public class PlayerControls : MonoBehaviour
         //Interaction
         if (Input.GetKeyDown(KeyCode.R))
         {
-            anim.SetBool(isSwang, true);
+            //anim.SetBool(isSwang, true);
 
         }
         if (Input.GetKeyUp(KeyCode.R))
         {
-            anim.SetBool(isSwang, false);
+            //anim.SetBool(isSwang, false);
         }
 
         //toggle run
@@ -377,9 +377,9 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKey(controls.walkRun))
         {
             run = !run;
-            anim.SetBool(isWalking, true);
+            //anim.SetBool(isWalking, true);
         }
-        anim.SetBool(isWalking, false);
+        //anim.SetBool(isWalking, false);
         // if (!Input.GetKey(controls.walkRun))
         // {
         //     !run = run;
@@ -402,12 +402,12 @@ public class PlayerControls : MonoBehaviour
     {
         collisionPoint = hit.point;
     }
-    // Input for interaction
+    //Input for interaction
     //anim.SetBool(isSwang, true);
-    //}
+
     //if(Input.GetKeyUp(KeyCode.F))
     //{
-    //    anim.SetBool(isSwang, false);
+    //anim.SetBool(isSwang, false);
     //}
 
 

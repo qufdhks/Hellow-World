@@ -12368,7 +12368,7 @@ MonoBehaviour:
     - name: Interact
       active:
         UseConstant: 1
-        ConstantValue: 1
+        ConstantValue: 0
         Variable: {fileID: 0}
       type: 1
       input: Action
@@ -12522,7 +12522,7 @@ MonoBehaviour:
         Variable: {fileID: 0}
       type: 1
       input: Aim
-      key: 324
+      key: 101
       GetPressed: 0
       InputValue: 0
       ToggleValue: 0
@@ -12564,7 +12564,7 @@ MonoBehaviour:
         Variable: {fileID: 0}
       type: 1
       input: Attack1
-      key: 323
+      key: 101
       GetPressed: 0
       InputValue: 0
       ToggleValue: 0

@@ -18,7 +18,7 @@ namespace MalbersAnimations
         }
         public bool UseColliders;
         public GizmoType gizmoType;
-       
+
         [Min(0)] public float debugSize = 0.03f;
         public Color DebugColor = Color.blue;
         public bool DrawAxis;
@@ -166,7 +166,7 @@ namespace MalbersAnimations
     {
 
         SerializedProperty UseColliders, gizmoType, debugSize, DebugColor, DrawAxis, AxisSize;
-        
+
 
         private void OnEnable()
         {
@@ -209,4 +209,4 @@ namespace MalbersAnimations
         }
     }
 #endif
-    }
+}
