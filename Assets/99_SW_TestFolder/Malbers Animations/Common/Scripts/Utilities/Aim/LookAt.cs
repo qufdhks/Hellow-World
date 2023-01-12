@@ -144,8 +144,8 @@ namespace MalbersAnimations.Utilities
         {
             if (Time.time < float.Epsilon || Time.timeScale <= 0) return;
 
-            if (OnlyTargets) CameraTarget = (aimer.AimTarget != null);        //If Only Target is true then Disable it because we do not have any target
-            if (!OnlyTargets) CameraTarget = (aimer.MainCamera != null);      //If Only Target is false and there's no Camera then Disable it because we do not have any target
+            //if (OnlyTargets) CameraTarget = (aimer.AimTarget != null);        //If Only Target is true then Disable it because we do not have any target
+            //if (!OnlyTargets) CameraTarget = (aimer.MainCamera != null);      //If Only Target is false and there's no Camera then Disable it because we do not have any target
 
             angle = Vector3.Angle(transform.forward, AimDirection);
             SP_Weight = Mathf.MoveTowards(SP_Weight, IsAiming ? 1 : 0, Time.deltaTime * Smoothness / 2);

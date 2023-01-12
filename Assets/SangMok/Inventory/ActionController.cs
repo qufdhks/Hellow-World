@@ -29,9 +29,8 @@ public class ActionController : MonoBehaviour
 
         if (other.transform.tag == "Item")
         {
-            Debug.Log("ddddd");
             ItemInfoAppear(other);
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 //CheckItem();
                 CanPickUp(other);
@@ -65,9 +64,9 @@ public class ActionController : MonoBehaviour
     private void ItemInfoAppear(Collider other)
     {
         pickupActivated = true;
-        Debug.Log(pickupActivated);
+        //Debug.Log(pickupActivated);
         actionText.gameObject.SetActive(true);
-        actionText.text = other.transform.GetComponent<ItemPickUp>().Getitem.itemName + " È¹µæ " + "<color=red>" + "(F)" + "</color>";
+        actionText.text = other.transform.GetComponent<ItemPickUp>().Getitem.itemName + " È¹µæ " + "<color=red>" + "(B)" + "</color>";
     }
 
     private void ItemInfoDisappear()
