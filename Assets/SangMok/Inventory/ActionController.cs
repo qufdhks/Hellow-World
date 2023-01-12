@@ -31,7 +31,7 @@ public class ActionController : MonoBehaviour
         {
             Debug.Log("ddddd");
             ItemInfoAppear(other);
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 //CheckItem();
                 CanPickUp(other);
@@ -67,7 +67,7 @@ public class ActionController : MonoBehaviour
         pickupActivated = true;
         Debug.Log(pickupActivated);
         actionText.gameObject.SetActive(true);
-        actionText.text = other.transform.GetComponent<ItemPickUp>().Getitem.itemName + " »πµÊ " + "<color=red>" + "(F)" + "</color>";
+        actionText.text = other.transform.GetComponent<ItemPickUp>().Getitem.itemName + " »πµÊ " + "<color=red>" + "(B)" + "</color>";
     }
 
     private void ItemInfoDisappear()
@@ -84,7 +84,7 @@ public class ActionController : MonoBehaviour
             {
                 Debug.Log(other.GetComponent<ItemPickUp>().Getitem.itemName + " »πµÊ «ﬂΩ¿¥œ¥Ÿ.");  // ¿Œ∫•≈‰∏Æ ≥÷±‚
                 theInventory.AcquireItem(other.GetComponent<ItemPickUp>().Getitem);
-                Destroy(other.transform.gameObject);    
+                Destroy(other.transform.gameObject);
                 ItemInfoDisappear();
             }
         }
