@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/Environment_Free.unity.meta
 guid: c732593fe76e5a84197f9cd13963f706
+========
+guid: 13cd0dae7f3a83c4880d50a6af6afc03
+>>>>>>>> 5ae7196df95728341d41e8ca8bf6c6622ea3e4c7:Assets/Free Voxel Christmas Pack/Models/Christmas_Trees/Christmas tree_2.mtl.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
