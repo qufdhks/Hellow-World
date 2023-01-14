@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Park Assets/Scene/1.unity.meta
 guid: 46c76ea4efc178b489cec1e3b6f176cf
+========
+guid: 3e88ba3d590ba2447b3414552560020e
+>>>>>>>> d60e4b8d5732a26ef6e0052035ede62c49f1da1b:Assets/Free Voxel Christmas Pack/Models/Environment/Bench_1.mtl.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
