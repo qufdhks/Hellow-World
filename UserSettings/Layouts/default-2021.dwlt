@@ -165,8 +165,8 @@ MonoBehaviour:
     y: 0
     width: 1008.8
     height: 458.4
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 458.4
     width: 1008.8
     height: 264.4
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 106
+  controlID: 96
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 272.8
     height: 476
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -297,8 +297,8 @@ MonoBehaviour:
     y: 0
     width: 254.40002
     height: 722.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 65.913216, y: -93.623695, z: 208.12819}
+    m_Target: {x: 93.377655, y: 42.453278, z: 32.276184}
     speed: 2
-    m_Value: {x: 65.913216, y: -93.623695, z: 208.12819}
+    m_Value: {x: 93.377655, y: 42.453278, z: 32.276184}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -606,13 +606,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.26490366, y: 0.028815774, z: -0.0077999793, w: -0.963873}
+    m_Target: {x: 0.25869375, y: -0.6940779, z: 0.2976373, w: 0.6024839}
     speed: 2
-    m_Value: {x: -0.25462934, y: 0.04193976, z: -0.01093484, w: -0.96606696}
+    m_Value: {x: 0.25866252, y: -0.6939941, z: 0.29760137, w: 0.6024112}
   m_Size:
-    m_Target: 127.322014
+    m_Target: 44.420002
     speed: 2
-    m_Value: 127.322075
+    m_Value: 44.420002
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1320,24 +1320,24 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 402}
-      m_SelectedIDs: 54d70600
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 4ec70000
       m_LastClickedID: 0
-      m_ExpandedIDs: 8865f8ffa465f8fffc65f8ff0466f8ffca66f8ff6867f8ff7a67f8ffcc68f8fffc68f8ff0469f8ff3e69f8ffa069f8ffd069f8ff466af8ffca6af8ffc086f8ffca8cf8ffbcaef8ffd8aef8ff30aff8fffeaff8ff9cb0f8ffaeb0f8ff00b2f8ff30b2f8ff72b2f8ff7ab3f8fffeb3f8ff48dff8ff9ee4f8ff72eaf8ff58fcf8ff62fcf8ff72fcf8ff82fcf8ff84fcf8ff88fcf8ff9afcf8ffb2fcf8ffbafcf8ffd6fcf8ffdcfcf8fff0fcf8fff2fcf8ff16fdf8ff3cfff8ff9c2af9fff42bf9ff1a2cf9ff2e2df9ff5e2df9ff842df9ffe82df9ff882ef9ff1a33f9ff4033f9ff7634f9ffa634f9ffd634f9ff2a35f9ffe635f9ffe835f9ff4a3cf9ff7c72f9ff4274f9ffc2aef9ff1cb1f9ff42b1f9ff56b2f9ff86b2f9ffacb2f9ff10b3f9ffb0b3f9ff42b8f9ff68b8f9ff9eb9f9ffceb9f9fffeb9f9ff52baf9ff0ebbf9ff10bbf9ff18c6f9ffeef5f9ffe01efaff0c20faff1c790600ea7b060084890600628d06000c8f060020b80600a8c00600bad30600
+      m_ExpandedIDs: 3699ffff6c9cffffeaacffffecfaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: mountain
-        m_OriginalName: mountain
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -489850
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -1388,22 +1388,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/09_Resources
+    - Assets/01_Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/09_Resources
+  - Assets/01_Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: "C:\\Users\\\uAE40\uD0DC\uC5F0\\Documents\\GitHub\\Hellow-World"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 146.20001}
-    m_SelectedIDs: d0430600
-    m_LastClickedID: 410576
-    m_ExpandedIDs: 00000000c0430600c2430600d04306000c4406007cd106008cd1060000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 48880000
+    m_LastClickedID: 34888
+    m_ExpandedIDs: 000000002a8700005088000004890000068900000889000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1431,7 +1431,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000002a870000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1483,7 +1483,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 61.200012}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 134
@@ -1522,7 +1522,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 14.400001
+  m_LastVerticalScrollValue: 162
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
