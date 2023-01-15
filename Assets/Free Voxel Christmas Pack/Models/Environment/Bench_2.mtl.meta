@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/02.Japan_Village_ArtE.meta
+guid: 54b4560d0c4d12e4689c6a32dc39ca8b
+folderAsset: yes
+========
 guid: c9cba187608273148a7f833041c3fc1f
+>>>>>>>> d60e4b8d5732a26ef6e0052035ede62c49f1da1b:Assets/Free Voxel Christmas Pack/Models/Environment/Bench_2.mtl.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

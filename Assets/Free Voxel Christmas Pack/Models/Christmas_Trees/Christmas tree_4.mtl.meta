@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/01_Scenes/Fall_TY.unity.meta
+guid: 82edbd37169037d4598df894ae669322
+========
 guid: fb7397f833df48a47a2da5344f64e161
+>>>>>>>> d60e4b8d5732a26ef6e0052035ede62c49f1da1b:Assets/Free Voxel Christmas Pack/Models/Christmas_Trees/Christmas tree_4.mtl.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
