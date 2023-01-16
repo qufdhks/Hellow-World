@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.08046203, g: 0.09983531, b: 0.30109286, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4746,7 +4746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2218114673693341749, guid: e0b1a3f64133c400c9d81476c6003a69, type: 3}
       propertyPath: m_Name
-      value: YEJIZZANG_01 (1)
+      value: YEJIZZANG_001
       objectReference: {fileID: 0}
     - target: {fileID: 2218114673693341749, guid: e0b1a3f64133c400c9d81476c6003a69, type: 3}
       propertyPath: m_IsActive
@@ -8867,7 +8867,7 @@ PrefabInstance:
     - target: {fileID: 2057633114229267943, guid: 51ebe7f8482197f4d8ed531b86ea34f9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1844944797}
     - target: {fileID: 2057633114229267943, guid: 51ebe7f8482197f4d8ed531b86ea34f9, type: 3}
       propertyPath: YEJI_ZZANG
       value: 
@@ -25217,6 +25217,11 @@ MonoBehaviour:
 --- !u!95 &1844944784 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2276788215978982743, guid: e0b1a3f64133c400c9d81476c6003a69, type: 3}
+  m_PrefabInstance: {fileID: 333399864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1844944797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2223737028725804367, guid: e0b1a3f64133c400c9d81476c6003a69, type: 3}
   m_PrefabInstance: {fileID: 333399864}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1845718122

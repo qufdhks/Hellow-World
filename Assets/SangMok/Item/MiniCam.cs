@@ -9,7 +9,7 @@ public class MiniCam : MonoBehaviour
 
     void Start()
     {
-        //offset = transform.position - YEJI_ZZANG.transform.position;
+        offset = transform.position - player.transform.position;
     }
 
     void LateUpdate()
