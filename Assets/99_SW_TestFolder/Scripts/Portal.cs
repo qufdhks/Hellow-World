@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.position = new Vector3(tr.position.x,10f,tr.position.z);
+            other.transform.position = new Vector3(tr.position.x,tr.position.y,tr.position.z);
             //RenderSettings.skybox = mat;
             //DynamicGI.UpdateEnvironment();
             StartCoroutine(OnOff(other));

@@ -1,9 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/99_SW_TestFolder/Malbers Animations/Common/Shaders/HDRP_MalbersShaders 2020.unitypackage.meta
 guid: bdf9fd42c6665a045bf5d894cf016f5a
 labels:
 - AllCreature
 DefaultImporter:
+========
+guid: 6ebeef78c6655ff4fb5d70778da9d073
+NativeFormatImporter:
+>>>>>>>> 087a08ff3d7d01b98c7def0a5c735fbca391f71b:Assets/HDong/Fall Portal.renderTexture.meta
   externalObjects: {}
+  mainObjectFileID: 8400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
