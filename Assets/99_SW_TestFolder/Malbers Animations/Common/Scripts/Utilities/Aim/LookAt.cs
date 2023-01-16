@@ -17,7 +17,7 @@ namespace MalbersAnimations.Utilities
         public class BoneRotation
         {
             /// <summary> Transform reference for the Bone </summary>
-            [RequiredField] public Transform bone;                                          //The bone
+           [RequiredField] public Transform bone;                                          //The bone
             public Vector3 offset = new Vector3(0, -90, -90);               //The offset for the look At
             [Range(0, 1)] public float weight = 1;                          //the Weight of the look a
             internal Quaternion nextRotation;
@@ -29,25 +29,25 @@ namespace MalbersAnimations.Utilities
         public BoolReference active = new BoolReference(true);     //For Activating and Deactivating the HeadTrack
 
         private IGravity a_UpVector;
-
+       
         private IAim aimer;
 
         /// <summary>Max Angle to LookAt</summary>
         [Space, Tooltip("Max Angle to LookAt")]
-        public FloatReference LimitAngle = new FloatReference(80f);
+        public FloatReference LimitAngle = new FloatReference(80f);                              
         /// <summary>Smoothness between Enabled and Disable</summary>
         [Tooltip("Smoothness between Enabled and Disable")]
-        public FloatReference Smoothness = new FloatReference(5f);
+        public FloatReference Smoothness = new FloatReference(5f); 
 
         /// <summary>Smoothness between Enabled and Disable</summary>
         [Tooltip("Use the LookAt only when there's a Force Target on the Aim... use this when the Animal is AI Controlled")]
-        [SerializeField] private BoolReference onlyTargets = new BoolReference(false);
+        [SerializeField] private BoolReference onlyTargets = new BoolReference(false)    ;
 
         public BoolEvent OnLookAtActive = new BoolEvent();
 
         [Space]
         public BoneRotation[] Bones;      //Bone Chain    
-        private Quaternion[] LocalRot;      //Bone Chain    
+        private  Quaternion[] LocalRot;      //Bone Chain    
         public bool debug = true;
         private float SP_Weight;
         /// <summary>Angle created between the transform.Forward and the LookAt Point   </summary>
@@ -82,7 +82,7 @@ namespace MalbersAnimations.Utilities
                     }
                 }
                 return isAiming;
-            }
+            } 
         }
 
         bool CameraTarget;
@@ -94,7 +94,7 @@ namespace MalbersAnimations.Utilities
             set
             {
                 active.Value = value;        //enable disable also the Aimer
-
+              
                 if (aimer != null) aimer.Active = value;
             }
         }
@@ -117,10 +117,10 @@ namespace MalbersAnimations.Utilities
 
         void Start()
         {
-            if (Bones != null && Bones.Length > 0)
+            if (Bones != null && Bones.Length > 0) 
                 EndBone = Bones[Bones.Length - 1].bone;
 
-            if (aimer.AimOrigin == null || aimer.AimOrigin == EndBone)
+            if (aimer.AimOrigin == null || aimer.AimOrigin == EndBone) 
                 aimer.AimOrigin = Bones[0].bone.parent;
 
             LocalRot = new Quaternion[Bones.Length];
@@ -142,20 +142,20 @@ namespace MalbersAnimations.Utilities
 
         void LateUpdate()
         {
-            if (Time.time < float.Epsilon || Time.timeScale <= 0) return;
+            if (Time.time < float.Epsilon || Time.timeScale <=0) return;
 
-            //if (OnlyTargets) CameraTarget = (aimer.AimTarget != null);        //If Only Target is true then Disable it because we do not have any target
-            //if (!OnlyTargets) CameraTarget = (aimer.MainCamera != null);      //If Only Target is false and there's no Camera then Disable it because we do not have any target
+            if (OnlyTargets) CameraTarget = (aimer.AimTarget != null);        //If Only Target is true then Disable it because we do not have any target
+            if (!OnlyTargets) CameraTarget = (aimer.MainCamera != null);      //If Only Target is false and there's no Camera then Disable it because we do not have any target
 
             angle = Vector3.Angle(transform.forward, AimDirection);
             SP_Weight = Mathf.MoveTowards(SP_Weight, IsAiming ? 1 : 0, Time.deltaTime * Smoothness / 2);
 
-
+            
 
             //if (UseLerp)
             //    LookAtBoneSet_AnimatePhysics_Lerp();            //Rotate the bones
             //else
-            LookAtBoneSet_AnimatePhysics();            //Rotate the bones
+                LookAtBoneSet_AnimatePhysics();            //Rotate the bones
         }
 
         /// <summary>Enable Look At from the Animator (Needs Layer)</summary>
@@ -175,16 +175,16 @@ namespace MalbersAnimations.Utilities
             }
             ActiveByAnimation = (EnablePriority > DisablePriority);
 
-            //Debug.Log("ActiveByAnimation: "+ ActiveByAnimation);
+             //Debug.Log("ActiveByAnimation: "+ ActiveByAnimation);
         }
-
+        
         public virtual void ResetByPriority(int priority)
         {
             if (EnablePriority == priority) EnablePriority = 0;
             if (DisablePriority == priority) DisablePriority = 0;
 
             ActiveByAnimation = (EnablePriority > DisablePriority);
-            //  Debug.Log("Res");
+          //  Debug.Log("Res");
         }
 
 
@@ -193,10 +193,10 @@ namespace MalbersAnimations.Utilities
             if (priority >= EnablePriority)
             {
                 DisablePriority = priority;
-                if (DisablePriority == EnablePriority) EnablePriority = 0;
+                if (DisablePriority == EnablePriority)  EnablePriority = 0;
             }
 
-            // Debug.Log("Dis");
+           // Debug.Log("Dis");
             ActiveByAnimation = (EnablePriority > DisablePriority);
         }
 
@@ -208,12 +208,12 @@ namespace MalbersAnimations.Utilities
 
         //private int[] LayersPriority = new int[20];
 
-
+       
 
         /// <summary>Rotates the bones to the Look direction for FIXED UPTADE ANIMALS</summary>
         void LookAtBoneSet_AnimatePhysics()
         {
-            // CalculateAiming();
+           // CalculateAiming();
 
             for (int i = 0; i < Bones.Length; i++)
             {

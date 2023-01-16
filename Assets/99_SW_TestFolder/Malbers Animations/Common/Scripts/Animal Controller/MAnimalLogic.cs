@@ -11,7 +11,7 @@ namespace MalbersAnimations.Controller
         void Awake()
         {
             DefaultCameraInput = UseCameraInput;
-
+         
 
             if (NoParent) transform.parent = null; //IMPORTANT the animal cannot be parent of any game Object (Known Issue)
 
@@ -97,7 +97,7 @@ namespace MalbersAnimations.Controller
                         $"[{name}] has [ClonesStates] disabled. " +
                         $"If multiple characters use the same states, it will cause issues." +
                         $" Use this only for runtime changes on a single character"
-                    , this);
+                    ,this);
 
             AwakeAllModes();
 
@@ -123,7 +123,7 @@ namespace MalbersAnimations.Controller
 
             //Editor Checking (Make sure the Animator has an Avatar)
             if (Anim.avatar == null)
-                Debug.LogWarning("There's no Avatar on the Animator", Anim);
+                Debug.LogWarning("There's no Avatar on the Animator",Anim);
         }
 
         private void AwakeAllModes()
@@ -142,10 +142,10 @@ namespace MalbersAnimations.Controller
 
             if (Anim)
             {
-                // Anim.Rebind(); //Reset the Animator Controller
+               // Anim.Rebind(); //Reset the Animator Controller
                 Anim.speed = AnimatorSpeed * TimeMultiplier;                         //Set the Global Animator Speed
                 Anim.updateMode = AnimatorUpdateMode.AnimatePhysics;
-
+                
 
                 var AllModeBehaviours = Anim.GetBehaviours<ModeBehaviour>();
 
@@ -236,7 +236,7 @@ namespace MalbersAnimations.Controller
 
             LastPos = transform.position; //Store Last Animal Position
 
-            //  ForwardMultiplier = 1f; //Initialize the Forward Multiplier
+          //  ForwardMultiplier = 1f; //Initialize the Forward Multiplier
             GravityMultiplier = 1f;
 
             MovementAxis =
@@ -256,19 +256,19 @@ namespace MalbersAnimations.Controller
 
             StrafeLogic();
 
-
+         
             GlobalOrientToGround = GlobalOrientToGround; // Execute the code inside Global Orient
             HasReachedMaxSlope = false;
             SpeedMultiplier = 1;
             CurrentCycle = Random.Range(0, 99999);
             ResetGravityValues();
 
-
+         
 
             var TypeHash = TryOptionalParameter(m_Type);
             TryAnimParameter(TypeHash, animalType); //This is only done once!
 
-
+            
 
             //Reset FreeMovement.
             if (Rotator) Rotator.localRotation = Quaternion.identity;
@@ -353,7 +353,7 @@ namespace MalbersAnimations.Controller
                 Mode_Stop();
             }
 
-            //ActiveState.EnterExitEvent?.OnExit.Invoke();
+            ActiveState.EnterExitEvent?.OnExit.Invoke();
 
             //This needs to be at the end of the Disable stuff
             SetBoolParameter -= SetAnimParameter;
@@ -388,13 +388,13 @@ namespace MalbersAnimations.Controller
         public void UpdateDamagerSet()
         {
             Attack_Triggers = GetComponentsInChildren<IMDamager>(true).ToList();        //Save all Attack Triggers.
-
+          
             foreach (var at in Attack_Triggers)
             {
                 at.Owner = (gameObject);                 //Tell to avery Damager that this Animal is the Owner
-                                                         // at.Enabled = false;
+               // at.Enabled = false;
             }
-        }
+        } 
 
         #region Animator Stuff
         protected virtual void GetHashIDs()
@@ -407,7 +407,7 @@ namespace MalbersAnimations.Controller
             animatorHashParams = new List<int>();
 
             foreach (var parameter in Anim.parameters)
-            {
+            { 
                 animatorHashParams.Add(parameter.nameHash);
             }
 
@@ -430,7 +430,7 @@ namespace MalbersAnimations.Controller
 
             //Modes
             hash_Mode = Animator.StringToHash(m_Mode);
-
+        
             hash_ModeStatus = Animator.StringToHash(m_ModeStatus);
             #endregion
 
@@ -459,7 +459,7 @@ namespace MalbersAnimations.Controller
 
             //Stance
             hash_Stance = TryOptionalParameter(m_Stance);
-
+         
             hash_LastStance = TryOptionalParameter(m_LastStance);
 
             //Misc
@@ -469,7 +469,7 @@ namespace MalbersAnimations.Controller
             //Triggers
             hash_ModeOn = TryOptionalParameter(m_ModeOn);
             hash_StateOn = TryOptionalParameter(m_StateOn);
-            // hash_StanceOn = TryOptionalParameter(m_StanceOn);
+           // hash_StanceOn = TryOptionalParameter(m_StanceOn);
             #endregion
         }
 
@@ -516,7 +516,7 @@ namespace MalbersAnimations.Controller
             // = m_CurrentState.normalizedTime;
             StateTime = Mathf.Repeat(AnimState.normalizedTime, 1);
 
-            //  Debug.Log("StateTime = " + StateTime);
+          //  Debug.Log("StateTime = " + StateTime);
 
             if (lastStateTime > StateTime) StateCycle?.Invoke(ActiveStateID); //Check if the Animation Started again.
         }
@@ -603,7 +603,7 @@ namespace MalbersAnimations.Controller
                 RawInputAxis.y = UpDownAdditive; //Add the UPDown Additive from the Mobile.
         }
 
-
+         
 
         public virtual void SetInputAxis(Vector2 inputAxis) => SetInputAxis(new Vector3(inputAxis.x, 0, inputAxis.y));
 
@@ -657,10 +657,10 @@ namespace MalbersAnimations.Controller
             }
 
             UsingMoveWithDirection = true;
-
+             
             if (move.magnitude > 1f) move.Normalize();
-
-            var UpDown = FreeMovement ? move.y : 0; //Ignore UP Down Axis when the Animal is not on Free movement
+           
+            var UpDown = FreeMovement ?  move.y : 0; //Ignore UP Down Axis when the Animal is not on Free movement
 
 
             if (!FreeMovement)
@@ -675,7 +675,7 @@ namespace MalbersAnimations.Controller
             float turnAmount = Mathf.Atan2(move.x, move.z);                 //Convert it to Radians
             float forwardAmount = move.z < 0 ? 0 : move.z;
 
-            // var MovAxis = move;
+           // var MovAxis = move;
 
             if (!Strafe)
             {
@@ -782,7 +782,7 @@ namespace MalbersAnimations.Controller
                     float SmoothZYInput = Mathf.Clamp01(Mathf.Max(Mathf.Abs(UpDownSmooth), Mathf.Abs(VerticalSmooth))); // Get the Average Multiplier of both Z and Y Inputs
                     TargetDir *= SmoothZYInput;
                 }
-                else
+                else  
                 {
                     TargetDir *= VerticalSmooth; //Use Only the Vertical Smooth while grounded
                 }
@@ -838,7 +838,7 @@ namespace MalbersAnimations.Controller
 
         internal virtual void CalculateRotator()
         {
-            if (Rotator) Rotator.localEulerAngles = new Vector3(PitchAngle, 0, Bank); //Angle for the Rotator
+           if (Rotator)  Rotator.localEulerAngles = new Vector3(PitchAngle, 0, Bank); //Angle for the Rotator
         }
         internal virtual void CalculateBank(float bank) =>
             Bank = Mathf.Lerp(Bank, -bank * Mathf.Clamp(HorizontalSmooth, -1, 1), DeltaTime * CurrentSpeedSet.BankLerp);
@@ -874,8 +874,8 @@ namespace MalbersAnimations.Controller
         {
             var LerpPos = (Strafe) ? CurrentSpeedModifier.lerpStrafe : CurrentSpeedModifier.lerpPosition;
 
-            InertiaPositionSpeed = (LerpPos > 0) ?
-                Vector3.Lerp(InertiaPositionSpeed, UseAdditivePos ? TargetSpeed : Vector3.zero, time * LerpPos) : TargetSpeed;
+            InertiaPositionSpeed = (LerpPos > 0) ? 
+                Vector3.Lerp(InertiaPositionSpeed,UseAdditivePos ?  TargetSpeed : Vector3.zero, time * LerpPos) : TargetSpeed;
 
             AdditivePosition += InertiaPositionSpeed;
         }
@@ -915,10 +915,10 @@ namespace MalbersAnimations.Controller
                 else
                 {
                     float Turn = SpeedRotation * 10;           //Add Extra Multiplier
-
+                    
                     //Add +Rotation when going Forward and -Rotation when going backwards
-                    float TurnInput = Mathf.Clamp(HorizontalSmooth, -1, 1) * (MovementAxis.z >= 0 ? 1 : -1);
-
+                    float TurnInput = Mathf.Clamp(HorizontalSmooth, -1, 1) * (MovementAxis.z >= 0 ? 1 : -1);  
+                    
                     AdditiveRotation *= Quaternion.Euler(0, Turn * TurnInput * time /** ModeRotation*/, 0);
                     var TargetGlobal = Quaternion.Euler(0, TurnInput * (TurnMultiplier + 1), 0);
                     var AdditiveGlobal = Quaternion.Slerp(Quaternion.identity, TargetGlobal, time * (SpeedRotation + 1) /** ModeRotation*/);
@@ -941,7 +941,7 @@ namespace MalbersAnimations.Controller
 
             if (Strafe)
             {
-                maxspeedH = maxspeedV;
+                maxspeedH = maxspeedV;  
             }
 
             if (ModeNotAllowMovement) //Active mode and Isplaying Mode is failing!!**************
@@ -950,8 +950,8 @@ namespace MalbersAnimations.Controller
             var Horiz = Mathf.Lerp(HorizontalSmooth, MovementAxis.x * maxspeedH, LerpTurn);
 
             float v = MovementAxis.z;
-
-
+           
+            
             if (Rotate_at_Direction)
             {
                 float r = 0;
@@ -962,8 +962,8 @@ namespace MalbersAnimations.Controller
             VerticalSmooth = LerpVertical > 0 ?
                 Mathf.Lerp(VerticalSmooth, v * maxspeedV, LerpVertical) :
                 MovementAxis.z * maxspeedV;           //smoothly transitions bettwen Speeds
-
-
+         
+            
             HorizontalSmooth = LerpTurn > 0 ? Horiz : MovementAxis.x * maxspeedH;               //smoothly transitions bettwen Directions
 
             UpDownSmooth = LerpVertical > 0 ?
@@ -1093,7 +1093,7 @@ namespace MalbersAnimations.Controller
             {
                 var hipPoint = Pivot_Hip.World(transform) + DeltaVelocity;
 
-                if (Physics.Raycast(hipPoint, Direction, out hit_Hip, Height, GroundLayer, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(hipPoint, Direction, out hit_Hip,Height, GroundLayer, QueryTriggerInteraction.Ignore))
                 {
 
                     var MainPivotSlope = Vector3.SignedAngle(hit_Hip.normal, UpVector, Right);
@@ -1224,7 +1224,7 @@ namespace MalbersAnimations.Controller
                 {
 
                     var MainPivotSlope = Vector3.SignedAngle(hit_Hip.normal, UpVector, Right);
-
+                    
                     if (MainPivotSlope < NegativeMaxSlope) //Meaning it has touched the ground but the angle too deep
                     {
                         MainRay = false; //meaning the Slope is too deep
@@ -1387,7 +1387,7 @@ namespace MalbersAnimations.Controller
 
                 if (!ActiveState.IsPending && ActiveState.CanExit)    //Means a new state can be activated
                 {
-                    if (trySt.Active &&
+                    if ( trySt.Active &&
                         !trySt.OnEnterCoolDown &&
                         !trySt.IsSleep &&
                         !trySt.OnQueue &&
@@ -1503,7 +1503,7 @@ namespace MalbersAnimations.Controller
                         RB.velocity = Vector3.zero;
                         RB.angularVelocity = Vector3.zero;
 
-                        if (DeltaTime > 0)
+                        if (DeltaTime > 0) 
                         {
                             DesiredRBVelocity = (AdditivePosition / DeltaTime) * TimeMultiplier;
                             RB.velocity = DesiredRBVelocity;
@@ -1526,7 +1526,7 @@ namespace MalbersAnimations.Controller
         private void Strafing_Rotation()
         {
             if (Aimer)
-            {
+            { 
                 //THIS IS DONE BY THE AIM COMPONENT DIRECLTY (NEEDED FOR THE WEAPON MANAGER)
                 //TryAnimParameter(hash_TargetHorizontal, -Aimer.HorizontalAngle);
 
@@ -1563,15 +1563,15 @@ namespace MalbersAnimations.Controller
                 if (Grounded) return;  //Means has found the Ground
 
                 var GTime = DeltaTime * GravityTime;
-
-                GravityStoredVelocity = Gravity * GravityPower * (GTime * GTime / 2) * TimeMultiplier * ScaleFactor;
+                
+                GravityStoredVelocity = Gravity * GravityPower * (GTime * GTime / 2) *  TimeMultiplier * ScaleFactor;
                 AdditivePosition += GravityStoredVelocity * DeltaTime;                                         //Add Gravity if is in use
                 GravityTime++;
 
                 if (LimitGravityTime > 0 && LimitGravityTime < GravityTime) GravityTime--; //Make limit
             }
         }
-
+         
 
         /// <summary> Resets Additive Rotation and Additive Position to their default</summary>
         void ResetValues()
@@ -1582,7 +1582,7 @@ namespace MalbersAnimations.Controller
             if (TimeMultiplier > 0) AdditivePosition = DeltaRootMotion / TimeMultiplier;
 
 
-            // AdditivePosition = RootMotion ? Anim.deltaPosition : Vector3.zero;
+           // AdditivePosition = RootMotion ? Anim.deltaPosition : Vector3.zero;
             AdditiveRotation = RootMotion ? Anim.deltaRotation : Quaternion.identity;
 
             DeltaPos = transform.position - LastPos;                    //DeltaPosition from the last frame

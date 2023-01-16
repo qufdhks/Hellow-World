@@ -60,7 +60,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         // load character controller when starts
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
     }
 
