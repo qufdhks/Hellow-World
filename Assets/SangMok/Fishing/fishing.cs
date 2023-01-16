@@ -42,7 +42,7 @@ public class fishing : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !isAction)
+        if (Input.GetKeyDown(KeyCode.H) && !isAction)
         {
             originPos = transform.position;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
@@ -96,7 +96,7 @@ public class fishing : MonoBehaviour
      {
         while (isAction)
         {
-            if(attachGo != null && Input.GetKeyDown(KeyCode.G))
+            if(attachGo != null && Input.GetKeyDown(KeyCode.J))
             {
                 isfishing = true;
                 Debug.Log("¿‚¿Ω");
