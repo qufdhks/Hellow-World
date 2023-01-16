@@ -43750,6 +43750,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 259015584}
     m_Modifications:
+    - target: {fileID: 3961682502901536047, guid: 3f7a635287887064bb5e844393e36be6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961682502903434561, guid: 3f7a635287887064bb5e844393e36be6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3961682502903434567, guid: 3f7a635287887064bb5e844393e36be6, type: 3}
       propertyPath: actionText
       value: 
@@ -43764,7 +43772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3961682502903466991, guid: 3f7a635287887064bb5e844393e36be6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3961682502903830479, guid: 3f7a635287887064bb5e844393e36be6, type: 3}
       propertyPath: m_RootOrder
