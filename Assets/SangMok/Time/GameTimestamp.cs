@@ -42,7 +42,7 @@ public class GameTimestamp
     }
 
     //시간을 1분씩 증가시키는 함수
-    public void UpdateClock()
+    public void UpdateClock(Material _mat, Material _originMat)
     {
         minute++;
         //1시간에 60분
@@ -64,7 +64,7 @@ public class GameTimestamp
         {
             //일 재설정
             day = 1;
-            
+
             //마지막 계절(겨울)이면 재설정하고 봄으로 변경
             if (season == Season.Winter)
             {
@@ -77,6 +77,22 @@ public class GameTimestamp
                 //계절 증가(봄->여름->가을->겨울)
                 season++;
             }
+        }
+
+        if (hour >= 18)
+        {
+            RenderSettings.skybox = _originMat;
+            DynamicGI.UpdateEnvironment();
+        }
+        else if (hour >= 7)
+        {
+            RenderSettings.skybox = _mat;
+            DynamicGI.UpdateEnvironment();
+        }
+        else
+        {
+            RenderSettings.skybox = _originMat;
+            DynamicGI.UpdateEnvironment();
         }
     }
 
