@@ -17,51 +17,51 @@ public class PlayerControls : MonoBehaviour
     public Controls controls;
     Vector2 inputs, inputNormalized;
     float rotation;
-    bool run = true, jump;
+    //bool run = true, jump;
 
     // velocity
     Vector3 velocity;
-    float gravity = -18.0f, velocityY, terminalVelocity = -25.0f;
-    float fallMult;
+    //float gravity = -18.0f, velocityY, terminalVelocity = -25.0f;
+    //float fallMult;
 
     // running
-    float currSpeed;
+    //float currSpeed;
     public float baseSpeed = 1.0f, runSpeed = 4.0f, rotateSpeed = 2.0f;
 
     //Ground
     Vector3 forwardDirection, collisionPoint;
-    float slopeAngle, forwardAngle, forwardMult;
+    //float slopeAngle, forwardAngle, forwardMult;
     Ray groundRay;
-    RaycastHit groundHit;
+    //RaycastHit groundHit;
 
     // jumping
     bool isJumped;
-    float jumpSpeed, jumpHeight = 3.0f;
-    Vector3 jumpDirection;
+    //float jumpSpeed, jumpHeight = 3.0f;
+    //Vector3 jumpDirection;
 
     // reference
-    CharacterController controller;
+    //CharacterController controller;
     public Transform groundDirection, fallDirection;
     [HideInInspector]
     public CamCtrl mainCam;
     //animation
-    public Animator anim;
-    private readonly int isRunning = Animator.StringToHash("IsRunning");
-    private readonly int isMovedBack = Animator.StringToHash("IsMovedBack");
-    private readonly int isGoingLeft = Animator.StringToHash("IsGoingLeft");
-    private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
-    private readonly int isTurnLeft = Animator.StringToHash("IsTurnLeft");
-    private readonly int isTurnRight = Animator.StringToHash("IsTurnRight");
-    private readonly int isJumping = Animator.StringToHash("IsJumping1");
-    private readonly int isSwang = Animator.StringToHash("IsSwang");
-    private readonly int isWalking = Animator.StringToHash("IsWalking1");
-    private readonly int isArmed = Animator.StringToHash("IsArmed");
+    //public Animator anim;
+    //private readonly int isRunning = Animator.StringToHash("IsRunning");
+    //private readonly int isMovedBack = Animator.StringToHash("IsMovedBack");
+    //private readonly int isGoingLeft = Animator.StringToHash("IsGoingLeft");
+    //private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
+    //private readonly int isTurnLeft = Animator.StringToHash("IsTurnLeft");
+    //private readonly int isTurnRight = Animator.StringToHash("IsTurnRight");
+    //private readonly int isJumping = Animator.StringToHash("IsJumping1");
+    //private readonly int isSwang = Animator.StringToHash("IsSwang");
+    //private readonly int isWalking = Animator.StringToHash("IsWalking1");
+    //private readonly int isArmed = Animator.StringToHash("IsArmed");
 
     void Start()
     {
         // load character controller when starts
-        controller = GetComponent<CharacterController>();
-        anim = GetComponentInChildren<Animator>();
+        //controller = GetComponent<CharacterController>();
+        //anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -94,67 +94,67 @@ public class PlayerControls : MonoBehaviour
         GroundDirection();
 
         //running and walking
-        if (controller.isGrounded && slopeAngle <= controller.slopeLimit)
-        {
-            inputNormalized = inputs;
-            currSpeed = baseSpeed;
+        //if (controller.isGrounded && slopeAngle <= controller.slopeLimit)
+        //{
+        //    inputNormalized = inputs;
+        //    currSpeed = baseSpeed;
 
-            if (run)
-            {
-                currSpeed *= runSpeed;
+        //    if (run)
+        //    {
+        //        currSpeed *= runSpeed;
 
-                if (inputNormalized.y < 0)
-                {
-                    currSpeed = currSpeed / 2.0f;
-                }
-            }
-            else if (!controller.isGrounded || slopeAngle > controller.slopeLimit)
-            {
-                inputNormalized = Vector2.Lerp(inputNormalized, Vector2.zero, 0.025f);
-                currSpeed = Mathf.Lerp(currSpeed, 0, 0.025f);
-            }
-        }
+        //        if (inputNormalized.y < 0)
+        //        {
+        //            currSpeed = currSpeed / 2.0f;
+        //        }
+        //    }
+        //    else if (!controller.isGrounded || slopeAngle > controller.slopeLimit)
+        //    {
+        //        inputNormalized = Vector2.Lerp(inputNormalized, Vector2.zero, 0.025f);
+        //        currSpeed = Mathf.Lerp(currSpeed, 0, 0.025f);
+        //    }
+        //}
 
 
         //rotating                      
-        Vector3 characterRotation = transform.eulerAngles + new Vector3(0, rotation * rotateSpeed, 0);
+        //Vector3 characterRotation = transform.eulerAngles + new Vector3(0, rotation * rotateSpeed, 0);
 
-        characterRotation = gameMng.GetisAction ? transform.eulerAngles : characterRotation;
+        //characterRotation = gameMng.GetisAction ? transform.eulerAngles : characterRotation;
 
-        transform.eulerAngles = characterRotation;
+        //transform.eulerAngles = characterRotation;
 
 
         // //press space to jump
-        if (jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
-        {
+        //if (jump && controller.isGrounded && slopeAngle <= controller.slopeLimit)
+        //{
 
-            Jump();
+        //    Jump();
 
 
-        }
-        // apply gravity if not grounded
-        if (!controller.isGrounded && velocityY > terminalVelocity)
-        {
-            velocityY += gravity * Time.deltaTime;
-        }
-        else if (controller.isGrounded && slopeAngle > controller.slopeLimit)
-        {
-            velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
-        }
+        //}
+        //// apply gravity if not grounded
+        //if (!controller.isGrounded && velocityY > terminalVelocity)
+        //{
+        //    velocityY += gravity * Time.deltaTime;
+        //}
+        //else if (controller.isGrounded && slopeAngle > controller.slopeLimit)
+        //{
+        //    velocityY = Mathf.Lerp(velocityY, terminalVelocity, 0.025f);
+        //}
 
 
         //applying inputs
         if (!isJumped)
         {
             //anim.SetBool(isJumping, false);
-            velocity = (groundDirection.forward * inputNormalized.magnitude) * (currSpeed * forwardMult) + fallDirection.up * (velocityY * fallMult);
+            //velocity = (groundDirection.forward * inputNormalized.magnitude) * (currSpeed * forwardMult) + fallDirection.up * (velocityY * fallMult);
         }
         else
         {
-            velocity = jumpDirection * jumpSpeed + Vector3.up * velocityY;
+            //velocity = jumpDirection * jumpSpeed + Vector3.up * velocityY;
         }
 
-        velocity = gameMng.GetisAction ? Vector3.zero : velocity;
+        //velocity = gameMng.GetisAction ? Vector3.zero : velocity;
 
         if (Input.GetKeyDown(KeyCode.G) && scanObj != null)
         {
@@ -162,19 +162,19 @@ public class PlayerControls : MonoBehaviour
         }
 
         //moving controller
-        controller.Move(velocity * Time.deltaTime);
+        //controller.Move(velocity * Time.deltaTime);
 
-        if (controller.isGrounded)
-        {
-            // stop jumping if grounded
-            if (isJumped)
-            {
-                isJumped = false;
+        //if (controller.isGrounded)
+        //{
+        //    // stop jumping if grounded
+        //    if (isJumped)
+        //    {
+        //        isJumped = false;
 
-            }
-            //stop gravity if grounded
-            velocityY = 0;
-        }
+        //    }
+        //    //stop gravity if grounded
+        //    velocityY = 0;
+        //}
         void GroundDirection()
         {
             // setting forwarddirection
@@ -196,51 +196,51 @@ public class PlayerControls : MonoBehaviour
             groundRay.origin = collisionPoint + Vector3.up * 0.05f;
             groundRay.direction = Vector3.down;
 
-            forwardMult = 1.0f;
-            fallMult = 1.0f;
+            //forwardMult = 1.0f;
+            //fallMult = 1.0f;
 
-            if (Physics.Raycast(groundRay, out groundHit, 0.55f))
-            {
-                // getting angles
-                slopeAngle = Vector3.Angle(transform.up, groundHit.normal);
-                forwardAngle = Vector3.Angle(groundDirection.forward, groundHit.normal) - 90.0f;
+            //if (Physics.Raycast(groundRay, out groundHit, 0.55f))
+            //{
+            //    // getting angles
+            //    slopeAngle = Vector3.Angle(transform.up, groundHit.normal);
+            //    forwardAngle = Vector3.Angle(groundDirection.forward, groundHit.normal) - 90.0f;
 
-                if (forwardAngle < 0 && slopeAngle <= controller.slopeLimit)
-                {
-                    forwardMult = 1 / Mathf.Cos(forwardAngle * Mathf.Deg2Rad);
-                    //setting groundDirection based on forwardAngle
-                    groundDirection.eulerAngles += new Vector3(-forwardAngle, 0, 0);
-                }
-                else if (slopeAngle > controller.slopeLimit)
-                {
-                    float groundDistance = Vector3.Distance(groundRay.origin, groundHit.point);
-                    if (groundDistance <= 0.1f)
-                    {
-                        fallMult = 1 / Mathf.Cos((90 - slopeAngle) * Mathf.Deg2Rad);
-                        Vector3 groundCross = Vector3.Cross(groundHit.normal, Vector3.up);
-                        fallDirection.rotation = Quaternion.FromToRotation(transform.up, Vector3.Cross(groundCross, groundHit.normal));
-                    }
-                }
-            }
-
-        }
-        void Jump()
-        {
-            //set jumping to true
-            if (!isJumped)
-            {
-                isJumped = true;
-                //set jump direction and speed
-                jumpDirection = (transform.forward * inputs.y + transform.right * inputs.x).normalized;
-                jumpSpeed = currSpeed;
-                //set velocityY
-                velocityY = Mathf.Sqrt(-gravity * jumpHeight);
-
-            }
-            //anim.SetBool(isJumping, true);
-
+            //    if (forwardAngle < 0 && slopeAngle <= controller.slopeLimit)
+            //    {
+            //        forwardMult = 1 / Mathf.Cos(forwardAngle * Mathf.Deg2Rad);
+            //        //setting groundDirection based on forwardAngle
+            //        groundDirection.eulerAngles += new Vector3(-forwardAngle, 0, 0);
+            //    }
+            //    else if (slopeAngle > controller.slopeLimit)
+            //    {
+            //        float groundDistance = Vector3.Distance(groundRay.origin, groundHit.point);
+            //        if (groundDistance <= 0.1f)
+            //        {
+            //            fallMult = 1 / Mathf.Cos((90 - slopeAngle) * Mathf.Deg2Rad);
+            //            Vector3 groundCross = Vector3.Cross(groundHit.normal, Vector3.up);
+            //            fallDirection.rotation = Quaternion.FromToRotation(transform.up, Vector3.Cross(groundCross, groundHit.normal));
+            //        }
+            //    }
+            //}
 
         }
+        //void Jump()
+        //{
+        //    //set jumping to true
+        //    if (!isJumped)
+        //    {
+        //        isJumped = true;
+        //        //set jump direction and speed
+        //        jumpDirection = (transform.forward * inputs.y + transform.right * inputs.x).normalized;
+        //        jumpSpeed = currSpeed;
+        //        //set velocityY
+        //        velocityY = Mathf.Sqrt(-gravity * jumpHeight);
+
+        //    }
+        //    //anim.SetBool(isJumping, true);
+
+
+        //}
     }
 
     void GetInputs()
@@ -252,133 +252,133 @@ public class PlayerControls : MonoBehaviour
         }
 
         //forwards
-        if (Input.GetKey(controls.forwards))
-        {
-            inputs.y = 1.0f;
-            //anim.SetBool(isRunning, true);
-        }
-        if (!Input.GetKey(controls.forwards))
-        {
-            //anim.SetBool(isRunning, false);
-        }
+        //if (Input.GetKey(controls.forwards))
+        //{
+        //    inputs.y = 1.0f;
+        //    //anim.SetBool(isRunning, true);
+        //}
+        //if (!Input.GetKey(controls.forwards))
+        //{
+        //    //anim.SetBool(isRunning, false);
+        //}
 
-        //backwards
-        if (Input.GetKey(controls.backwards))
-        {
-            if (Input.GetKey(controls.forwards))
-            {
-                inputs.y = 0;
+        ////backwards
+        //if (Input.GetKey(controls.backwards))
+        //{
+        //    if (Input.GetKey(controls.forwards))
+        //    {
+        //        inputs.y = 0;
 
-            }
-            else
-            {
-                inputs.y = -1.0f;
-                //anim.SetBool(isMovedBack, true);
+        //    }
+        //    else
+        //    {
+        //        inputs.y = -1.0f;
+        //        //anim.SetBool(isMovedBack, true);
 
-            }
-        }
-        if (!Input.GetKey(controls.backwards))
-        {
-            //anim.SetBool(isMovedBack, false);
-        }
+        //    }
+        //}
+        //if (!Input.GetKey(controls.backwards))
+        //{
+        //    //anim.SetBool(isMovedBack, false);
+        //}
 
-        //FW nothing
-        if (!Input.GetKey(controls.forwards) && !Input.GetKey(controls.backwards))
-        {
-            inputs.y = 0;
+        ////FW nothing
+        //if (!Input.GetKey(controls.forwards) && !Input.GetKey(controls.backwards))
+        //{
+        //    inputs.y = 0;
 
-        }
+        //}
 
-        //StrafeLeft,Right
-        //StrafeRight
-        if (Input.GetKey(controls.strafeRight))
-        {
-            inputs.x = 1.0f;
-            //anim.SetBool(isGoingRight, true);
+        ////StrafeLeft,Right
+        ////StrafeRight
+        //if (Input.GetKey(controls.strafeRight))
+        //{
+        //    inputs.x = 1.0f;
+        //    //anim.SetBool(isGoingRight, true);
 
-        }
-        if (!Input.GetKey(controls.strafeRight))
-        {
-            //anim.SetBool(isGoingRight, false);
-        }
+        //}
+        //if (!Input.GetKey(controls.strafeRight))
+        //{
+        //    //anim.SetBool(isGoingRight, false);
+        //}
 
-        //StrafeLeft
-        if (Input.GetKey(controls.strafeLeft))
-        {
-            if (Input.GetKey(controls.strafeRight))
-            {
-                inputs.x = 0;
-            }
-            else
-            {
-                inputs.x = -1.0f;
-                //anim.SetBool(isGoingLeft, true);
-            }
-        }
-        if (!Input.GetKey(controls.strafeLeft))
-        {
-            //anim.SetBool(isGoingLeft, false);
-        }
+        ////StrafeLeft
+        //if (Input.GetKey(controls.strafeLeft))
+        //{
+        //    if (Input.GetKey(controls.strafeRight))
+        //    {
+        //        inputs.x = 0;
+        //    }
+        //    else
+        //    {
+        //        inputs.x = -1.0f;
+        //        //anim.SetBool(isGoingLeft, true);
+        //    }
+        //}
+        //if (!Input.GetKey(controls.strafeLeft))
+        //{
+        //    //anim.SetBool(isGoingLeft, false);
+        //}
 
-        //StrafeLR nothing
-        if (!Input.GetKey(controls.strafeLeft) && !Input.GetKey(controls.strafeRight))
-        {
-            inputs.x = 0;
-        }
+        ////StrafeLR nothing
+        //if (!Input.GetKey(controls.strafeLeft) && !Input.GetKey(controls.strafeRight))
+        //{
+        //    inputs.x = 0;
+        //}
 
-        //RotateLeft,Right
-        //RotateRight
-        if (Input.GetKey(controls.rotateRight))
-        {
-            rotation = 1.0f;
-            //anim.SetBool(isTurnRight, true);
-        }
-        if (!Input.GetKey(controls.rotateRight))
-        {
-            //anim.SetBool(isTurnRight, false);
-        }
-        //RotateLeft
-        if (Input.GetKey(controls.rotateLeft))
-        {
-            if (Input.GetKey(controls.rotateRight))
-            {
-                rotation = 0;
-            }
-            else
-            {
-                rotation = -1.0f;
-                //anim.SetBool(isTurnLeft, true);
-            }
-        }
-        if (!Input.GetKey(controls.rotateLeft))
-        {
-            //anim.SetBool(isTurnLeft, false);
-        }
+        ////RotateLeft,Right
+        ////RotateRight
+        //if (Input.GetKey(controls.rotateRight))
+        //{
+        //    rotation = 1.0f;
+        //    //anim.SetBool(isTurnRight, true);
+        //}
+        //if (!Input.GetKey(controls.rotateRight))
+        //{
+        //    //anim.SetBool(isTurnRight, false);
+        //}
+        ////RotateLeft
+        //if (Input.GetKey(controls.rotateLeft))
+        //{
+        //    if (Input.GetKey(controls.rotateRight))
+        //    {
+        //        rotation = 0;
+        //    }
+        //    else
+        //    {
+        //        rotation = -1.0f;
+        //        //anim.SetBool(isTurnLeft, true);
+        //    }
+        //}
+        //if (!Input.GetKey(controls.rotateLeft))
+        //{
+        //    //anim.SetBool(isTurnLeft, false);
+        //}
 
-        //RotateLR nothing
-        if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
-        {
-            rotation = 0;
-        }
+        ////RotateLR nothing
+        //if (!Input.GetKey(controls.rotateLeft) && !Input.GetKey(controls.rotateRight))
+        //{
+        //    rotation = 0;
+        //}
 
-        //Interaction
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            //anim.SetBool(isSwang, true);
+        ////Interaction
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    //anim.SetBool(isSwang, true);
 
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            //anim.SetBool(isSwang, false);
-        }
+        //}
+        //if (Input.GetKeyUp(KeyCode.R))
+        //{
+        //    //anim.SetBool(isSwang, false);
+        //}
 
-        //toggle run
+        ////toggle run
 
-        if (Input.GetKey(controls.walkRun))
-        {
-            run = !run;
-            //anim.SetBool(isWalking, true);
-        }
+        //if (Input.GetKey(controls.walkRun))
+        //{
+        //    run = !run;
+        //    //anim.SetBool(isWalking, true);
+        //}
         //anim.SetBool(isWalking, false);
         // if (!Input.GetKey(controls.walkRun))
         // {
@@ -389,7 +389,7 @@ public class PlayerControls : MonoBehaviour
 
         // jump
 
-        jump = Input.GetKey(controls.jump);
+        //jump = Input.GetKey(controls.jump);
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    anim.Play("Jump");
