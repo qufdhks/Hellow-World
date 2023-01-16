@@ -64,15 +64,15 @@ namespace MalbersAnimations
 
         private void OnEnable()
         {
-            //foreach (var stat in stats_D)
-            //{
-            //    if (stat.Value.ID == null)
-            //    {
-            //        Debug.LogError("One of the Stats has an Empty ID", gameObject);
-            //        break;
-            //    }
-            //    stat.Value.InitializeStat(this);
-            //}
+            foreach (var stat in stats_D)
+            {
+                if (stat.Value.ID == null)
+                {
+                    Debug.LogError("One of the Stats has an Empty ID", gameObject);
+                    break;
+                }
+                stat.Value.InitializeStat(this);
+            }
         }
 
         private void OnDisable() => StopAllCoroutines();

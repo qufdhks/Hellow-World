@@ -776,8 +776,8 @@ namespace MalbersAnimations.HAP
             OnCanMount.Invoke(CanMount);
 
 
-            //bool canDismount = IsRiding && Montura.CanBeDismountedByState;
-            //CanDismount = canDismount;
+            bool canDismount = IsRiding && Montura.CanBeDismountedByState;
+            CanDismount = canDismount;
             OnCanDismount.Invoke(CanDismount);
 
 

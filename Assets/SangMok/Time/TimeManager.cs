@@ -9,7 +9,10 @@ public class TimeManager : MonoBehaviour
     [Header("Internal Clock")]
     public GameTimestamp timestamp;
     public float timeScale = 1.0f;
-    
+
+    [SerializeField] private Material mat;
+    [SerializeField] private Material originMat;
+
     [Header("Day and Night Cycle")]
     //디렉셔널 라이트(태양)의 변환
     public Transform sunTransform;
@@ -49,7 +52,7 @@ public class TimeManager : MonoBehaviour
     //게임 내 시간의 틱
     public void Tick()
     {
-        timestamp.UpdateClock();
+        timestamp.UpdateClock(mat, originMat);
         
         //청취자에게 새로운 시간 상태를 알립니다.
         foreach (ITimeTracker listener in listeners)

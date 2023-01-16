@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MiniCam : MonoBehaviour
 {
-    public GameObject YEJI_ZZANG;
+    public Transform player;
     private Vector3 offset;
 
     void Start()
     {
-        offset = transform.position - YEJI_ZZANG.transform.position;
+        offset = transform.position - player.transform.position;
     }
 
     void LateUpdate()
     {
-        transform.position = YEJI_ZZANG.transform.position + offset;
+        transform.position = new Vector3(player.position.x, transform.position.y, player.position.z - 5);
     }
 }

@@ -64,19 +64,19 @@ namespace MalbersAnimations
 
         private void OnEnable()
         {
-            //listenTo.SetBoolParameter += SetAnimParameter;
-            //listenTo.SetIntParameter += SetAnimParameter;
-            //listenTo.SetFloatParameter += SetAnimParameter;
-            //listenTo.SetTriggerParameter += SetAnimParameter;
-            //if (Resynchronize) StateCycle.StateCycle += SyncStateCycle;
+            listenTo.SetBoolParameter += SetAnimParameter;
+            listenTo.SetIntParameter += SetAnimParameter;
+            listenTo.SetFloatParameter += SetAnimParameter;
+            listenTo.SetTriggerParameter += SetAnimParameter;
+            if (Resynchronize) StateCycle.StateCycle += SyncStateCycle;
         }
 
         private void OnDisable()
         {
-            //listenTo.SetBoolParameter -= SetAnimParameter;
-            //listenTo.SetIntParameter -= SetAnimParameter;
-            //listenTo.SetFloatParameter -= SetAnimParameter;
-            //if (Resynchronize) StateCycle.StateCycle -= SyncStateCycle;
+            listenTo.SetBoolParameter -= SetAnimParameter;
+            listenTo.SetIntParameter -= SetAnimParameter;
+            listenTo.SetFloatParameter -= SetAnimParameter;
+            if (Resynchronize) StateCycle.StateCycle -= SyncStateCycle;
         }
 
         private void Update()
