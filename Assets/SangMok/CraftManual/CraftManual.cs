@@ -27,6 +27,7 @@ public class CraftManual : MonoBehaviour
     private GameObject go_Preview;//프리팹 미리보기 담을 변수
     private GameObject go_Prefab;// 실제 생성될 프리팹을 담을 변수
 
+
     [SerializeField]
     private Transform tf_Player;//플레이어 위치
 
@@ -41,7 +42,8 @@ public class CraftManual : MonoBehaviour
 
     public void SlotClick(int _slotNumber)
     {
-        go_Preview = Instantiate(craft_house[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 3f) + new Vector3(0f, -0.5f,0f), Quaternion.identity);
+        Debug.Log("클릭됨");
+        go_Preview = Instantiate(craft_house[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 1f) + new Vector3(0f, -0.5f,0f), Quaternion.identity);
         go_Prefab = craft_house[_slotNumber].go_Prefab;
         isPreviewActivated = true;
         go_BaseUI.SetActive(false);
@@ -56,7 +58,7 @@ public class CraftManual : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated && clearQuest)
+        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated /*&& clearQuest*/)
         {
             Window();
         }
