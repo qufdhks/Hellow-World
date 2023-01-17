@@ -12176,7 +12176,7 @@ MonoBehaviour:
     - name: Speed Down
       active:
         UseConstant: 1
-        ConstantValue: 1
+        ConstantValue: 0
         Variable: {fileID: 11400000, guid: 1135ac854b3e61e498718248dd6a7b81, type: 2}
       type: 1
       input: InputValue
@@ -12230,7 +12230,7 @@ MonoBehaviour:
     - name: Speed UP
       active:
         UseConstant: 1
-        ConstantValue: 1
+        ConstantValue: 0
         Variable: {fileID: 11400000, guid: 1135ac854b3e61e498718248dd6a7b81, type: 2}
       type: 1
       input: InputValue
@@ -12284,7 +12284,7 @@ MonoBehaviour:
     - name: Crouch
       active:
         UseConstant: 1
-        ConstantValue: 1
+        ConstantValue: 0
         Variable: {fileID: 11400000, guid: 1135ac854b3e61e498718248dd6a7b81, type: 2}
       type: 1
       input: InputValue
@@ -12368,11 +12368,11 @@ MonoBehaviour:
     - name: Interact
       active:
         UseConstant: 1
-        ConstantValue: 0
+        ConstantValue: 1
         Variable: {fileID: 0}
       type: 1
       input: Action
-      key: 101
+      key: 114
       GetPressed: 1
       InputValue: 0
       ToggleValue: 0
@@ -12426,7 +12426,7 @@ MonoBehaviour:
         Variable: {fileID: 0}
       type: 1
       input: Glide
-      key: 102
+      key: 99
       GetPressed: 5
       InputValue: 0
       ToggleValue: 0
@@ -12583,7 +12583,19 @@ MonoBehaviour:
           m_Calls: []
       OnInputChanged:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: MalbersAnimations.Weapons.MWeapon, Assembly-CSharp
+            m_MethodName: set_IsEquiped
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       OnInputEnable:
         m_PersistentCalls:
           m_Calls: []
@@ -12595,7 +12607,19 @@ MonoBehaviour:
       SmoothDecrease: 0
       OnInputPressed:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: MalbersAnimations.Weapons.MWeapon, Assembly-CSharp
+            m_MethodName: set_IsEquiped
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 1
+            m_CallState: 2
       OnPressedNormalized:
         m_PersistentCalls:
           m_Calls: []
@@ -12644,7 +12668,7 @@ MonoBehaviour:
     - name: Reload
       active:
         UseConstant: 1
-        ConstantValue: 1
+        ConstantValue: 0
         Variable: {fileID: 0}
       type: 1
       input: Reload
@@ -12686,7 +12710,7 @@ MonoBehaviour:
     - name: Grenade
       active:
         UseConstant: 1
-        ConstantValue: 1
+        ConstantValue: 0
         Variable: {fileID: 0}
       type: 1
       input: Grenade
@@ -12694,7 +12718,7 @@ MonoBehaviour:
       GetPressed: 0
       InputValue: 0
       ToggleValue: 0
-      ResetOnDisable: 1
+      ResetOnDisable: 0
       OnInputDown:
         m_PersistentCalls:
           m_Calls:
@@ -12703,7 +12727,7 @@ MonoBehaviour:
             m_MethodName: Holster_Equip
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: d255c533616b51e45a47b4cd57f1ac7a, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 31941dcdef3462d4c959c444d5b4ad1b, type: 2}
               m_ObjectArgumentAssemblyTypeName: MalbersAnimations.HolsterID, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
@@ -12943,7 +12967,19 @@ MonoBehaviour:
           m_Calls: []
       OnInputChanged:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 6684150771208039301}
+            m_TargetAssemblyTypeName: MalbersAnimations.HAP.MRider, Assembly-CSharp
+            m_MethodName: CallAnimal
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       OnInputEnable:
         m_PersistentCalls:
           m_Calls: []
@@ -22879,7 +22915,6 @@ MonoBehaviour:
   groundDirection: {fileID: 2830295056115139856}
   fallDirection: {fileID: 2830295056724108097}
   mainCam: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!1 &2222727461952920116
 GameObject:
   m_ObjectHideFlags: 0
