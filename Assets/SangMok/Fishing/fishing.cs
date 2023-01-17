@@ -5,7 +5,7 @@ using UnityEngine;
 public class fishing : MonoBehaviour
 {
 
-    Vector3 originPos;
+    [SerializeField] private Transform originPos;
     public float F_Speed = 1f;
 
     public Transform m_Target;
@@ -47,8 +47,7 @@ public class fishing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && !isAction)
         {
-            cap.enabled = true;
-            originPos = transform.position;
+            //cap.enabled = true;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
             m_Rigidbody.useGravity = true;
             m_Rigidbody.isKinematic = false;
@@ -98,10 +97,10 @@ public class fishing : MonoBehaviour
 
             onWater = true;
         }
-        else
-        {
-            StartCoroutine(Return());
-        }
+        //else
+        //{
+        //    StartCoroutine(Return());
+        //}
 
     }
 
@@ -112,10 +111,10 @@ public class fishing : MonoBehaviour
             if(attachGo != null && Input.GetKeyDown(KeyCode.J))
             {
                 isfishing = true;
-                cap.enabled = false;
+                //cap.enabled = false;
 
                 attachGo.transform.SetParent(fishingTr);
-                Vector3 velocity = GetVelocity(transform.position, originPos, m_InitialAngle);
+                Vector3 velocity = GetVelocity(transform.position, originPos.position, m_InitialAngle);
                 m_Rigidbody.velocity = velocity;
                 isAction = false;
 
@@ -135,12 +134,12 @@ public class fishing : MonoBehaviour
     {
         isfishing = true;
 
-        Vector3 velocity = GetVelocity(transform.position, originPos, m_InitialAngle);
+        Vector3 velocity = GetVelocity(transform.position, originPos.position, m_InitialAngle);
         m_Rigidbody.velocity = velocity;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         cap.enabled = false;
-        m_Rigidbody.isKinematic = false;
+        m_Rigidbody.isKinematic = true;
         m_Rigidbody.useGravity = false;
     }
 

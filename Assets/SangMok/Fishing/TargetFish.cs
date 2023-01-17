@@ -15,7 +15,7 @@ public class TargetFish : MonoBehaviour
     //private GameObject poolingObjectPrefab;
 
     public bool attachFishing = false;
-    private bool isfishing;
+    //private bool isfishing;
 
     //void Start()
     //{
@@ -24,11 +24,11 @@ public class TargetFish : MonoBehaviour
     //    target = GameObject.Find("fishing");
     //}
 
-    private void OnCollisionEnter(Collision coll)
-    {
-        if (coll.gameObject.tag == "Fishing")
-            isfishing = true;
-    }
+    //private void OnCollisionEnter(Collision coll)
+    //{
+    //    if (coll.gameObject.tag == "Fishing")
+    //        isfishing = true;
+    //}
 
     public void Init(Transform _look, fishing _fishing)
     {
@@ -77,32 +77,27 @@ public class TargetFish : MonoBehaviour
 
     private IEnumerator MovingToTargetCoroutine()
     {
-        if (isfishing)
+        Vector3 startPos = transform.position;
+        float t = 0f;
+        while (t < 1f)
         {
-            Vector3 startPos = transform.position;
-            float t = 0f;
-            while (t < 1f)
-            {
-                transform.LookAt(look);
-                transform.position = Vector3.Lerp(startPos, target.transform.position, t);
-                t += Time.deltaTime * 0.2f;
-                yield return null;
-            }
+            transform.LookAt(look);
+            transform.position = Vector3.Lerp(startPos, target.transform.position, t);
+            t += Time.deltaTime * 0.2f;
+            yield return null;
         }
     }
   
     public IEnumerator AttachProcess(Rigidbody rb)
     {
-        if (isfishing)
-        {
-            transform.SetParent(target.transform);
+        transform.SetParent(target.transform);
 
-            transform.localPosition = Vector3.zero;
-            Destroy(gameObject, 3f);
-        }
-            yield return new WaitForSeconds(2.1f);
-            rb.isKinematic = true;
+        transform.localPosition = Vector3.zero;
+        Destroy(gameObject, 3f);
+
+        yield return new WaitForSeconds(2.1f);
+        rb.isKinematic = true;
         rb.useGravity = false;
-        
+
     }
 }
