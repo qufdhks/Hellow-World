@@ -98251,20 +98251,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 637fa16e41b58734ea8643b07494530a, type: 3}
---- !u!64 &73136165108165773
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7635928949753599087}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: db32250c7c23f5045bf52d61822f705e, type: 3}
 --- !u!1001 &803019496632029159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99412,7 +99398,7 @@ GameObject:
   - component: {fileID: 7635928949753169999}
   - component: {fileID: 7635928949752367215}
   - component: {fileID: 7635928949751401135}
-  - component: {fileID: 73136165108165773}
+  - component: {fileID: 7635928949753599088}
   m_Layer: 0
   m_Name: Destroy_Rock
   m_TagString: Rock
@@ -99420,6 +99406,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &7635928949753599088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635928949753599087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7982093, y: 0.73316616, z: 0.78881603}
+  m_Center: {x: 0.0006736219, y: 0.19278094, z: -0.12071338}
 --- !u!1001 &8730119247996590798
 PrefabInstance:
   m_ObjectHideFlags: 0
