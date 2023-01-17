@@ -19,6 +19,8 @@ public class fishing : MonoBehaviour
     public bool isfishing;
     private bool onWater = false;
 
+    private CapsuleCollider cap;
+
     //[SerializeField]
     private Transform fishingTr;
     //[SerializeField]
@@ -32,6 +34,7 @@ public class fishing : MonoBehaviour
     private void Awake()
     {
         fishingTr = transform;
+        cap = GetComponent<CapsuleCollider>();
     }
 
     void Start()
@@ -44,8 +47,11 @@ public class fishing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H) && !isAction)
         {
+            cap.enabled = true;
             originPos = transform.position;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
+            m_Rigidbody.useGravity = true;
+            m_Rigidbody.isKinematic = false;
             m_Rigidbody.velocity = velocity;
             isAction = true;
             isfishing = false;
@@ -74,6 +80,8 @@ public class fishing : MonoBehaviour
         Vector3 finalVelocity
             = Quaternion.AngleAxis(angleBetweenObjects, Vector3.up) * velocity;
 
+        
+
         return finalVelocity;
     }
 
@@ -90,6 +98,11 @@ public class fishing : MonoBehaviour
 
             onWater = true;
         }
+        else
+        {
+            StartCoroutine(Return());
+        }
+
     }
 
      private IEnumerator FishingCoroutine()
@@ -99,26 +112,39 @@ public class fishing : MonoBehaviour
             if(attachGo != null && Input.GetKeyDown(KeyCode.J))
             {
                 isfishing = true;
-                Debug.Log("¿‚¿Ω");
+                cap.enabled = false;
 
                 attachGo.transform.SetParent(fishingTr);
                 Vector3 velocity = GetVelocity(transform.position, originPos, m_InitialAngle);
                 m_Rigidbody.velocity = velocity;
                 isAction = false;
 
-                attachGo.GetComponent<TargetFish>().AttachProcess();
+                StartCoroutine(attachGo.GetComponent<TargetFish>().AttachProcess(m_Rigidbody));
 
                 onWater = false;
             }
-
             //yield return new WaitForSeconds(interval);
             yield return null;
 
             //isAction = false;
         }
-     }
 
-     private IEnumerator MoveFish()
+    }
+
+    private IEnumerator Return()
+    {
+        isfishing = true;
+
+        Vector3 velocity = GetVelocity(transform.position, originPos, m_InitialAngle);
+        m_Rigidbody.velocity = velocity;
+
+        yield return new WaitForSeconds(2f);
+        cap.enabled = false;
+        m_Rigidbody.isKinematic = false;
+        m_Rigidbody.useGravity = false;
+    }
+
+    private IEnumerator MoveFish()
      {
         Vector3 curPos = transform.position;
         while(isAction)

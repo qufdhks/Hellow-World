@@ -19,6 +19,8 @@ TagManager:
   - MiniMapPlayer
   - Tree
   - Axe
+  - Animal
+  - Rock
   layers:
   - Default
   - TransparentFX

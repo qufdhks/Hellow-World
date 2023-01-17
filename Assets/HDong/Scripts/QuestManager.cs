@@ -62,14 +62,25 @@ public class QuestManager : MonoBehaviour
     //    {
     //        case 10:
     //            if (questActionIndex == 2)
+    //            {
     //                questObject[0].SetActive(true);
+    //                questObject[1].SetActive(true);
+    //                questObject[2].SetActive(true);
+    //            }
     //            break;
     //        case 20:
     //            if (questActionIndex == 0)
     //                questObject[0].SetActive(true);
-    //            else if (questActionIndex == 1)
-    //                questObject[0].SetActive(false);
     //            break;
+    //        case 30:
+    //            if (questActionIndex == 0)
+    //                questObject[1].SetActive(true);
+    //            break;
+    //        case 40:
+    //            if (questActionIndex == 0)
+    //                questObject[2].SetActive(true);
+    //            break;
+
     //    }
     //}
 }

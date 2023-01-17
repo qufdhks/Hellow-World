@@ -58,7 +58,7 @@ public class CraftManual : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated /*&& clearQuest*/)
+        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated && clearQuest)
         {
             Window();
         }
