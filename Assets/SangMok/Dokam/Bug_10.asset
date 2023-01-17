@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bug_10
   m_EditorClassIdentifier: 
   itemName: Bug_10
-  itemType: 0
-  itemImage: {fileID: 21300000, guid: 0fad550acb04d7c46a5c623050b2da64, type: 3}
+  itemType: 2
+  itemImage: {fileID: 21300000, guid: 272e2cb816700ab4c99c0689001379da, type: 3}
   itemPrefab: {fileID: 6835730187568792494, guid: 51a0e26de1ccd0b4e9b97cb0717b011d, type: 3}
   weaponType: 
