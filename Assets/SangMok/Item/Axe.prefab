@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2973890498949124593}
   - component: {fileID: 1054289740701197627}
   - component: {fileID: 8441934018454843905}
-  - component: {fileID: 2973890498949124599}
+  - component: {fileID: -1757018908310104912}
   m_Layer: 10
   m_Name: Axe
-  m_TagString: Item
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -100,7 +100,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.008312133, y: 0.0015887141, z: 0.026856273}
   m_Center: {x: 0.0002879151, y: 0.0006366543, z: 0.0019276123}
---- !u!114 &2973890498949124599
+--- !u!114 &-1757018908310104912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1558644176549758190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c8fecf5e7269d0498b55b3ec5294a31, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d8c64db107b25d4b942d721b5d2956c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 68f18683bbbc04049b1f3e7fac3acc5a, type: 2}
+  stump: {fileID: 4114348814130154171, guid: c185f4228ecc7b14cb47ae816197d6b4, type: 3}
+  woodPfs: {fileID: 1906278748628747781, guid: 322e614de0b2c794fbeecc0907ae1751, type: 3}
