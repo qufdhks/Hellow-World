@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 42e1e4de4a0d626459965026086a8433
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 21300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -2282,6 +2282,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -2291,7 +2292,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -2311,21 +2312,27 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -2341,7 +2348,407 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Horse Wings Poly Art(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Feathers_Poly Art
+      parentName: Horse Wings Poly Art(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_CG
+      parentName: Horse Wings Poly Art(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.50000066, y: 0.49999934, z: 0.49999985, w: 0.5000002}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ Pelvis
+      parentName: Wng_CG
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.6895473, y: 0.15660569, z: 0.15660301, w: 0.6895467}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ Spine
+      parentName: Wng_ Pelvis
+      position: {x: -0.00027153, y: -0.1794996, z: -0.00000044999993}
+      rotation: {x: -0.00000861287, y: -0.0000061616292, z: 0.35905066, w: 0.9333181}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ Spine1
+      parentName: Wng_ Spine
+      position: {x: -0.35893485, y: -0.00028587, z: -7.2759575e-14}
+      rotation: {x: -0.0000014197709, y: 0.00000019605508, z: -0.00000086426877, w: -1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: Wng_ L Clavicle
+      parentName: Wng_ Spine1
+      position: {x: 0.29084668, y: -0.02271186, z: 0.25754145}
+      rotation: {x: -0.7070404, y: -0.0002829651, z: 0.70717305, w: -0.00028024474}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ LFeather3
+      parentName: Wng_ L Clavicle
+      position: {x: -0.27520266, y: 0.01611519, z: -0.25459358}
+      rotation: {x: -0.53233457, y: -0.4650838, z: -0.45379472, w: 0.54257476}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000004}
+    - name: Wng_ LFeather302
+      parentName: Wng_ LFeather3
+      position: {x: -0.34852195, y: -0.00018123626, z: -0.00000015258789}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Wng_ LFeather2
+      parentName: Wng_ L Clavicle
+      position: {x: -0.16334037, y: 0.016982188, z: -0.27920544}
+      rotation: {x: -0.53664434, y: -0.46044734, z: -0.45959622, w: 0.53737557}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1.0000001}
+    - name: Wng_ LFeather202
+      parentName: Wng_ LFeather2
+      position: {x: -0.3281043, y: -0.00018901825, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ LFeather1
+      parentName: Wng_ L Clavicle
+      position: {x: -0.056768663, y: 0.017284311, z: -0.3406807}
+      rotation: {x: -0.5162012, y: -0.48308417, z: -0.47510672, w: 0.52386993}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000005}
+    - name: Wng_ LFeather102
+      parentName: Wng_ LFeather1
+      position: {x: -0.2735574, y: -0.00018920898, z: -0.00000015258789}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ L UpperArm
+      parentName: Wng_ L Clavicle
+      position: {x: -0.24009731, y: -0.00037468193, z: 0.00006176948}
+      rotation: {x: -0.67661834, y: -0.028607273, z: -0.027232671, w: 0.7352739}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: Wng_ LFeather5
+      parentName: Wng_ L UpperArm
+      position: {x: -0.3583907, y: 0.13096038, z: 0.0013420105}
+      rotation: {x: -0.03135416, y: -0.026436001, z: -0.5219451, w: 0.85199267}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: Wng_ LFeather502
+      parentName: Wng_ LFeather5
+      position: {x: -0.3557437, y: -0.00024581907, z: 0.0000000047683715}
+      rotation: {x: -0, y: 0.000000014901161, z: 0.000000014901161, w: 1}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: Wng_ LFeather4
+      parentName: Wng_ L UpperArm
+      position: {x: -0.21861507, y: 0.20361656, z: 0.0010519362}
+      rotation: {x: -0.032748163, y: -0.025069527, z: -0.5455401, w: 0.83706945}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Wng_ LFeather402
+      parentName: Wng_ LFeather4
+      position: {x: -0.33858517, y: -0.000211792, z: 0.0000000047683715}
+      rotation: {x: -0, y: -0.000000014901159, z: -0.000000014901159, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Wng_ L Forearm
+      parentName: Wng_ L UpperArm
+      position: {x: -0.25562784, y: -0.00034374, z: 0.0001371789}
+      rotation: {x: -0.00037640324, y: 0.0022038291, z: 0.07495103, w: 0.99718475}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Wng_ LFeather7
+      parentName: Wng_ L Forearm
+      position: {x: -0.3155718, y: 0.18040174, z: -0.0015510619}
+      rotation: {x: -0.008586824, y: -0.010759398, z: -0.6242776, w: 0.7810813}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000001}
+    - name: Wng_ LFeather702
+      parentName: Wng_ LFeather7
+      position: {x: -0.3542618, y: -0.00024337768, z: 0.0000000047683715}
+      rotation: {x: -0, y: -0, z: -0.0000000018626449, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Wng_ LFeather8
+      parentName: Wng_ L Forearm
+      position: {x: -0.42410964, y: 0.19130266, z: -0.0031150794}
+      rotation: {x: -0.010826498, y: -0.016289126, z: -0.55405617, w: 0.8322495}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ LFeather802
+      parentName: Wng_ LFeather8
+      position: {x: -0.37507156, y: -0.0002796173, z: 0.0000000047683715}
+      rotation: {x: -0.000000039115548, y: -0.000000053085387, z: -0.0000001333101, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Wng_ LFeather6
+      parentName: Wng_ L Forearm
+      position: {x: -0.18768181, y: 0.1726697, z: -0.0013649011}
+      rotation: {x: -0.012138903, y: -0.01359091, z: -0.6665768, w: 0.7452136}
+      scale: {x: 0.99999976, y: 1.0000005, z: 1.0000002}
+    - name: Wng_ LFeather602
+      parentName: Wng_ LFeather6
+      position: {x: -0.37097526, y: -0.0002230835, z: -0.00000015258789}
+      rotation: {x: 0.000000019557774, y: -0.000000022351742, z: 0.0000000065629138, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000004}
+    - name: Wng_ L Hand
+      parentName: Wng_ L Forearm
+      position: {x: -0.4910884, y: 0.000080890655, z: -0.00009673834}
+      rotation: {x: -0.004970274, y: 0.04164987, z: -0.038477097, w: 0.99837875}
+      scale: {x: 0.9999999, y: 0.99999976, z: 0.99999976}
+    - name: Wng_ LFeather13
+      parentName: Wng_ L Hand
+      position: {x: -0.43307608, y: 0.13285406, z: -0.00000061035155}
+      rotation: {x: -0.000000014122634, y: 0.0000004952308, z: -0.18761817, w: 0.9822421}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+    - name: Wng_ LFeather1302
+      parentName: Wng_ LFeather13
+      position: {x: -0.53574383, y: -0.0005065536, z: -0.00000016093254}
+      rotation: {x: -0.000000022949754, y: -0.000000003405886, z: 0.000000074505785, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Wng_ L Finger
+      parentName: Wng_ L Hand
+      position: {x: -0.391173, y: -0.00050216436, z: 0.00000029802322}
+      rotation: {x: -0.000015714548, y: 0.00039659665, z: -0.037071697, w: 0.9993126}
+      scale: {x: 1.0000002, y: 0.99999964, z: 1}
+    - name: Wng_ LFeather16
+      parentName: Wng_ L Finger
+      position: {x: -0.20342223, y: 0.012950363, z: 0.019441672}
+      rotation: {x: -0.0010052441, y: -0.00050824136, z: -0.03324289, w: 0.99944675}
+      scale: {x: 0.9999999, y: 1.0000005, z: 1.0000004}
+    - name: Wng_ LFeather1602
+      parentName: Wng_ LFeather16
+      position: {x: -0.39363417, y: -0.00040641785, z: -0.0000000023841857}
+      rotation: {x: -0, y: -0, z: -5.41945e-10, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+    - name: Wng_ LFeather14
+      parentName: Wng_ L Finger
+      position: {x: -0.08857513, y: 0.07964622, z: 0.0028379785}
+      rotation: {x: 0.00021283474, y: 0.001223215, z: -0.11590166, w: 0.99325997}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+    - name: Wng_ LFeather1402
+      parentName: Wng_ LFeather14
+      position: {x: -0.57033354, y: -0.0005013275, z: 0}
+      rotation: {x: -5.820765e-10, y: 0.000000007450579, z: 0.000000030228385, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Wng_ LFeather15
+      parentName: Wng_ L Finger
+      position: {x: -0.108112335, y: 0.06596962, z: 0.008793031}
+      rotation: {x: -0.001519629, y: 0.002266611, z: -0.060734, w: 0.9981503}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+    - name: Wng_ LFeather1502
+      parentName: Wng_ LFeather15
+      position: {x: -0.58085877, y: -0.000500164, z: 0.0000001513958}
+      rotation: {x: 0.000000059371807, y: 0.000000007916241, z: 0.00000003949958, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: Wng_ LFeather10
+      parentName: Wng_ L Hand
+      position: {x: -0.1786077, y: 0.20025516, z: -0.0017704809}
+      rotation: {x: -0.0016284442, y: -0.004786234, z: -0.32278016, w: 0.94646055}
+      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+    - name: Wng_ LFeather1002
+      parentName: Wng_ LFeather10
+      position: {x: -0.40214178, y: -0.00038085936, z: 0.00000015497207}
+      rotation: {x: -0, y: -0, z: 0.000000014093528, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+    - name: Wng_ LFeather11
+      parentName: Wng_ L Hand
+      position: {x: -0.23618796, y: 0.16976598, z: -0.0016624402}
+      rotation: {x: -0.0011532898, y: -0.005229028, z: -0.26279733, w: 0.96483624}
+      scale: {x: 1, y: 0.9999999, z: 1.0000002}
+    - name: Wng_ LFeather1102
+      parentName: Wng_ LFeather11
+      position: {x: -0.4983371, y: -0.0004187393, z: 0.00000014543534}
+      rotation: {x: 1.1641528e-10, y: -0, z: 0.000000019285373, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: Wng_ LFeather12
+      parentName: Wng_ L Hand
+      position: {x: -0.39725652, y: 0.18037014, z: -0.0015402305}
+      rotation: {x: -0.0018560844, y: -0.0035018702, z: -0.21825847, w: 0.975883}
+      scale: {x: 1, y: 1, z: 1.0000004}
+    - name: Wng_ LFeather1202
+      parentName: Wng_ LFeather12
+      position: {x: -0.46423674, y: -0.0005207062, z: -0.0000000023841857}
+      rotation: {x: -0, y: -0, z: -0.0000000028603604, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Wng_ LFeather9
+      parentName: Wng_ L Hand
+      position: {x: -0.039943542, y: 0.12816916, z: -0.0007420313}
+      rotation: {x: -0.0055720657, y: -0.008739153, z: -0.40031236, w: 0.9163202}
+      scale: {x: 1.0000008, y: 1.0000011, z: 1.0000001}
+    - name: Wng_ LFeather902
+      parentName: Wng_ LFeather9
+      position: {x: -0.54054, y: -0.0002506256, z: -0.0000000023841857}
+      rotation: {x: -0, y: -0, z: 0.000000001859007, w: 1}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: Wng_ R Clavicle
+      parentName: Wng_ Spine1
+      position: {x: 0.29084668, y: -0.02271034, z: -0.25754166}
+      rotation: {x: -0.70708025, y: -0.0002790542, z: -0.70713323, w: 0.00028021587}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: Wng_ RFeather3
+      parentName: Wng_ R Clavicle
+      position: {x: -0.27520257, y: 0.016113741, z: 0.25459364}
+      rotation: {x: 0.5323347, y: 0.46508628, z: -0.4537921, w: 0.54257476}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000004}
+    - name: Wng_ RFeather302
+      parentName: Wng_ RFeather3
+      position: {x: -0.3485222, y: -0.0001813507, z: -0.00000014781952}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ RFeather2
+      parentName: Wng_ R Clavicle
+      position: {x: -0.16334032, y: 0.016980588, z: 0.27920565}
+      rotation: {x: 0.53664446, y: 0.46044984, z: -0.45959362, w: 0.5373755}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ RFeather202
+      parentName: Wng_ RFeather2
+      position: {x: -0.32810432, y: -0.00018913268, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ RFeather1
+      parentName: Wng_ R Clavicle
+      position: {x: -0.056768663, y: 0.01728225, z: 0.34068066}
+      rotation: {x: 0.5162013, y: 0.48308674, z: -0.47510388, w: 0.5238699}
+      scale: {x: 1.0000005, y: 1.0000006, z: 1.0000006}
+    - name: Wng_ RFeather102
+      parentName: Wng_ RFeather1
+      position: {x: -0.27355754, y: -0.00018915176, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ R UpperArm
+      parentName: Wng_ R Clavicle
+      position: {x: -0.24009721, y: -0.00037467957, z: -0.00006177902}
+      rotation: {x: 0.67661744, y: 0.02865405, z: -0.027267188, w: 0.7352716}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000001}
+    - name: Wng_ RFeather5
+      parentName: Wng_ R UpperArm
+      position: {x: -0.35839054, y: 0.13096045, z: -0.001341238}
+      rotation: {x: 0.031354114, y: 0.026438832, z: -0.52194494, w: 0.8519926}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000001}
+    - name: Wng_ RFeather502
+      parentName: Wng_ RFeather5
+      position: {x: -0.35574368, y: -0.00024604797, z: -0.00000014781952}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ RFeather4
+      parentName: Wng_ R UpperArm
+      position: {x: -0.21861514, y: 0.20361656, z: -0.0010505628}
+      rotation: {x: 0.03274804, y: 0.025072547, z: -0.5455399, w: 0.83706945}
+      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+    - name: Wng_ RFeather402
+      parentName: Wng_ RFeather4
+      position: {x: -0.3385853, y: -0.00021202087, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Wng_ R Forearm
+      parentName: Wng_ R UpperArm
+      position: {x: -0.25562778, y: -0.00034372567, z: -0.00013717651}
+      rotation: {x: 0.00037539005, y: -0.0022004936, z: 0.07495442, w: 0.9971845}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: Wng_ RFeather7
+      parentName: Wng_ R Forearm
+      position: {x: -0.31557196, y: 0.1804017, z: 0.0015521348}
+      rotation: {x: 0.008586884, y: 0.0107629, z: -0.6242775, w: 0.78108144}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: Wng_ RFeather702
+      parentName: Wng_ RFeather7
+      position: {x: -0.3542618, y: -0.00024337768, z: -0.00000015258789}
+      rotation: {x: -0, y: -0, z: -0.0000000027648632, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+    - name: Wng_ RFeather8
+      parentName: Wng_ R Forearm
+      position: {x: -0.4241098, y: 0.19130261, z: 0.0031163036}
+      rotation: {x: 0.01082656, y: 0.016292289, z: -0.5540559, w: 0.8322496}
+      scale: {x: 0.99999976, y: 0.99999964, z: 0.9999999}
+    - name: Wng_ RFeather802
+      parentName: Wng_ RFeather8
+      position: {x: -0.3750717, y: -0.00027976988, z: 0}
+      rotation: {x: -0, y: -0, z: 0.000000010506483, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: Wng_ RFeather6
+      parentName: Wng_ R Forearm
+      position: {x: -0.18768181, y: 0.17266981, z: 0.0013659715}
+      rotation: {x: 0.012139024, y: 0.013594627, z: -0.6665767, w: 0.7452137}
+      scale: {x: 1.0000002, y: 1, z: 1.0000004}
+    - name: Wng_ RFeather602
+      parentName: Wng_ RFeather6
+      position: {x: -0.37097514, y: -0.00022323609, z: 0.00000015258789}
+      rotation: {x: 9.313226e-10, y: 9.313226e-10, z: -0.000000010055373, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: Wng_ R Hand
+      parentName: Wng_ R Forearm
+      position: {x: -0.4910884, y: 0.000080909726, z: 0.00009674072}
+      rotation: {x: 0.004970472, y: -0.041649465, z: -0.03847776, w: 0.9983788}
+      scale: {x: 1.0000007, y: 1.0000002, z: 1.0000005}
+    - name: Wng_ R Finger
+      parentName: Wng_ R Hand
+      position: {x: -0.3911728, y: -0.0005021167, z: 0.0000000023841857}
+      rotation: {x: 0.00001567331, y: -0.00039639493, z: -0.037071686, w: 0.9993125}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: Wng_ RFeather16
+      parentName: Wng_ R Finger
+      position: {x: -0.20342284, y: 0.012950497, z: -0.019441677}
+      rotation: {x: 0.001092303, y: -0.0002803959, z: -0.03324209, w: 0.9994467}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000004}
+    - name: Wng_ RFeather1602
+      parentName: Wng_ RFeather16
+      position: {x: -0.39363387, y: -0.0004063606, z: 0}
+      rotation: {x: -1.1641531e-10, y: -0.00000000768341, z: 0.000000015713054, w: 1}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1}
+    - name: Wng_ RFeather14
+      parentName: Wng_ R Finger
+      position: {x: -0.08857605, y: 0.079646245, z: -0.0028376793}
+      rotation: {x: -0.000060659702, y: -0.0020014895, z: -0.11590178, w: 0.9932587}
+      scale: {x: 1.0000007, y: 1, z: 1.0000004}
+    - name: Wng_ RFeather1402
+      parentName: Wng_ RFeather14
+      position: {x: -0.57033443, y: -0.00050151825, z: 0.000000009536743}
+      rotation: {x: -0, y: -0, z: -0.0000000022004654, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000001}
+    - name: Wng_ RFeather15
+      parentName: Wng_ R Finger
+      position: {x: -0.10811264, y: 0.06596961, z: -0.008792729}
+      rotation: {x: 0.001628348, y: -0.0030524083, z: -0.060732912, w: 0.9981481}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000002}
+    - name: Wng_ RFeather1502
+      parentName: Wng_ RFeather15
+      position: {x: -0.58085907, y: -0.0005002022, z: -0.00000014543534}
+      rotation: {x: -2.3283059e-10, y: -0, z: -0.000000040131443, w: 1}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1}
+    - name: Wng_ RFeather13
+      parentName: Wng_ R Hand
+      position: {x: -0.43307585, y: 0.13285404, z: 0.0000015342235}
+      rotation: {x: -0.000000040028677, y: 0.0000005078909, z: -0.18761814, w: 0.98224205}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+    - name: Wng_ RFeather1302
+      parentName: Wng_ RFeather13
+      position: {x: -0.5357445, y: -0.00050670624, z: 0.00000017046928}
+      rotation: {x: -0.0000000025153175, y: 0.000000014719772, z: 2.092784e-14, w: 1}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1.0000004}
+    - name: Wng_ RFeather10
+      parentName: Wng_ R Hand
+      position: {x: -0.17860763, y: 0.20025505, z: 0.0017717028}
+      rotation: {x: 0.0016283188, y: 0.004787978, z: -0.32278007, w: 0.9464605}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Wng_ RFeather1002
+      parentName: Wng_ RFeather10
+      position: {x: -0.40214193, y: -0.00038078308, z: 0}
+      rotation: {x: 0.0000000046566124, y: -0.000000014901159, z: 0.00000007148264, w: 1}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: Wng_ RFeather11
+      parentName: Wng_ R Hand
+      position: {x: -0.23618789, y: 0.16976601, z: 0.0016635131}
+      rotation: {x: 0.0011533025, y: 0.0052304645, z: -0.26279727, w: 0.9648362}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000001}
+    - name: Wng_ RFeather1102
+      parentName: Wng_ RFeather11
+      position: {x: -0.49833694, y: -0.00041870115, z: -0.00000015497207}
+      rotation: {x: -0.0000000011641531, y: -4.6566123e-10, z: 0.000000047365113, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: Wng_ RFeather12
+      parentName: Wng_ R Hand
+      position: {x: -0.3972569, y: 0.18037012, z: 0.0015414453}
+      rotation: {x: 0.0018560012, y: 0.0035030725, z: -0.21825835, w: 0.975883}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1.0000004}
+    - name: Wng_ RFeather1202
+      parentName: Wng_ RFeather12
+      position: {x: -0.4642366, y: -0.00052059174, z: 0.00000015974044}
+      rotation: {x: 0.000000001164153, y: -0.0000000069849175, z: -0.00000003459126, w: 1}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000004}
+    - name: Wng_ RFeather9
+      parentName: Wng_ R Hand
+      position: {x: -0.03994377, y: 0.1281691, z: 0.0007426417}
+      rotation: {x: 0.0055721486, y: 0.0087412875, z: -0.40031222, w: 0.9163202}
+      scale: {x: 1.0000011, y: 1.0000011, z: 1.0000001}
+    - name: Wng_ RFeather902
+      parentName: Wng_ RFeather9
+      position: {x: -0.5405396, y: -0.0002507019, z: -0.00000014781952}
+      rotation: {x: -4.6566123e-10, y: -0, z: -0.000000010764778, w: 1}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -2352,13 +2759,15 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: Wng_CG
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
