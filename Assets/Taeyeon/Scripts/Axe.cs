@@ -7,9 +7,7 @@ public class Axe : MonoBehaviour
 {
     [SerializeField] private GameObject stump;
     [SerializeField] private GameObject woodPfs;
-    public GameObject tree;
     int count = 0;
-
 
     private void Update()
     {
@@ -24,23 +22,22 @@ public class Axe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tree"))
         {
-            
+
             //GetVelocity(wood.transform.position, pos, 70f);
 
             count++;
-            Instantiate(woodPfs, transform.position + new Vector3(0,0,count/2), Quaternion.identity);
+            Instantiate(woodPfs, transform.position + new Vector3(0, 0, count / 2), Quaternion.identity);
             if (count >= 3)
             {
                 Instantiate(stump, other.transform.position, Quaternion.identity);
-                tree = other.gameObject;
-                count = 0;// ī��Ʈ �ʱ�ȭ
-                other.gameObject.SetActive(false);
+                count = 0;// ī��Ʈ �ʱ�ȭ
+                Destroy(other.gameObject);
             }
         }
 
     }
 
-    
 
-    
+
+
 }
