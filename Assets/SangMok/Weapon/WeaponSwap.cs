@@ -20,21 +20,23 @@ public class WeaponSwap : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown (KeyCode.Alpha1))
-        {
-                Debug.Log("¹«±âÀåÂø");
-                SwapWeapon(1);
-        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            SwapWeapon(1);
         if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-                Debug.Log("¹«±âÀåÂø");
-                SwapWeapon(2);
-        }
+            SwapWeapon(2);
         if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-                Debug.Log("¹«±âÀåÂø");
-                SwapWeapon(3);
-        }
+            SwapWeapon(3);
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            SwapWeapon(4);
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+            SwapWeapon(5);
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+            SwapWeapon(6);
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+            SwapWeapon(7);
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+            SwapWeapon(8);
+
     }
 
     void SwapWeapon(int weaponType)
@@ -56,6 +58,26 @@ public class WeaponSwap : MonoBehaviour
                 for (int i = 0; i < weapon.Length; i++)
                 {
                     if (weapon[i].name == "Pickaxe")
+                        weapon[i].SetActive(true);
+                    else
+                        weapon[i].SetActive(false);
+                }
+            }
+            else if (slots[weaponType - 1].item.itemName == "Fishing_Rod")
+            {
+                for (int i = 0; i < weapon.Length; i++)
+                {
+                    if (weapon[i].name == "Fishing_Rod")
+                        weapon[i].SetActive(true);
+                    else
+                        weapon[i].SetActive(false);
+                }
+            }
+            else if (slots[weaponType - 1].item.itemName == "Lacrosse Stick")
+            {
+                for (int i = 0; i < weapon.Length; i++)
+                {
+                    if (weapon[i].name == "Lacrosse Stick")
                         weapon[i].SetActive(true);
                     else
                         weapon[i].SetActive(false);
