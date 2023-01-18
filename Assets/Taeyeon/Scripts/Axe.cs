@@ -7,6 +7,7 @@ public class Axe : MonoBehaviour
 {
     [SerializeField] private GameObject stump;
     [SerializeField] private GameObject woodPfs;
+    public GameObject tree;
     int count = 0;
 
     private void Update()
@@ -30,6 +31,7 @@ public class Axe : MonoBehaviour
             if (count >= 3)
             {
                 Instantiate(stump, other.transform.position, Quaternion.identity);
+                tree = other.gameObject;
                 count = 0;// ī��Ʈ �ʱ�ȭ
                 Destroy(other.gameObject);
             }
