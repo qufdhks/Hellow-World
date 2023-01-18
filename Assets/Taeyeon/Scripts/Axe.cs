@@ -35,7 +35,7 @@ public class Axe : MonoBehaviour
                 Instantiate(stump, other.transform.position, Quaternion.identity);
                 tree = other.gameObject;
                 count = 0;
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
             }
         }
 
