@@ -134,7 +134,7 @@ public class FishMove : MonoBehaviour
         isSwimming = true;
         currentTime = swimTime;
         anim.SetBool("Swim1", isSwimming);
-        Debug.Log("수영");
+        //Debug.Log("수영");
     }
 
     private void SpeedSwimming()  
@@ -142,14 +142,14 @@ public class FishMove : MonoBehaviour
         isSwimming = true;
         currentTime = swimTime;
         anim.SetBool("Swim2", isSwimming);
-        Debug.Log("빠른 수영");
+        //Debug.Log("빠른 수영");
     }
 
     private void dead()  
     {
         currentTime = waitTime;
         anim.SetTrigger("Dead");
-        Debug.Log("죽음");
+        //Debug.Log("죽음");
     }
 
 }

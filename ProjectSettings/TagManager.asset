@@ -21,6 +21,7 @@ TagManager:
   - Axe
   - Animal
   - Rock
+  - Weapon
   layers:
   - Default
   - TransparentFX

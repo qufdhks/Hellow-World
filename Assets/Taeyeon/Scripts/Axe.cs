@@ -11,9 +11,9 @@ public class Axe : MonoBehaviour
 
     private void Update()
     {
-        float h = Input.GetAxis("Horizontal");
+        //float h = Input.GetAxis("Horizontal");
 
-        Vector3 dir = new Vector3(0, 0, h);
+        //Vector3 dir = new Vector3(0, 0, h);
 
         //transform.Translate(dir * 5f * Time.deltaTime);
     }
