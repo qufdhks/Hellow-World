@@ -215,7 +215,7 @@ public class Crafting : MonoBehaviour
             images[i].sprite = information.needImage[i];
             images[i].name = information.needImage[i].name;
         }
-        itemName.text = information.name;
+        itemName.text = information.itemName;
         
         GetCheck();
     }
