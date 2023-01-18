@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class TreeRespawn : MonoBehaviour
 {
-    [SerializeField] private GameObject tree;
+    private Axe axe;
+    GameObject tree;
 
     void Start()
     {
+        axe = GameObject.Find("Axe").GetComponent<Axe>();
+        tree = axe.tree;
         StartCoroutine(Respawn());
     }
 
     IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
 
-        Instantiate(tree, gameObject.transform.position, Quaternion.identity);
+        //Instantiate(tree, gameObject.transform.position, Quaternion.identity);
+        tree.SetActive(true);
         Destroy(gameObject);
     }
 }

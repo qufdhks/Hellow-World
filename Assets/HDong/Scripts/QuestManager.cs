@@ -8,7 +8,7 @@ public class QuestManager : MonoBehaviour
     public int questActionIndex;
     public int GetquestActionIndex { get { return questActionIndex; } set { questActionIndex = value; } }
 
-    //[SerializeField] private GameObject[] questObject;
+    [SerializeField] private GameObject[] questObject;
 
     Dictionary<int, QuestData> questList;
 
@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
         if (id == questList[questId].npcId[questActionIndex])
             questActionIndex++;
 
-        //ControllObject();
+        ControllObject();
 
         if (questActionIndex == questList[questId].npcId.Length)
             NextQuest();
@@ -56,31 +56,31 @@ public class QuestManager : MonoBehaviour
         questActionIndex = 0;
     }
 
-    //public void ControllObject()
-    //{
-    //    switch (questId)
-    //    {
-    //        case 10:
-    //            if (questActionIndex == 2)
-    //            {
-    //                questObject[0].SetActive(true);
-    //                questObject[1].SetActive(true);
-    //                questObject[2].SetActive(true);
-    //            }
-    //            break;
-    //        case 20:
-    //            if (questActionIndex == 0)
-    //                questObject[0].SetActive(true);
-    //            break;
-    //        case 30:
-    //            if (questActionIndex == 0)
-    //                questObject[1].SetActive(true);
-    //            break;
-    //        case 40:
-    //            if (questActionIndex == 0)
-    //                questObject[2].SetActive(true);
-    //            break;
+    public void ControllObject()
+    {
+        switch (questId)
+        {
+            case 10:
+                if (questActionIndex == 2)
+                {
+                    questObject[0].SetActive(true);
+                    questObject[1].SetActive(true);
+                    questObject[2].SetActive(true);
+                }
+                break;
+            case 20:
+                if (questActionIndex == 1)
+                    questObject[0].SetActive(true);
+                break;
+            case 30:
+                if (questActionIndex == 0)
+                    questObject[1].SetActive(true);
+                break;
+            case 40:
+                if (questActionIndex == 0)
+                    questObject[2].SetActive(true);
+                break;
 
-    //    }
-    //}
+        }
+    }
 }
