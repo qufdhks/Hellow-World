@@ -22,22 +22,22 @@ public class Axe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tree"))
         {
-            
+
             //GetVelocity(wood.transform.position, pos, 70f);
 
             count++;
-            Instantiate(woodPfs, transform.position + new Vector3(0,0,count/2), Quaternion.identity);
+            Instantiate(woodPfs, transform.position + new Vector3(0, 0, count / 2), Quaternion.identity);
             if (count >= 3)
             {
                 Instantiate(stump, other.transform.position, Quaternion.identity);
-                count = 0;// ī��Ʈ �ʱ�ȭ
+                count = 0;// ī��Ʈ �ʱ�ȭ
                 Destroy(other.gameObject);
             }
         }
 
     }
 
-    
 
-    
+
+
 }
