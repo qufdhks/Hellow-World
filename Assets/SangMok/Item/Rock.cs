@@ -22,6 +22,10 @@ public class Rock : MonoBehaviour
     public GameObject stone;
     public Transform stonePos;
 
+    [SerializeField]
+    public GameObject DesRock;
+    public Transform DesRockPos;
+
     public void Mining()//Ã¤±¼
     {
         hp--;
@@ -47,6 +51,13 @@ public class Rock : MonoBehaviour
             Debug.Log("Ã¤±¼¼º°ø");
             Mining();
             Instantiate(stone, stonePos.position, Quaternion.identity);
+            Invoke("InstanRock", 2f);
+            
         }
+    }
+
+    private void InstanRock()
+    {
+        Instantiate(DesRock, DesRockPos.position, Quaternion.identity);
     }
 }

@@ -33,21 +33,30 @@ public class CraftManual : MonoBehaviour
 
     //private RaycastHit hitinfo;
     
-    [SerializeField]
-    private LayerMask layerMask;
+    //[SerializeField]
+    //private LayerMask layerMask;
 
     //[SerializeField]
     //private float range;
 
-
+    //기존
     public void SlotClick(int _slotNumber)
     {
         Debug.Log("클릭됨");
-        go_Preview = Instantiate(craft_house[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 1f) + new Vector3(0f, -0.5f,0f), Quaternion.identity);
+        go_Preview = Instantiate(craft_house[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 1f) + new Vector3(0f, -0.5f, 0f), Quaternion.identity);
         go_Prefab = craft_house[_slotNumber].go_Prefab;
         isPreviewActivated = true;
         go_BaseUI.SetActive(false);
     }
+
+    //public void SlotClick(int _slotNumber)
+    //{
+    //    Debug.Log("클릭됨");
+    //    go_Preview = Instantiate(craft_house[_slotNumber].go_PreviewPrefab, tf_Player.position + tf_Player.forward, Quaternion.identity);
+    //    go_Prefab = craft_house[_slotNumber].go_Prefab;
+    //    isPreviewActivated = true;
+    //    go_BaseUI.SetActive(false);
+    //}
 
 
     void Start()
@@ -58,40 +67,56 @@ public class CraftManual : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated && clearQuest)
+        if (Input.GetKeyDown(KeyCode.Tab) && !isPreviewActivated /*&& clearQuest*/)
         {
             Window();
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
+            Debug.Log("건축완료");
             Build();
         }
-
-
+        ////out
         //if (isPreviewActivated)
+        //{
         //    PreviewPositionUpdate();
-
-
+        //}
         if (Input.GetKeyDown(KeyCode.C))
         {
             Cancel();
         }
     }
 
+    //기존
     private void Build()
     {
-        if(isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
+        if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
         {
-            Instantiate(go_Prefab, tf_Player.position + (tf_Player.forward * 10f) + new Vector3(0f, -1.2f, 0f), Quaternion.identity);
+            Instantiate(go_Prefab, tf_Player.position + (tf_Player.forward * 5f) + new Vector3(0f, 0f, 0f), Quaternion.identity);
             Destroy(go_Preview);
             isActivated = false;
-            isPreviewActivated=false;
+            isPreviewActivated = false;
             go_Preview = null;
             go_Prefab = null;
         }
     }
 
+    //out
+    //private void Build()
+    //{
+    //    if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
+    //    {
+    //        Instantiate(go_Prefab, hitinfo.point, Quaternion.identity);
+    //        Destroy(go_Preview);
+    //        isActivated = false;
+    //        isPreviewActivated = false;
+    //        go_Preview = null;
+    //        go_Prefab = null;
+    //    }
+    //}
+
+    //out
     //private void PreviewPositionUpdate()
     //{
     //    if(Physics.Raycast(tf_Player.position, tf_Player.forward, out hitinfo, range, layerMask))
