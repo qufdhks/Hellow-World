@@ -9,7 +9,7 @@ public class TreeRespawn : MonoBehaviour
 
     void Start()
     {
-        axe = GameObject.Find("Axe").GetComponent<Axe>();
+        axe = GameObject.FindWithTag("Axe").GetComponent<Axe>();
         tree = axe.tree;
         StartCoroutine(Respawn());
     }
@@ -20,6 +20,7 @@ public class TreeRespawn : MonoBehaviour
 
         //Instantiate(tree, gameObject.transform.position, Quaternion.identity);
         tree.SetActive(true);
+        Debug.Log("º“»Ø!");
         Destroy(gameObject);
     }
 }

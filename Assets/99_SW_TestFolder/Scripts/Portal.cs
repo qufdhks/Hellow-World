@@ -10,7 +10,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Animal"))
         {
             other.transform.position = new Vector3(tr.position.x,tr.position.y,tr.position.z);
             //RenderSettings.skybox = mat;
