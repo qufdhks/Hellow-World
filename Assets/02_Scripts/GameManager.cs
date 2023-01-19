@@ -82,11 +82,8 @@ public class GameManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
 
-            Debug.Log("22222");
-
             if (questItem != null && questItem.ContainsKey(questMng.questId))
             {
-                Debug.Log("3333");
                 for (int i = 0; i < inventory.slots.Length; i++)
                 {
                     if (inventory.slots[i].item == null) continue;
@@ -96,7 +93,6 @@ public class GameManager : MonoBehaviour
                         if (questItem[questMng.questId].num <= inventory.slots[i].itemCount)
                         {
                             questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
-                            Debug.Log("완");
                             break;
                         }
                     }
@@ -106,7 +102,6 @@ public class GameManager : MonoBehaviour
             else
             {
                 questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
-                Debug.Log("dd");
             }
 
             if (_id == 8000)

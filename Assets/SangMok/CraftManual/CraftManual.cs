@@ -74,7 +74,6 @@ public class CraftManual : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log("건축완료");
             Build();
         }
         ////out
