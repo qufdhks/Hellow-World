@@ -57,12 +57,11 @@ public class CamCtrl : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (!Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
-            CameraTransform();
+        CameraTransform();
     }
     void CameraInputs()
     {
-        if (cameraState != CameraState.CameraNone && Input.GetKey(leftMouse))
+        if (cameraState != CameraState.CameraNone && Input.GetKey(leftMouse) && !Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
         {
             if (cameraState == CameraState.CameraRotate)
             {
