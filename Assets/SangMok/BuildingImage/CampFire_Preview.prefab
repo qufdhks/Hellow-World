@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1003951187437916035}
   - component: {fileID: -1768427210243731363}
   - component: {fileID: 5983652367020805023}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CampFire_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,8 +99,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0856155, y: 0.4652093, z: 0.86354613}
-  m_Center: {x: 0.06976879, y: 0.2259494, z: 0.016719982}
+  m_Size: {x: 1.0856155, y: 0.39826185, z: 0.86354613}
+  m_Center: {x: 0.06976879, y: 0.25942314, z: 0.016719997}
 --- !u!54 &-1003951187437916035
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcc1e0a8b6bef44d9cebb602e73b5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerGround: 0
+  layerGround: 14
   green: {fileID: 2100000, guid: cd677ca1d5a3c494b8279158581ee2d7, type: 2}
   red: {fileID: 2100000, guid: d1d686fa0a76a4f4bb9ba80a81bc90f1, type: 2}
 --- !u!1 &1055992054228082122
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 1055992054228082120}
   - component: {fileID: 1055992054228082123}
   - component: {fileID: 3544991316251146517}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

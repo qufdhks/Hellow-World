@@ -62,14 +62,15 @@ public class Crafting : MonoBehaviour
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].itemImage.sprite.name == "stone")
+                if (slots[i].item != null)
                 {
-                    if (crafting)
-                        slots[i].RemoveCount(need1);
-                    //if (craft != null)
-                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
-
-                    count = slots[i].itemCount;
+                    if (slots[i].itemImage.sprite.name == "stone")
+                    {
+                        if (crafting)
+                            count = slots[i].RemoveCount(need1);
+                        else
+                            count = slots[i].itemCount;
+                    }
                 }
             }
 
@@ -85,13 +86,15 @@ public class Crafting : MonoBehaviour
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].itemImage.sprite.name == "wood")
+                if (slots[i].item != null)
                 {
-                    if (crafting)
-                        slots[i].RemoveCount(need1);
-                    //if (craft != null)
-                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
-                    count = slots[i].itemCount;
+                    if (slots[i].itemImage.sprite.name == "wood")
+                    {
+                        if (crafting)
+                            count = slots[i].RemoveCount(need1);
+                        else
+                            count = slots[i].itemCount;
+                    }
                 }
             }
 
@@ -106,13 +109,15 @@ public class Crafting : MonoBehaviour
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].itemImage.sprite.name == "spiderweb")
+                if (slots[i].item != null)
                 {
-                    if (crafting)
-                        slots[i].RemoveCount(need1);
-                    //if (craft != null)
-                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need1);
-                    count = slots[i].itemCount;
+                    if (slots[i].itemImage.sprite.name == "spiderweb")
+                    {
+                        if (crafting)
+                            count = slots[i].RemoveCount(need1);
+                        else
+                            count = slots[i].itemCount;
+                    }
                 }
             }
 
@@ -124,19 +129,24 @@ public class Crafting : MonoBehaviour
                 item1Text.color = Color.white;
         }
         else
+        {
             craft1 = 0;
+            Debug.Log("여기");
+        }
 
         if (information.needImage[1].name == "stone")
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].itemImage.sprite.name == "stone")
+                if (slots[i].item != null)
                 {
-                    if (crafting)
-                        slots[i].RemoveCount(need2);
-                    //if (craft != null)
-                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
-                    count = slots[i].itemCount;
+                    if (slots[i].itemImage.sprite.name == "stone")
+                    {
+                        if (crafting)
+                            count = slots[i].RemoveCount(need2);
+                        else
+                            count = slots[i].itemCount;
+                    }
                 }
             }
 
@@ -151,13 +161,15 @@ public class Crafting : MonoBehaviour
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].itemImage.sprite.name == "wood")
+                if (slots[i].item != null)
                 {
-                    if (crafting)
-                        slots[i].RemoveCount(need2);
-                    //if (craft != null)
-                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
-                    count = slots[i].itemCount;
+                    if (slots[i].itemImage.sprite.name == "wood")
+                    {
+                        if (crafting)
+                            slots[i].RemoveCount(need2);
+                        else
+                            count = slots[i].itemCount;
+                    }
                 }
             }
 
@@ -172,13 +184,15 @@ public class Crafting : MonoBehaviour
         {
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i].itemImage.sprite.name == "spiderweb")
+                if (slots[i].item != null)
                 {
-                    if (crafting)
-                        slots[i].RemoveCount(need2);
-                    //if (craft != null)
-                    //    slots[i].itemCount = GoingCraft(slots[i].itemCount, need2);
-                    count = slots[i].itemCount;
+                    if (slots[i].itemImage.sprite.name == "spiderweb")
+                    {
+                        if (crafting)
+                            count = slots[i].RemoveCount(need2);
+                        else
+                            count = slots[i].itemCount;
+                    }
                 }
             }
 
@@ -224,7 +238,7 @@ public class Crafting : MonoBehaviour
     {
         if (craft1 >= need1 && craft2 >= need2)
         {
-            Debug.Log(need2);
+            Debug.Log("조합");
             crafting = true;
             GetCheck();
             inventory.AcquireItem(information.item);

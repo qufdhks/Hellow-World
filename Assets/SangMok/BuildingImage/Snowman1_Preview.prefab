@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4044866355676274789}
   - component: {fileID: 4090418076496108195}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4045130211485053741}
   - component: {fileID: 4060732081754298993}
   - component: {fileID: 4069510361498192549}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4052387477036279607}
   - component: {fileID: 4060032189634295205}
   - component: {fileID: 4069542931572240765}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1085940618774897839}
   - component: {fileID: 7479316894624241306}
   - component: {fileID: -3247481913526119333}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman1_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,8 +289,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.0422912, z: 1}
+  m_Center: {x: 0, y: 1.1113153, z: 0}
 --- !u!54 &1085940618774897839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcc1e0a8b6bef44d9cebb602e73b5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerGround: 0
+  layerGround: 14
   green: {fileID: 2100000, guid: cd677ca1d5a3c494b8279158581ee2d7, type: 2}
   red: {fileID: 2100000, guid: d1d686fa0a76a4f4bb9ba80a81bc90f1, type: 2}
 --- !u!1 &4046975404787526213
@@ -344,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4045249044595297147}
   - component: {fileID: 4091379481545948767}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 4052652258053645689}
   - component: {fileID: 4059182398013026545}
   - component: {fileID: 4069472466953625465}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 4165755279192239571}
   - component: {fileID: 4164724092438175795}
   - component: {fileID: 4165553846993778451}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spheres
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4045055125320166851}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}

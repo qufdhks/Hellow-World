@@ -67,13 +67,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             ClearSlot();
     }
 
-    public void RemoveCount(int _count)
+    public int RemoveCount(int _count)
     {
         itemCount -= _count;
         text_Count.text = itemCount.ToString();
 
         if (itemCount <= 0)
             ClearSlot();
+
+        return itemCount;
     }
 
 
