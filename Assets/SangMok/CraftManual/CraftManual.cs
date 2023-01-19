@@ -15,7 +15,7 @@ public class CraftManual : MonoBehaviour
 {
     //상태변수
     public bool clearQuest = false;
-    private bool isActivated = false;
+    public static bool isActivated = false;
     private bool isPreviewActivated = false;
 
     [SerializeField]
@@ -76,11 +76,6 @@ public class CraftManual : MonoBehaviour
         {
             Build();
         }
-        ////out
-        //if (isPreviewActivated)
-        //{
-        //    PreviewPositionUpdate();
-        //}
         if (Input.GetKeyDown(KeyCode.C))
         {
             Cancel();

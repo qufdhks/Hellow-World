@@ -45,22 +45,20 @@ public class CamCtrl : MonoBehaviour
         }
         else if (Input.GetKey(leftMouse))
         {
-            if (!Inventory.invectoryActivated)
+            if (!Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
                 cameraState = CameraState.CameraRotate;
         }
         else if (Input.GetKey(rightMouse))
-        {
-            cameraState = CameraState.CameraNone;
+        {            
+                cameraState = CameraState.CameraNone;
         }
-        //else
-        //{
-        //
-        //}
+
         CameraInputs();
     }
     void LateUpdate()
     {
-        CameraTransform();
+        if (!Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
+            CameraTransform();
     }
     void CameraInputs()
     {
