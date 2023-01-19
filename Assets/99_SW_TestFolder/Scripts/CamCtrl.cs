@@ -57,12 +57,11 @@ public class CamCtrl : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (!Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
-            CameraTransform();
+        CameraTransform();
     }
     void CameraInputs()
     {
-        if (cameraState != CameraState.CameraNone && Input.GetKey(leftMouse))
+        if (cameraState != CameraState.CameraNone && Input.GetKey(leftMouse) && !Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
         {
             if (cameraState == CameraState.CameraRotate)
             {
@@ -71,8 +70,11 @@ public class CamCtrl : MonoBehaviour
             currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
             currentTilt = Mathf.Clamp(currentTilt, -cameraMaxTilt, cameraMaxTilt);
         }
-        currentDistance -= Input.GetAxis("Mouse ScrollWheel") * 2.0f;
-        currentDistance = Mathf.Clamp(currentDistance, 0, cameraMaxDistance);
+        if (!Inventory.invectoryActivated && !Encyclopedia.encyclopediaActivated && !CraftManual.isActivated)
+        {
+            currentDistance -= Input.GetAxis("Mouse ScrollWheel") * 2.0f;
+            currentDistance = Mathf.Clamp(currentDistance, 0, cameraMaxDistance);
+        }
 
     }
     void CameraTransform()

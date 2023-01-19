@@ -39,7 +39,7 @@ public class PreviewObject : MonoBehaviour
     {
         foreach(Transform tf_Child in this.transform)
         {
-            var newMaterials = new Material[tf_Child.GetComponent< Renderer > ().materials.Length];
+            var newMaterials = new Material[tf_Child.GetComponent<Renderer>().materials.Length];
 
             for(int i = 0; i < newMaterials.Length; i++)
             {
@@ -47,7 +47,6 @@ public class PreviewObject : MonoBehaviour
             }
             tf_Child.GetComponent<Renderer>().materials = newMaterials;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
