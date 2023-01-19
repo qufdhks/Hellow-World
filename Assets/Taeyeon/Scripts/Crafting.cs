@@ -67,13 +67,20 @@ public class Crafting : MonoBehaviour
                     if (slots[i].itemImage.sprite.name == "stone")
                     {
                         if (crafting)
+                        {
                             count = slots[i].RemoveCount(need1);
+                            break;
+                        }
                         else
+                        {
                             count = slots[i].itemCount;
+                            break;
+                        }
                     }
                 }
+                else
+                    count = 0;
             }
-
             craft1 = count;
 
             if (craft1 < information.needCount[0])
@@ -91,11 +98,19 @@ public class Crafting : MonoBehaviour
                     if (slots[i].itemImage.sprite.name == "wood")
                     {
                         if (crafting)
+                        {
                             count = slots[i].RemoveCount(need1);
+                            break;
+                        }
                         else
+                        {
                             count = slots[i].itemCount;
+                            break;
+                        }
                     }
                 }
+                else
+                    count = 0;
             }
 
             craft1 = count;
@@ -114,11 +129,19 @@ public class Crafting : MonoBehaviour
                     if (slots[i].itemImage.sprite.name == "spiderweb")
                     {
                         if (crafting)
+                        {
                             count = slots[i].RemoveCount(need1);
+                            break;
+                        }
                         else
+                        {
                             count = slots[i].itemCount;
+                            break;
+                        }
                     }
                 }
+                else
+                    count = 0;
             }
 
             craft1 = count;
@@ -129,10 +152,7 @@ public class Crafting : MonoBehaviour
                 item1Text.color = Color.white;
         }
         else
-        {
             craft1 = 0;
-            Debug.Log("¿©±â");
-        }
 
         if (information.needImage[1].name == "stone")
         {
@@ -143,11 +163,19 @@ public class Crafting : MonoBehaviour
                     if (slots[i].itemImage.sprite.name == "stone")
                     {
                         if (crafting)
+                        {
                             count = slots[i].RemoveCount(need2);
+                            break;
+                        }
                         else
+                        {
                             count = slots[i].itemCount;
+                            break;
+                        }
                     }
                 }
+                else
+                    count = 0;
             }
 
             craft2 = count;
@@ -166,11 +194,19 @@ public class Crafting : MonoBehaviour
                     if (slots[i].itemImage.sprite.name == "wood")
                     {
                         if (crafting)
-                            slots[i].RemoveCount(need2);
+                        {
+                            count = slots[i].RemoveCount(need2);
+                            break;
+                        }
                         else
+                        {
                             count = slots[i].itemCount;
+                            break;
+                        }
                     }
                 }
+                else
+                    count = 0;
             }
 
             craft2 = count;
@@ -189,11 +225,19 @@ public class Crafting : MonoBehaviour
                     if (slots[i].itemImage.sprite.name == "spiderweb")
                     {
                         if (crafting)
+                        {
                             count = slots[i].RemoveCount(need2);
+                            break;
+                        }
                         else
+                        {
                             count = slots[i].itemCount;
+                            break;
+                        }
                     }
                 }
+                else
+                    count = 0;
             }
 
             craft2 = count;
