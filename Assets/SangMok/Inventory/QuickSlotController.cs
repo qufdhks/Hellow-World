@@ -10,8 +10,8 @@ public class QuickSlotController : MonoBehaviour
     private int selectedSlot;  // 선택된 퀵슬롯의 인덱스 (0~7)
     [SerializeField] private GameObject go_SelectedImage;  // 선택된 퀵슬롯 이미지
 
-    [SerializeField]
-    private WeaponManager theWeaponManager;
+    //[SerializeField]
+    //private WeaponManager theWeaponManager;
 
     void Start()
     {
@@ -47,7 +47,7 @@ public class QuickSlotController : MonoBehaviour
     private void ChangeSlot(int _num)
     {
         SelectedSlot(_num);
-        Execute();
+        //Execute();
     }
 
     private void SelectedSlot(int _num)
@@ -61,15 +61,15 @@ public class QuickSlotController : MonoBehaviour
 
     private void Execute()// 선택된 슬롯 실행
     {
-        if (quickSlots[selectedSlot].item != null)
-        {
-            if (quickSlots[selectedSlot].item.itemType == Item.ItemType.Equipment)
-                StartCoroutine(theWeaponManager.ChangeWeaponCoroutine(quickSlots[selectedSlot].item.weaponType, quickSlots[selectedSlot].item.itemName));
-            else if (quickSlots[selectedSlot].item.itemType == Item.ItemType.Used)
-                StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
-            else
-                StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
-        }
+        //if (quickSlots[selectedSlot].item != null)
+        //{
+        //    if (quickSlots[selectedSlot].item.itemType == Item.ItemType.Equipment)
+        //        StartCoroutine(theWeaponManager.ChangeWeaponCoroutine(quickSlots[selectedSlot].item.weaponType, quickSlots[selectedSlot].item.itemName));
+        //    else if (quickSlots[selectedSlot].item.itemType == Item.ItemType.Used)
+        //        StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
+        //    else
+        //        StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
+        //}
         //else
         //{
         //    StartCoroutine(theWeaponManager.ChangeWeaponCoroutine("HAND", "맨손"));
