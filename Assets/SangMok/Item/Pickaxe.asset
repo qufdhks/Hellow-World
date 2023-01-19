@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Pickaxe
   itemType: 0
-  itemImage: {fileID: 21300000, guid: d343acd661cecfb479db4f245b27e6fb, type: 3}
+  itemImage: {fileID: 21300000, guid: 9230a3f44bc9ff54b8a8bf9c746005eb, type: 3}
   itemPrefab: {fileID: 9212479599521221883, guid: 451a9b1c1a7835b498f986e00bae2862, type: 3}
   weaponType: 

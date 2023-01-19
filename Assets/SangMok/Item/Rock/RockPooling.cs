@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjPooling : MonoBehaviour
+public class RockPooling : MonoBehaviour
 {
-    [Header("생선 생성 변수")]
+
+    [Header("돌 생성 변수")]
     public Transform[] points; //스폰 위치
-    public GameObject enemy;
-    public float createTime = 2f;//생성 주기
-    public int maxEnemy = 1;
+    public GameObject DesRock;
+    public float createTime = 5f;//생성 주기
+    public int maxRock = 10;
 
     public bool isGameOver = false;
-    //싱글턴에 접근하기 위한 static 변수 
-    //static은 세계 챔피언 말하지 않아도 모두가 알 수 있는 변수
-    public static ObjPooling instance;
 
-    [SerializeField] private Transform look;
-
-    [SerializeField] private fishing fishing;
+    public static RockPooling instance;
 
     private void Awake()
     {
@@ -41,13 +37,12 @@ public class ObjPooling : MonoBehaviour
         if (points.Length > 0)
         {
             //Enemy 자동 생성 코루틴 함수 호출
-            StartCoroutine(CreatEnemy());
+            StartCoroutine(CreatRock());
         }
-        //DontDestroyOnLoad(gameObject);
+        
     }
 
-
-    IEnumerator CreatEnemy()
+    IEnumerator CreatRock()
     {
         //게임 종료 전까지 무한루프
         //while (!isGameOver)
@@ -55,21 +50,18 @@ public class ObjPooling : MonoBehaviour
         {
             //ENEMY 태그를 지닌 오브젝트의 갯수 파악
             //최대 10마리를 넘기지 않기 위해서
-            GameObject[] fishes = GameObject.FindGameObjectsWithTag("Fish");
-            if (fishes == null || fishes.Length == 0)
+            GameObject[] Rocks = GameObject.FindGameObjectsWithTag("Rock");
+            if (Rocks == null || Rocks.Length == 0)
             {
                 yield return new WaitForSeconds(createTime);
 
                 int idx = Random.Range(0, points.Length);
-                GameObject  go = Instantiate(enemy,//Enemy, 프리팹
+                GameObject goRock = Instantiate(DesRock,//Enemy, 프리팹
                             points[idx].position,//랜덤추출된 위치
                             points[idx].rotation);//랜덤추출된 위치의 회전값
-                go.GetComponent<TargetFish>().Init(look, fishing);
-
-                fishing.SetAttachGo(go);
+              
             }
-           // else
-                yield return null;
+            yield return null;
         }
     }
 }

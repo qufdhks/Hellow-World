@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fishing_Rod
   itemType: 0
-  itemImage: {fileID: 21300000, guid: 2c129420b468f914d94be359d8031e80, type: 3}
+  itemImage: {fileID: 21300000, guid: c208ee37100b4aa459f1e30c78945803, type: 3}
   itemPrefab: {fileID: 5750792103677484625, guid: 88a54a98ad4395147ae0fce78545ffb8, type: 3}
   weaponType: 
