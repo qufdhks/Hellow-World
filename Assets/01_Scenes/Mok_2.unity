@@ -61513,7 +61513,6 @@ MonoBehaviour:
   - {fileID: 99291455}
   tf_parent: {fileID: 1656239317}
   go_SelectedImage: {fileID: 533288126}
-  theWeaponManager: {fileID: 332945019}
 --- !u!114 &1416031821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69129,6 +69128,10 @@ PrefabInstance:
     - target: {fileID: 4659209564570001433, guid: 8d8175993697346059d197fee47bf844, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 3230676863
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659209564800608684, guid: 8d8175993697346059d197fee47bf844, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4659209564800608684, guid: 8d8175993697346059d197fee47bf844, type: 3}
       propertyPath: cameraSpeed
