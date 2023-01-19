@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
+    public static Rock Instance;
+
     [SerializeField]
     private int hp; // ¹ÙÀ§ÀÇ Ã¼·Â. 0 ÀÌ µÇ¸é ÆÄ±«µÊ
 
@@ -22,26 +24,31 @@ public class Rock : MonoBehaviour
     public GameObject stone;
     public Transform stonePos;
 
-    [SerializeField]
-    public GameObject DesRock;
-    public Transform DesRockPos;
+    //[SerializeField]
+    public GameObject DestroyRock;
+    //public Transform DesRockPos;
 
     public void Mining()//Ã¤±¼
     {
+
         hp--;
         if (hp <= 0)
             Destruction();
     }
 
+    private void Update()
+    {
+        
+    }
     private void Destruction() //Ã¼·ÂÀÌ 0ÀÌ µÇ¸é ÆÄ±«
     {
         col.enabled = false;
-        Destroy(go_rock);
+        //Destroy(go_rock);
+        //go_rock.SetActive(false);
 
-        go_debris.SetActive(true);
-        Destroy(go_debris, destroyTime);
-
-
+        //go_debris.SetActive(true);
+        //Destroy(go_debris, destroyTime);
+        //Invoke("delayRock", 2f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,14 +57,26 @@ public class Rock : MonoBehaviour
         {
             Debug.Log("Ã¤±¼¼º°ø");
             Mining();
-            Instantiate(stone, stonePos.position, Quaternion.identity);
-            Invoke("InstanRock", 2f);
-            
+            GameObject _stone = Instantiate(stone, stonePos.position, Quaternion.identity);
+            StartCoroutine(cloneRock(_stone.transform.position));
         }
     }
 
-    private void InstanRock()
+    
+    IEnumerator cloneRock(Vector3 _position)
     {
-        Instantiate(DesRock, DesRockPos.position, Quaternion.identity);
+        yield return new WaitForSeconds(10f);
+        col.enabled = true;
+        go_rock.SetActive(true);
+        GameObject _rock = Instantiate(go_debris, _position, Quaternion.identity);
+        Destroy(_rock, 1f);
+        //go_debris.SetActive(true);
     }
+
+    //void delayRock()
+    //{
+    //    go_debris.SetActive(false);
+    //}
+
+
 }
