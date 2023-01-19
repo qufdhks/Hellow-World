@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7467830946987586812}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7467814219119862256}
   - component: {fileID: 7482871818252356844}
   - component: {fileID: 7492915454640750046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7467629306459511198}
   - component: {fileID: 7441413581262039692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 7382090542960554852}
   - component: {fileID: 7372272459012416536}
   - component: {fileID: 7371679885157603400}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spheres
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7475191582098281264}
   - component: {fileID: 7441244003856985478}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Box (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 7467585974869224210}
   - component: {fileID: 7481996811267591624}
   - component: {fileID: 7493870528694501080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 7475094180854816650}
   - component: {fileID: 7482079201074937638}
   - component: {fileID: 7493815427713692884}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: -928613978338725127}
   - component: {fileID: -8050211359184640031}
   - component: {fileID: -3391953080634194316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman3_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,8 +524,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.9199252, z: 1}
+  m_Center: {x: 0, y: 1.1009254, z: 0}
 --- !u!54 &-928613978338725127
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -566,6 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcc1e0a8b6bef44d9cebb602e73b5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerGround: 0
+  layerGround: 14
   green: {fileID: 2100000, guid: cd677ca1d5a3c494b8279158581ee2d7, type: 2}
   red: {fileID: 2100000, guid: d1d686fa0a76a4f4bb9ba80a81bc90f1, type: 2}
