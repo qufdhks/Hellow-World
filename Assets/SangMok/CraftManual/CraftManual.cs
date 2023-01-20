@@ -13,9 +13,16 @@ public class Craft
 
 public class CraftManual : MonoBehaviour
 {
+    [Header("재료 관련")]
+    [SerializeField] private GameObject slotParent;
+    private Slot[] slots;
+    CraftInformation information;
+    [SerializeField] int need1, need2, item1, item2;
+    bool crafting;
+
     //상태변수
     public bool clearQuest = false;
-    private bool isActivated = false;
+    public static bool isActivated = false;
     private bool isPreviewActivated = false;
 
     [SerializeField]
@@ -32,19 +39,28 @@ public class CraftManual : MonoBehaviour
     private Transform tf_Player;//플레이어 위치
 
     //private RaycastHit hitinfo;
-    
+
     //[SerializeField]
     //private LayerMask layerMask;
 
     //[SerializeField]
     //private float range;
 
+    private void Awake()
+    {
+        slots = slotParent.GetComponentsInChildren<Slot>();
+    }
+
     //기존
-    public void SlotClick(int _slotNumber)
+    public void SlotClick(CraftInformation _information)
     {
         Debug.Log("클릭됨");
-        go_Preview = Instantiate(craft_house[_slotNumber].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 1f) + new Vector3(0f, -0.5f, 0f), Quaternion.identity);
-        go_Prefab = craft_house[_slotNumber].go_Prefab;
+        information = _information;
+        need1 = information.needCount[0];
+        need2 = information.needCount[1];
+
+        go_Preview = Instantiate(craft_house[_information.count].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 1f) + new Vector3(0f, -0.5f, 0f), Quaternion.identity);
+        go_Prefab = craft_house[_information.count].go_Prefab;
         isPreviewActivated = true;
         go_BaseUI.SetActive(false);
     }
@@ -72,17 +88,13 @@ public class CraftManual : MonoBehaviour
             Window();
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && information != null)
         {
-            Debug.Log("건축완료");
-            Build();
+            CheckItem();
+            if (item1 >= need1 && item2 >= need2)
+                Build();
         }
-        ////out
-        //if (isPreviewActivated)
-        //{
-        //    PreviewPositionUpdate();
-        //}
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
         {
             Cancel();
         }
@@ -93,12 +105,16 @@ public class CraftManual : MonoBehaviour
     {
         if (isPreviewActivated && go_Preview.GetComponent<PreviewObject>().IsBuildable())
         {
+            crafting = true;
+            CheckItem();
+
             Instantiate(go_Prefab, tf_Player.position + (tf_Player.forward * 5f) + new Vector3(0f, 0f, 0f), Quaternion.identity);
             Destroy(go_Preview);
             isActivated = false;
             isPreviewActivated = false;
             go_Preview = null;
             go_Prefab = null;
+            information = null;
         }
     }
 
@@ -162,6 +178,105 @@ public class CraftManual : MonoBehaviour
     {
         isActivated = false;
         go_BaseUI.SetActive(false);
+    }
+
+    private void CheckItem()
+    {
+        if (information.needImage[0].name == "stone")
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].item != null)
+                {
+                    if (slots[i].itemImage.sprite.name == "stone")
+                    {
+                        if (crafting)
+                        {
+                            item1 = slots[i].RemoveCount(need1);
+                            break;
+                        }
+                        else
+                        {
+                            item1 = slots[i].itemCount;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else if (information.needImage[0].name == "wood")
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].item != null)
+                {
+                    if (slots[i].itemImage.sprite.name == "wood")
+                    {
+                        if (crafting)
+                        {
+                            item1 = slots[i].RemoveCount(need1);
+                            break;
+                        }
+                        else
+                        {
+                            item1 = slots[i].itemCount;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else
+            item1 = 0;
+
+        if (information.needImage[1].name == "stone")
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].item != null)
+                {
+                    if (slots[i].itemImage.sprite.name == "stone")
+                    {
+                        if (crafting)
+                        {
+                            item2 = slots[i].RemoveCount(need2);
+                            break;
+                        }
+                        else
+                        {
+                            item2 = slots[i].itemCount;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else if (information.needImage[1].name == "wood")
+        {
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i].item != null)
+                {
+                    if (slots[i].itemImage.sprite.name == "wood")
+                    {
+                        if (crafting)
+                        {
+                            item2 = slots[i].RemoveCount(need2);
+                            break;
+                        }
+                        else
+                        {
+                            item2 = slots[i].itemCount;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else
+            item2 = 0;
+
+        crafting = false;
     }
 
 }

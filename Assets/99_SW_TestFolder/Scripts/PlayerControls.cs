@@ -156,7 +156,7 @@ public class PlayerControls : MonoBehaviour
 
         //velocity = gameMng.GetisAction ? Vector3.zero : velocity;
 
-        if (Input.GetKeyDown(KeyCode.G) && scanObj != null)
+        if (Input.GetKeyDown(KeyCode.G) && (scanObj != null || gameMng.GetisAction))
         {
             gameMng.Action(scanObj);
         }

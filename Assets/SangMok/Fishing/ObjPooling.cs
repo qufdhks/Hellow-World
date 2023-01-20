@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjPooling : MonoBehaviour
 {
     [Header("생선 생성 변수")]
-    public Transform[] points; //적 캐릭터 스폰 위치
+    public Transform[] points; //스폰 위치
     public GameObject enemy;
     public float createTime = 2f;//생성 주기
     public int maxEnemy = 1;

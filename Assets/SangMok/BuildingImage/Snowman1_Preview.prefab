@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4046489209452803601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4044866355676274789}
-  - component: {fileID: 4090418076496108195}
-  m_Layer: 0
-  m_Name: Box (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4044866355676274789
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4046489209452803601}
-  m_LocalRotation: {x: -0, y: -0, z: -0.77500767, w: 0.6319519}
-  m_LocalPosition: {x: -0.538, y: 1.289, z: 0.039}
-  m_LocalScale: {x: 0.09689004, y: 0.39612022, z: 0.10833}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4045055125320166851}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -101.61101}
---- !u!65 &4090418076496108195
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4046489209452803601}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4046881039550880031
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +11,7 @@ GameObject:
   - component: {fileID: 4045130211485053741}
   - component: {fileID: 4060732081754298993}
   - component: {fileID: 4069510361498192549}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +94,7 @@ GameObject:
   - component: {fileID: 4052387477036279607}
   - component: {fileID: 4060032189634295205}
   - component: {fileID: 4069542931572240765}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +180,7 @@ GameObject:
   - component: {fileID: 1085940618774897839}
   - component: {fileID: 7479316894624241306}
   - component: {fileID: -3247481913526119333}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman1_Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +202,6 @@ Transform:
   - {fileID: 4052652258053645689}
   - {fileID: 4045130211485053741}
   - {fileID: 4052387477036279607}
-  - {fileID: 4045055125320166851}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -289,8 +243,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.0422912, z: 1}
+  m_Center: {x: 0, y: 1.1113153, z: 0}
 --- !u!54 &1085940618774897839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -331,54 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcc1e0a8b6bef44d9cebb602e73b5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerGround: 0
+  layerGround: 14
   green: {fileID: 2100000, guid: cd677ca1d5a3c494b8279158581ee2d7, type: 2}
   red: {fileID: 2100000, guid: d1d686fa0a76a4f4bb9ba80a81bc90f1, type: 2}
---- !u!1 &4046975404787526213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4045249044595297147}
-  - component: {fileID: 4091379481545948767}
-  m_Layer: 0
-  m_Name: Box
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4045249044595297147
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4046975404787526213}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6163833, w: 0.7874463}
-  m_LocalPosition: {x: 0.538, y: 1.305, z: 0.039}
-  m_LocalScale: {x: 0.096887834, y: 0.39612135, z: 0.108331}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4045055125320166851}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -76.105}
---- !u!65 &4091379481545948767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4046975404787526213}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4047334023508921511
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +299,7 @@ GameObject:
   - component: {fileID: 4052652258053645689}
   - component: {fileID: 4059182398013026545}
   - component: {fileID: 4069472466953625465}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Snowman_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,110 +371,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4047508835663088413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4045323070971566719}
-  - component: {fileID: 4165755279192239571}
-  - component: {fileID: 4164724092438175795}
-  - component: {fileID: 4165553846993778451}
-  m_Layer: 0
-  m_Name: Spheres
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4045323070971566719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047508835663088413}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4045055125320166851}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4165755279192239571
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047508835663088413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.59
-  m_Center: {x: 0, y: 0.51, z: 0.09}
---- !u!135 &4164724092438175795
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047508835663088413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.47
-  m_Center: {x: 0, y: 1.09, z: 0.06}
---- !u!135 &4165553846993778451
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4047508835663088413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.34
-  m_Center: {x: 0, y: 1.65, z: 0.07}
---- !u!1 &4048343376181195089
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4045055125320166851}
-  m_Layer: 0
-  m_Name: Collisions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4045055125320166851
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4048343376181195089}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4045249044595297147}
-  - {fileID: 4044866355676274789}
-  - {fileID: 4045323070971566719}
-  m_Father: {fileID: 4052642235802383447}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
