@@ -88,13 +88,13 @@ public class CraftManual : MonoBehaviour
             Window();
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && information != null)
         {
             CheckItem();
             if (item1 >= need1 && item2 >= need2)
                 Build();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
         {
             Cancel();
         }
@@ -114,6 +114,7 @@ public class CraftManual : MonoBehaviour
             isPreviewActivated = false;
             go_Preview = null;
             go_Prefab = null;
+            information = null;
         }
     }
 

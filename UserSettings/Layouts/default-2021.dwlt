@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 73818
+  controlID: 19
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 73819
+  controlID: 20
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 73907
+  controlID: 51
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 402
     height: 739
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 64.96249, y: 0.58183867, z: -854.109}
+    m_Target: {x: -109.884094, y: -2.4311206, z: -954.88983}
     speed: 2
     m_Value: {x: 64.96249, y: 0.58183867, z: -854.109}
   m_RenderMode: 0
@@ -670,11 +670,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.051176175, y: -0.57612437, z: 0.03723097, w: -0.8151207}
+    m_Target: {x: -0.017015034, y: 0.90812624, z: -0.03708091, w: -0.41670457}
     speed: 2
     m_Value: {x: 0.051176175, y: 0.57612437, z: -0.037230972, w: 0.8151207}
   m_Size:
-    m_Target: 1.5461123
+    m_Target: 61.071766
     speed: 2
     m_Value: 1.5461123
   m_Ortho:
@@ -1266,9 +1266,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 26ceffff
-      m_LastClickedID: -12762
-      m_ExpandedIDs: 2a64f6ff8012f7ffcc12f7ffd2c0f7ff14c3f7ff9607f8ff900df8ff7092f8ffc898f8ff54f2f8ff42f6f8ffe834faffb037faffde5dfbff36cbffff26ceffffeafaffffbe6f0000c6750000fa7600004c780000487a0000607d00001a7f0000
+      m_SelectedIDs: f8890000
+      m_LastClickedID: 35320
+      m_ExpandedIDs: 64faffff50830000f8890000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1333,22 +1333,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/99_SW_TestFolder/Scripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/99_SW_TestFolder/Scripts
+  - Assets
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\admin\Documents\GitHub\Hellow-World
+  m_LastProjectPath: C:\Users\admin\Desktop\git\Project-NightMare\Hellow-World
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 415}
-    m_SelectedIDs: 7e601100
-    m_LastClickedID: 1138814
-    m_ExpandedIDs: 00000000aad80000acd80000aed80000b0d80000b2d80000b4d80000b6d80000b8d80000bad80000bcd80000bed80000c0d80000c2d80000c4d80000c6d80000c8d80000cad80000ccd80000ced80000d0d80000d2d800009ed9000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 88e60000
+    m_LastClickedID: 59016
+    m_ExpandedIDs: 0000000088e600008ae600008ce600008ee6000090e6000092e6000094e6000096e6000098e600009ae600009ce600009ee60000a0e60000a2e60000a4e60000a6e60000a8e60000aae60000ace60000aee60000b0e60000b2e60000b4e6000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1376,7 +1376,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aad80000acd80000aed80000b0d80000b2d80000b4d80000b6d80000b8d80000bad80000bcd80000bed80000c0d80000c2d80000c4d80000c6d80000c8d80000cad80000ccd80000ced80000d0d80000d2d8000000ca9a3b
+    m_ExpandedIDs: 0000000088e600008ae600008ce600008ee6000090e6000092e6000094e6000096e6000098e600009ae600009ce600009ee60000a0e60000a2e60000a4e60000a6e60000a8e60000aae60000ace60000aee60000b0e60000b2e60000b4e60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
