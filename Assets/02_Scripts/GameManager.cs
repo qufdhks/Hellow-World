@@ -49,7 +49,10 @@ public class GameManager : MonoBehaviour
 
     public void Action(GameObject scanObj)
     {
-        scanObject = scanObj;
+        if (scanObj != null)
+        {
+            scanObject = scanObj;
+        }
         if (scanObject.GetComponent<QuestItem>() != null) {
             questItem = new Dictionary<int, ObjData.SQuestItem>();
             questItem = scanObject.GetComponent<QuestItem>().questItem; 
