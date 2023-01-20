@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Snow : MonoBehaviour
 {
-    public GameObject Player;
     public GameObject firePosition; //´« ¹ß»ç À§Ä¡ ÁöÁ¤
     public GameObject SnowRock;//´« ÇÁ¸®ÆÕ
     public float throwPower = 15f;//´øÁö´Â Èû 
@@ -22,7 +21,7 @@ public class Snow : MonoBehaviour
             GameObject bomb = Instantiate(SnowRock);
             bomb.transform.position = firePosition.transform.position;
             Rigidbody rb = bomb.GetComponent<Rigidbody>();
-            rb.AddForce(Player.transform.forward * throwPower * SnowSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.forward * throwPower * SnowSpeed, ForceMode.Impulse);
         }
     }
 }

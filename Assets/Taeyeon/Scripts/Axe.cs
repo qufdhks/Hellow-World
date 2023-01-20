@@ -7,18 +7,21 @@ public class Axe : MonoBehaviour
 {
     [SerializeField] private GameObject stump;
     [SerializeField] private GameObject woodPfs;
+    BoxCollider collider;
 
     public GameObject tree;
 
     int count = 0;
 
+    private void Start()
+    {
+        collider = GetComponent<BoxCollider>();
+    }
+
     private void Update()
     {
-        //float h = Input.GetAxis("Horizontal");
-
-        //Vector3 dir = new Vector3(0, 0, h);
-
-        //transform.Translate(dir * 5f * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.E))
+            StartCoroutine(OnOff());
     }
 
     private void OnCollisionEnter(Collision other)
@@ -38,10 +41,12 @@ public class Axe : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
         }
-
     }
 
-
-
-
+    IEnumerator OnOff()
+    {
+        collider.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        collider.enabled = false;
+    }
 }

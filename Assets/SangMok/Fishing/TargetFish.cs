@@ -37,7 +37,7 @@ public class TargetFish : MonoBehaviour
 
         //nav = GetComponent<NavMeshAgent>();
         //nav.enabled = true;
-        target = GameObject.Find("fishing");
+        target = GameObject.FindGameObjectWithTag("Fishing");
     }
 
 

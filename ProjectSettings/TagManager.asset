@@ -54,7 +54,7 @@ TagManager:
   - 
   - 
   - Item
-  - backgrount
+  - SnowBall
   m_SortingLayers:
   - name: Default
     uniqueID: 0
