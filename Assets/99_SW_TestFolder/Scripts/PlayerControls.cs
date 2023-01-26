@@ -46,7 +46,7 @@ public class PlayerControls : MonoBehaviour
     public CamCtrl mainCam;
     //animation
     //public Animator anim;
-    //private readonly int isRunning = Animator.StringToHash("IsRunning");
+    //private readonly int isFishing = Animator.StringToHash("IsFishing");
     //private readonly int isMovedBack = Animator.StringToHash("IsMovedBack");
     //private readonly int isGoingLeft = Animator.StringToHash("IsGoingLeft");
     //private readonly int isGoingRight = Animator.StringToHash("IsGoingRight");
@@ -250,6 +250,14 @@ public class PlayerControls : MonoBehaviour
         {
             //anim.SetBool(isArmed, true);
         }
+        // else if (Input.GetKeyDown(KeyCode.H))
+        // {
+        //     anim.SetBool(isFishing, true);
+        // }
+        // else if (Input.GetKeyDown(KeyCode.H))
+        // {
+        //     anim.SetBool(isFishing, false);
+        // }
 
         //forwards
         //if (Input.GetKey(controls.forwards))
