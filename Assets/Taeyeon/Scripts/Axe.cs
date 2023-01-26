@@ -29,11 +29,14 @@ public class Axe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tree"))
         {
-
+            int num = Random.Range(0, 100);
             //GetVelocity(wood.transform.position, pos, 70f);
             collider.enabled = false;
             count++;
             Instantiate(woodPfs, transform.position + new Vector3(0, 0, count / 2), Quaternion.identity);
+            if(num > 95)
+                Instantiate(woodPfs, transform.position + new Vector3(0, 0, count / 2), Quaternion.identity);
+
             if (count >= 3)
             {
                 Instantiate(stump, other.transform.position, Quaternion.identity);
