@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Craft
@@ -37,6 +37,8 @@ public class CraftManual : MonoBehaviour
 
     [SerializeField]
     private Transform tf_Player;//플레이어 위치
+
+    [SerializeField] private Text failText;
 
     //private RaycastHit hitinfo;
 
@@ -93,7 +95,13 @@ public class CraftManual : MonoBehaviour
             CheckItem();
             if (item1 >= need1 && item2 >= need2)
                 Build();
+            else
+            {
+                StartCoroutine(TextControll());
+                Cancel();
+            }
         }
+
         if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
         {
             Cancel();
@@ -277,6 +285,13 @@ public class CraftManual : MonoBehaviour
             item2 = 0;
 
         crafting = false;
+    }
+
+    IEnumerator TextControll()
+    {
+        failText.text = "재료가 부족합니다.";
+        yield return new WaitForSeconds(1f);
+        failText.text = "";
     }
 
 }
