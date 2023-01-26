@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
                 questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
             }
 
-            if (_id == 8000)
+            if (_id == 8000 && questMng.GetQuestTalkIndex(_id) >= 30)
                 craftingCanvas.SetActive(true);
             return;
         }
