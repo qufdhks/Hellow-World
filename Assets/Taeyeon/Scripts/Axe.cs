@@ -7,7 +7,7 @@ public class Axe : MonoBehaviour
 {
     [SerializeField] private GameObject stump;
     [SerializeField] private GameObject woodPfs;
-    BoxCollider collider;
+    private new BoxCollider collider;
 
     public GameObject tree;
 

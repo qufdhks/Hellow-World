@@ -13,12 +13,15 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Material mat;
     [SerializeField] private Material originMat;
 
+    [SerializeField] private GameObject[] lights;
+
     [Header("Day and Night Cycle")]
     //디렉셔널 라이트(태양)의 변환
     public Transform sunTransform;
     
     //시간 변경을 알리는 객체 목록
     private List<ITimeTracker> listeners = new List<ITimeTracker>();
+
     private void Awake()
     {
         //인스턴스가 두 개 이상인 경우 추가 인스턴스를 삭제합니다.
@@ -37,7 +40,7 @@ public class TimeManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("Year"))
             //타임스탬프 초기화
-            timestamp = new GameTimestamp(0, GameTimestamp.Season.Spring, 1, 6, 0);
+            timestamp = new GameTimestamp(6, 0);
         StartCoroutine(TimeUpdate());
     }
 
@@ -52,7 +55,7 @@ public class TimeManager : MonoBehaviour
     //게임 내 시간의 틱
     public void Tick()
     {
-        timestamp.UpdateClock(mat, originMat);
+        timestamp.UpdateClock(mat, originMat, lights);
         
         //청취자에게 새로운 시간 상태를 알립니다.
         foreach (ITimeTracker listener in listeners)

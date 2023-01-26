@@ -32,17 +32,17 @@ public class GameTimestamp
     public int minute;
 
    
-    public GameTimestamp(int year, Season season, int day, int hour, int minute)
+    public GameTimestamp(int hour, int minute)
     {
-        this.year = year;
-        this.season = season;
-        this.day = day;
+        //this.year = year;
+        //this.season = season;
+        //this.day = day;
         this.hour = hour;
         this.minute = minute;
     }
 
     //시간을 1분씩 증가시키는 함수
-    public void UpdateClock(Material _mat, Material _originMat)
+    public void UpdateClock(Material _mat, Material _originMat, GameObject[] _lights)
     {
         minute++;
         //1시간에 60분
@@ -83,16 +83,22 @@ public class GameTimestamp
         {
             RenderSettings.skybox = _originMat;
             DynamicGI.UpdateEnvironment();
+            foreach(GameObject light in _lights)
+                light.SetActive(true);
         }
         else if (hour >= 7)
         {
             RenderSettings.skybox = _mat;
             DynamicGI.UpdateEnvironment();
+            foreach (GameObject light in _lights)
+                light.SetActive(false);
         }
         else
         {
             RenderSettings.skybox = _originMat;
             DynamicGI.UpdateEnvironment();
+            foreach (GameObject light in _lights)
+                light.SetActive(true);
         }
     }
 
