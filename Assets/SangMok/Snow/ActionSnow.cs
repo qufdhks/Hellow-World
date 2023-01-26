@@ -12,15 +12,4 @@ public class ActionSnow : MonoBehaviour
         eff.transform.position = transform.position;//ÀÌÆåÆ® ÇÁ¸®ÆÕ À§Ä¡ ¼³Á¤
         Destroy(gameObject);//ÇÁ¸®ÆÕ ÆÄ±«
     }
-
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
 }
