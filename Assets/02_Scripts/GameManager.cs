@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject scanObject;
     [SerializeField] private GameObject menuSet;
     [SerializeField] private GameObject craftingCanvas;
+    [SerializeField] private GameObject quickSlot;
 
     [SerializeField] private Animator talkPanel;
     [SerializeField] private TypeEffect talk;
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
         int questTalkIndex = 0;
         string talkData = "";
 
+        quickSlot.SetActive(false);
+
         if (talk.isAnim)
         {
             talk.SetMsg("");
@@ -91,11 +94,12 @@ public class GameManager : MonoBehaviour
                 {
                     if (inventory.slots[i].item == null) continue;
 
-                    if (questItem[questMng.questId].item.itemName == inventory.slots[i].item.name)
+                    if (questItem[questMng.questId].item.itemName == inventory.slots[i].item.itemName)
                     {
                         if (questItem[questMng.questId].num <= inventory.slots[i].itemCount)
                         {
                             questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+                            questMng.NextQuest();
                             break;
                         }
                     }
@@ -107,8 +111,10 @@ public class GameManager : MonoBehaviour
                 questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
             }
 
-            if (_id == 8000)
+            if (_id == 8000 && questMng.GetQuestTalkIndex(_id) >= 40)
                 craftingCanvas.SetActive(true);
+
+            quickSlot.SetActive(true);
             return;
         }
 
