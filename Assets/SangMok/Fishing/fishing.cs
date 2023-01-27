@@ -18,6 +18,7 @@ public class fishing : MonoBehaviour
     private bool isAction = false;
     public bool isfishing;
     private bool onWater = false;
+    private bool onFish = false;
 
     private CapsuleCollider cap;
 
@@ -35,19 +36,21 @@ public class fishing : MonoBehaviour
     {
         fishingTr = transform;
         cap = GetComponent<CapsuleCollider>();
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
 
-    void Start()
+    void OnEnable()
     {
         Debug.Log("Start: " + originPos);
-        m_Rigidbody = GetComponent<Rigidbody>();
+        cap.enabled = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H) && !isAction)
+        if (Input.GetKeyDown(KeyCode.H) && !isAction && m_Rigidbody.isKinematic)
         {
             //cap.enabled = true;
+            cap.enabled = true;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
             m_Rigidbody.useGravity = true;
             m_Rigidbody.isKinematic = false;
@@ -84,6 +87,14 @@ public class fishing : MonoBehaviour
         return finalVelocity;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Fish"))
+        {
+            Debug.Log("aaaa");
+            onFish = true;
+        }
+    }
 
     private void OnCollisionEnter(Collision col)
     {
@@ -108,7 +119,7 @@ public class fishing : MonoBehaviour
      {
         while (isAction)
         {
-            if(attachGo != null && Input.GetKeyDown(KeyCode.J))
+            if(attachGo != null && Input.GetKeyDown(KeyCode.J) && onFish)
             {
                 isfishing = true;
                 //cap.enabled = false;
@@ -119,8 +130,10 @@ public class fishing : MonoBehaviour
                 isAction = false;
 
                 StartCoroutine(attachGo.GetComponent<TargetFish>().AttachProcess(m_Rigidbody));
+                cap.enabled = false;
 
                 onWater = false;
+                onFish = false;
             }
             //yield return new WaitForSeconds(interval);
             yield return null;

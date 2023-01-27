@@ -95,7 +95,7 @@ public class TargetFish : MonoBehaviour
         transform.localPosition = Vector3.zero;
         Destroy(gameObject, 3f);
 
-        yield return new WaitForSeconds(2.1f);
+        yield return new WaitForSeconds(2f);
         rb.isKinematic = true;
         rb.useGravity = false;
 
