@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
 
     public Slot[] slots;  // ½½·Ôµé ¹è¿­
 
-    void Start()
+    void Awake()
     {
         slots = go_SlotsParent.GetComponentsInChildren<Slot>();
     }
