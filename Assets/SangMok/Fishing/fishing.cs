@@ -18,6 +18,7 @@ public class fishing : MonoBehaviour
     private bool isAction = false;
     public bool isfishing;
     private bool onWater = false;
+    private bool onFish = false;
 
     private CapsuleCollider cap;
 
@@ -45,7 +46,7 @@ public class fishing : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H) && !isAction)
+        if (Input.GetKeyDown(KeyCode.H) && !isAction && m_Rigidbody.isKinematic)
         {
             //cap.enabled = true;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
@@ -84,6 +85,14 @@ public class fishing : MonoBehaviour
         return finalVelocity;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Fish"))
+        {
+            Debug.Log("aaaa");
+            onFish = true;
+        }
+    }
 
     private void OnCollisionEnter(Collision col)
     {
@@ -108,7 +117,7 @@ public class fishing : MonoBehaviour
      {
         while (isAction)
         {
-            if(attachGo != null && Input.GetKeyDown(KeyCode.J))
+            if(attachGo != null && Input.GetKeyDown(KeyCode.J) && onFish)
             {
                 isfishing = true;
                 //cap.enabled = false;
@@ -121,6 +130,7 @@ public class fishing : MonoBehaviour
                 StartCoroutine(attachGo.GetComponent<TargetFish>().AttachProcess(m_Rigidbody));
 
                 onWater = false;
+                onFish = false;
             }
             //yield return new WaitForSeconds(interval);
             yield return null;
