@@ -56,8 +56,8 @@ public class CraftManual : MonoBehaviour
     //±âÁ¸
     public void SlotClick(CraftInformation _information)
     {
-        Debug.Log("Å¬¸¯µÊ");
         information = _information;
+        CheckItem();
         need1 = information.needCount[0];
         need2 = information.needCount[1];
         if (!(item1 >= need1 && item2 >= need2))
