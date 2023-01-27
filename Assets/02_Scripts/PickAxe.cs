@@ -6,9 +6,13 @@ public class PickAxe : MonoBehaviour
 {
     private new BoxCollider collider;
 
-    private void Start()
+    private void Awake()
     {
         collider = GetComponent<BoxCollider>();
+    }
+
+    private void OnEnable()
+    {
         collider.enabled = false;
     }
 

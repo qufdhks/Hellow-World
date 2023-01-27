@@ -36,12 +36,13 @@ public class fishing : MonoBehaviour
     {
         fishingTr = transform;
         cap = GetComponent<CapsuleCollider>();
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
 
-    void Start()
+    void OnEnable()
     {
         Debug.Log("Start: " + originPos);
-        m_Rigidbody = GetComponent<Rigidbody>();
+        cap.enabled = false;
     }
 
     void Update()
@@ -49,6 +50,7 @@ public class fishing : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && !isAction && m_Rigidbody.isKinematic)
         {
             //cap.enabled = true;
+            cap.enabled = true;
             Vector3 velocity = GetVelocity(transform.position, m_Target.position, m_InitialAngle);
             m_Rigidbody.useGravity = true;
             m_Rigidbody.isKinematic = false;
@@ -128,6 +130,7 @@ public class fishing : MonoBehaviour
                 isAction = false;
 
                 StartCoroutine(attachGo.GetComponent<TargetFish>().AttachProcess(m_Rigidbody));
+                cap.enabled = false;
 
                 onWater = false;
                 onFish = false;
