@@ -158,7 +158,7 @@ namespace MalbersAnimations.Weapons
         public override void ResetWeapon()
         {
             meleeTrigger.enabled = false;
-            proxy.Active = false;
+            //proxy.Active = false;
             base.ResetWeapon();
         }
 
