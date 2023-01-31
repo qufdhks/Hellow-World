@@ -19,12 +19,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject scanObject;
     [SerializeField] private GameObject menuSet;
     [SerializeField] private GameObject craftingCanvas;
+    [SerializeField] private GameObject quickSlot;
 
     [SerializeField] private Animator talkPanel;
     [SerializeField] private TypeEffect talk;
     [SerializeField] private Text questText;
     [SerializeField] private Text npcName;
     [SerializeField] private bool isAction;
+    private bool clearQuest;
+    private bool NextQuset;
     [SerializeField] private int talkIndex;
 
     public bool GetisAction { get { return isAction; } }
@@ -59,8 +62,31 @@ public class GameManager : MonoBehaviour
         }
 
         ObjData objData = scanObject.GetComponent<ObjData>();
+
+        if (questItem != null && questItem.ContainsKey(questMng.questId))
+        {
+            NextQuset = false;
+            clearQuest = true;
+            for (int i = 0; i < inventory.slots.Length; i++)
+            {
+                if (inventory.slots[i].item == null) continue;
+
+                if (questItem[questMng.questId].item.itemName == inventory.slots[i].item.itemName)
+                {
+                    if (questItem[questMng.questId].num <= inventory.slots[i].itemCount)
+                    {
+                        NextQuset = true;
+                        break;
+                    }
+                }
+                continue;
+            }
+        }
+        else
+            clearQuest = false;
+
         Talk(objData.id, objData.isNpc, objData.npcName);
-        
+
         talkPanel.SetBool("isShow", isAction);
     }
 
@@ -69,61 +95,83 @@ public class GameManager : MonoBehaviour
         int questTalkIndex = 0;
         string talkData = "";
 
-        if (talk.isAnim)
+        if (NextQuset)
         {
-            talk.SetMsg("");
-            return;
-        }
-        else
-        {
-            questTalkIndex = questMng.GetQuestTalkIndex(_id);
-            talkData = talkMng.GetTalk(_id + questTalkIndex, talkIndex);
-        }
+            questMng.NextQuest();
+            NextQuset = false;
+            clearQuest = true;
 
-        if (talkData == null)
-        {
-            isAction = false;
-            talkIndex = 0;
-
-            if (questItem != null && questItem.ContainsKey(questMng.questId))
+            if (talk.isAnim)
             {
-                for (int i = 0; i < inventory.slots.Length; i++)
-                {
-                    if (inventory.slots[i].item == null) continue;
-
-                    if (questItem[questMng.questId].item.itemName == inventory.slots[i].item.name)
-                    {
-                        if (questItem[questMng.questId].num <= inventory.slots[i].itemCount)
-                        {
-                            questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
-                            break;
-                        }
-                    }
-                    continue;
-                }
+                talk.SetMsg("");
+                return;
             }
             else
             {
-                questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+                questTalkIndex = questMng.GetQuestTalkIndex(_id);
+                talkData = talkMng.GetTalk(_id + questTalkIndex, talkIndex);
             }
 
-            if (_id == 8000 && questMng.GetQuestTalkIndex(_id) >= 30)
-                craftingCanvas.SetActive(true);
-            return;
-        }
+            if (_isNpc)
+            {
+                talk.SetMsg(talkData);
+                npcName.text = _npcName;
+            }
+            else
+            {
+                talk.SetMsg(talkData);
+            }
 
-        if (_isNpc)
-        {
-            talk.SetMsg(talkData);
-            npcName.text = _npcName;
+            isAction = true;
+            talkIndex++;
         }
         else
         {
-            talk.SetMsg(talkData);
-        }
 
-        isAction = true;
-        talkIndex++;
+
+            quickSlot.SetActive(false);
+
+            if (talk.isAnim)
+            {
+                talk.SetMsg("");
+                return;
+            }
+            else
+            {
+                questTalkIndex = questMng.GetQuestTalkIndex(_id);
+                talkData = talkMng.GetTalk(_id + questTalkIndex, talkIndex);
+            }
+
+            if (talkData == null)
+            {
+                isAction = false;
+                talkIndex = 0;
+
+                if (!clearQuest)
+                {
+                    questText.text = "퀘스트명 : " + questMng.CheckQuest(_id);
+                }
+
+                if (_id == 8000 && questMng.GetQuestTalkIndex(_id) >= 40)
+                    craftingCanvas.SetActive(true);
+
+                quickSlot.SetActive(true);
+                return;
+            }
+
+            if (_isNpc)
+            {
+                talk.SetMsg(talkData);
+                npcName.text = _npcName;
+            }
+            else
+            {
+                talk.SetMsg(talkData);
+            }
+
+            isAction = true;
+            talkIndex++;
+        }
     }
 
     public void GameSave()

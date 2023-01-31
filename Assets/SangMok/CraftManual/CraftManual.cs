@@ -56,10 +56,16 @@ public class CraftManual : MonoBehaviour
     //±âÁ¸
     public void SlotClick(CraftInformation _information)
     {
-        Debug.Log("Å¬¸¯µÊ");
         information = _information;
+        CheckItem();
         need1 = information.needCount[0];
         need2 = information.needCount[1];
+        if (!(item1 >= need1 && item2 >= need2))
+        {
+            StartCoroutine(TextControll());
+            CloseWindow();
+            return;
+        }
 
         go_Preview = Instantiate(craft_house[_information.count].go_PreviewPrefab, tf_Player.position + (tf_Player.forward * 1f) + new Vector3(0f, -0.5f, 0f), Quaternion.identity);
         go_Prefab = craft_house[_information.count].go_Prefab;
@@ -95,11 +101,6 @@ public class CraftManual : MonoBehaviour
             CheckItem();
             if (item1 >= need1 && item2 >= need2)
                 Build();
-            else
-            {
-                StartCoroutine(TextControll());
-                Cancel();
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Escape))
